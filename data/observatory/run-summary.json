@@ -1,22 +1,14 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-07-27T18:52:12.609Z",
+  "started_at": "2026-07-27T20:26:58.614Z",
   "total": 180,
-  "ok": 179,
-  "failed": 1,
-  "body_captured": 175,
+  "ok": 180,
+  "failed": 0,
+  "body_captured": 176,
   "by_status": {
-    "200": 179,
-    "ERR": 1
+    "200": 180
   },
-  "failures": [
-    {
-      "id": "adviceslip",
-      "url": "https://api.adviceslip.com/advice",
-      "status": null,
-      "note": "UND_ERR_CONNECT_TIMEOUT"
-    }
-  ],
+  "failures": [],
   "shapeless": [
     {
       "id": "status-algolia",
@@ -39,6 +31,6 @@
       "reason": "too-large (6675kb)"
     }
   ],
-  "finished_at": "2026-07-27T18:53:55.399Z",
-  "capture": "data\\observatory\\capture-2026-07-27T18-53-55-055Z.ndjson.gz"
+  "finished_at": "2026-07-27T20:28:36.597Z",
+  "capture": "data\\observatory\\capture-2026-07-27T20-28-36-412Z.ndjson.gz"
 }

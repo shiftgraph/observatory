@@ -77,6 +77,12 @@ try {
   // run is not re-reported on every subsequent run. Real drift is counted exactly once.
   run([cli, 'baseline', rel('latest.ndjson'), '--format', 'otel-json', '--out', rel('baseline.json.gz')]);
 
+  // Regenerate the publishable figures. Anything outside this repository that
+  // states a number should read that file rather than counting rows itself:
+  // the record carries profiler-boundary markers, and a sum that runs through
+  // one mixes our own corrected arithmetic in with observations of providers.
+  run([path.join('apps', 'observatory', 'published.mjs')]);
+
   console.log('observatory daily run OK:', JSON.stringify({ ok: line.ok, failed: line.failed, drift_events: line.drift_events }));
 } catch (err) {
   appendFileSync(abs(rel('history.ndjson')), JSON.stringify({ at: stamp(), error: String(err.stderr || err.message || err).slice(0, 300) }) + '\n');

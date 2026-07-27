@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-07-27T20:28:37.436Z",
+  "watching": {
+    "endpoints": 180,
+    "providers": 111,
+    "categories": 15
+  },
+  "captures_retained": 9,
+  "record": {
+    "since": "2026-07-27T17:58:12.147Z",
+    "sweeps": 2,
+    "failed_runs": 0,
+    "endpoints_reached": 359,
+    "endpoints_profiled": 351,
+    "drift_events": 0,
+    "latest": {
+      "at": "2026-07-27T20:28:36.597Z",
+      "reached": 180,
+      "profiled": 176,
+      "unprofilable": 4
+    },
+    "publishable": false,
+    "minimum_sweeps": 28
+  }
+}

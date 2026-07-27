@@ -15,6 +15,7 @@
     "mcp:poll": "node apps/observatory/mcp-poll.js",
     "mcp:invoke": "node apps/observatory/mcp-invoke.js",
     "mcp:sweep": "node apps/observatory/mcp-daily.mjs",
-    "test": "node --test"
+    "test": "node --test",
+    "published": "node apps/observatory/published.mjs --show"
   }
 }
