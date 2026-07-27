@@ -20,6 +20,24 @@ const store = createStore({
 
 let buffer = '';
 
+/**
+ * Requests still awaiting an answer.
+ *
+ * A lookup is a network fetch, so a request that arrives just before the input
+ * closes is still in flight when `end` fires. Exiting there drops the response
+ * with no error anywhere: the caller waits, gets nothing, and the process is
+ * already gone. A live host holds stdin open so it rarely shows, which is
+ * exactly what makes it the kind of bug that reaches production.
+ *
+ * Found by piping two requests in and receiving one answer.
+ */
+const inFlight = new Set();
+let inputClosed = false;
+
+function maybeExit() {
+  if (inputClosed && inFlight.size === 0) process.exit(0);
+}
+
 process.stdin.setEncoding('utf8');
 process.stdin.on('data', (chunk) => {
   buffer += chunk;
@@ -27,7 +45,13 @@ process.stdin.on('data', (chunk) => {
   while (cut !== -1) {
     const line = buffer.slice(0, cut).trim();
     buffer = buffer.slice(cut + 1);
-    if (line) void dispatch(line);
+    if (line) {
+      const task = dispatch(line).finally(() => {
+        inFlight.delete(task);
+        maybeExit();
+      });
+      inFlight.add(task);
+    }
     cut = buffer.indexOf('\n');
   }
 });
@@ -61,4 +85,7 @@ async function dispatch(line) {
   }
 }
 
-process.stdin.on('end', () => process.exit(0));
+process.stdin.on('end', () => {
+  inputClosed = true;
+  maybeExit();
+});

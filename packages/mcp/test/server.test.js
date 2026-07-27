@@ -161,3 +161,40 @@ test('the index is fetched once and reused', { skip: !haveRecord }, async () => 
   await callTool(counting, 'record_limits', {});
   assert.equal(calls, 1, 'the index must not be refetched per call');
 });
+
+/**
+ * The transport must not exit with an answer still owed.
+ *
+ * A lookup is a network fetch, so a request arriving just before the input
+ * closes is in flight when `end` fires. The first version called
+ * `process.exit(0)` there and dropped the response with no error anywhere: the
+ * caller waits, receives nothing, and the process is already gone.
+ *
+ * A live host holds stdin open, so this never showed in the protocol smoke
+ * test. It was found by piping two requests in and getting one answer back,
+ * which is why the live run matters and the unit tests alone do not.
+ */
+test('the stdio transport answers every request before it exits', async () => {
+  const { spawn } = await import('node:child_process');
+  const cliPath = fileURLToPath(new URL('../cli.js', import.meta.url));
+
+  const responses = await new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [cliPath], { stdio: ['pipe', 'pipe', 'ignore'] });
+    let out = '';
+    child.stdout.on('data', (c) => (out += c));
+    child.on('error', reject);
+    child.on('close', () => resolve(out.trim().split('\n').filter(Boolean).map((l) => JSON.parse(l))));
+
+    // Three requests, then close immediately. Two of them need the network, so
+    // both are outstanding at the moment stdin ends.
+    child.stdin.write(
+      `${JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'initialize', params: {} })}\n` +
+        `${JSON.stringify({ jsonrpc: '2.0', id: 2, method: 'tools/list' })}\n` +
+        `${JSON.stringify({ jsonrpc: '2.0', id: 3, method: 'tools/call', params: { name: 'record_limits' } })}\n`,
+    );
+    child.stdin.end();
+  });
+
+  const ids = responses.map((r) => r.id).sort();
+  assert.deepEqual(ids, [1, 2, 3], 'every request must be answered before exit');
+});
