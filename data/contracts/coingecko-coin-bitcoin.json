@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "coingecko-coin-bitcoin",
+  "provider": "coingecko",
+  "category": "crypto",
+  "method": "GET",
+  "url": "https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&tickers=false&community_data=false&developer_data=false",
+  "host": "api.coingecko.com",
+  "path": "/api/v3/coins/bitcoin",
+  "observed_from": "2026-07-26",
+  "confidence": "thin",
+  "fields": 1546,
+  "optional_fields": 0,
+  "oversize": true,
+  "notes": [
+    "observed on public, unauthenticated requests. A response to an authenticated caller, on a different plan, or for a different resource can carry fields this does not",
+    "typed null and never seen holding a value: $.asset_platform_id, $.detail_platforms..decimal_place, $.links.bitcointalk_thread_identifier, $.links.snapshot_url, $.market_data.fdv_to_tvl_ratio, $.market_data.mcap_to_tvl_ratio, ...",
+    "declaration and profile withheld here: this endpoint returns a data MAP rather than a record, so its profile carries one key per item and the emitted type runs to megabytes. The shape worth coding against is the map ENTRY, not the map. The full record is in data/observatory as captures and in the rolled baseline"
+  ],
+  "profile": null,
+  "typescript": null
+}

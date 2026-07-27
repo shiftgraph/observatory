@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "wikidata-entity",
+  "provider": "wikimedia",
+  "category": "reference",
+  "method": "GET",
+  "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q42&format=json",
+  "host": "www.wikidata.org",
+  "path": "/w/api.php",
+  "observed_from": "2026-07-26",
+  "confidence": "thin",
+  "fields": 6296,
+  "optional_fields": 125,
+  "oversize": true,
+  "notes": [
+    "observed on public, unauthenticated requests. A response to an authenticated caller, on a different plan, or for a different resource can carry fields this does not",
+    "declaration and profile withheld here: this endpoint returns a data MAP rather than a record, so its profile carries one key per item and the emitted type runs to megabytes. The shape worth coding against is the map ENTRY, not the map. The full record is in data/observatory as captures and in the rolled baseline"
+  ],
+  "profile": null,
+  "typescript": null
+}

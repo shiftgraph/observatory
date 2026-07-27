@@ -83,6 +83,12 @@ try {
   // one mixes our own corrected arithmetic in with observations of providers.
   run([path.join('apps', 'observatory', 'published.mjs')]);
 
+  // Republish the machine-readable contract record. This is what an agent
+  // consults through `@shiftgraph/mcp`, and it is regenerated from the folded
+  // series rather than from the rolled baseline, so its observation counts are
+  // cumulative rather than describing the last roll.
+  run([path.join('apps', 'observatory', 'contracts-index.mjs')]);
+
   console.log('observatory daily run OK:', JSON.stringify({ ok: line.ok, failed: line.failed, drift_events: line.drift_events }));
 } catch (err) {
   appendFileSync(abs(rel('history.ndjson')), JSON.stringify({ at: stamp(), error: String(err.stderr || err.message || err).slice(0, 300) }) + '\n');

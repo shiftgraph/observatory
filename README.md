@@ -93,6 +93,27 @@ It does not observe anything requiring credentials, which means it cannot tell y
 
 The MCP half is thin and says so: of the 20 servers in the official reference collection, 4 are live, 11 are deprecated, and 5 were never published, with not one deprecation naming a successor. The four that still work are a conformance server, two local-state servers and a filesystem server, so none of them is a real third-party surface.
 
+## Reading it from an agent
+
+The record is published as flat JSON under `data/contracts`: one index, one file
+per endpoint, regenerated every sweep. No server, no key, no rate limit.
+
+```
+data/contracts/index.json      every contract, with its evidence
+data/contracts/<id>.json       the profile, the declaration, and its limits
+```
+
+`@shiftgraph/mcp` in this repository serves that record to a coding agent over
+MCP, and refuses rather than guessing when it holds no record of what was asked.
+
+```json
+{
+  "mcpServers": {
+    "shiftgraph": { "command": "npx", "args": ["-y", "@shiftgraph/mcp"] }
+  }
+}
+```
+
 ## Related
 
 `@shiftgraph/generate` turns an observed response into TypeScript types and Zod schemas, with optionality earned the same way it is here.

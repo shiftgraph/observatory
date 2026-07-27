@@ -16,6 +16,7 @@
     "mcp:invoke": "node apps/observatory/mcp-invoke.js",
     "mcp:sweep": "node apps/observatory/mcp-daily.mjs",
     "test": "node --test",
-    "published": "node apps/observatory/published.mjs --show"
+    "published": "node apps/observatory/published.mjs --show",
+    "contracts": "node apps/observatory/contracts-index.mjs"
   }
 }
