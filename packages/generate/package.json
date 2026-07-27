@@ -1,7 +1,7 @@
 {
   "name": "@shiftgraph/generate",
-  "version": "0.1.3",
-  "description": "TypeScript and Zod types generated from what an API actually returned, not from what its docs claim. Optionality is earned from observation.",
+  "version": "0.2.0",
+  "description": "TypeScript types AND test fixtures from what an API was actually observed to return. Optionality earned, not assumed. Zero dependencies.",
   "keywords": [
     "typescript",
     "types",
