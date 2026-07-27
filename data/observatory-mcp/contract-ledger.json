@@ -1,0 +1,75 @@
+{
+  "schema_version": "shiftgraph.mcp.contract-ledger.v1",
+  "started_on": "2026-07-26",
+  "note": "One row per sweep, not per day: a day swept twice has two rows, and a day missed has none. Rates are computed from the elapsed span, never the row count. Drift is counted once, on the sweep it first appears.",
+  "days": [
+    {
+      "day": "2026-07-26",
+      "at": "2026-07-26T04:42:09.588Z",
+      "servers_reachable": 8,
+      "servers_unreachable": 12,
+      "tools_observed": 72,
+      "contract_changes": 0,
+      "new_tools": 0,
+      "changes": []
+    },
+    {
+      "day": "2026-07-26",
+      "at": "2026-07-26T04:45:42.475Z",
+      "servers_reachable": 8,
+      "servers_unreachable": 12,
+      "tools_observed": 72,
+      "contract_changes": 0,
+      "new_tools": 0,
+      "changes": []
+    },
+    {
+      "day": "2026-07-26",
+      "at": "2026-07-26T04:51:00.916Z",
+      "servers_reachable": 8,
+      "servers_unreachable": 12,
+      "tools_observed": 72,
+      "contract_changes": 0,
+      "new_tools": 0,
+      "changes": []
+    },
+    {
+      "day": "2026-07-26",
+      "at": "2026-07-26T04:56:10.156Z",
+      "servers_reachable": 8,
+      "servers_unreachable": 12,
+      "tools_observed": 72,
+      "contract_changes": 0,
+      "new_tools": 0,
+      "changes": []
+    },
+    {
+      "day": "2026-07-26",
+      "at": "2026-07-26T17:30:00.784Z",
+      "servers_reachable": 8,
+      "servers_unreachable": 12,
+      "tools_observed": 72,
+      "contract_changes": 0,
+      "new_tools": 0,
+      "changes": []
+    },
+    {
+      "day": "2026-07-27",
+      "at": "2026-07-27T17:41:21.935Z",
+      "servers_reachable": 8,
+      "servers_unreachable": 12,
+      "tools_observed": 72,
+      "contract_changes": null,
+      "new_tools": null,
+      "changes": []
+    }
+  ],
+  "identity_boundaries": [
+    {
+      "at": "2026-07-26T20:38:40.009Z",
+      "change": "span renamed tools/call -> tools/list, method CALL -> DECLARE",
+      "why": "the poller never invoked a tool; the span claimed otherwise. method is part of coi_hash, so all 72 operations take new identities.",
+      "effect": "rows before this point counted declaration churn under a name implying invocation. Do not compare a rate across this boundary."
+    }
+  ]
+}

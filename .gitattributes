@@ -1,0 +1,19 @@
+# The record is bytes, not text.
+#
+# Git normalises line endings on files it decides are text, which would mean a
+# capture checked out on Windows differing from the same capture checked out on
+# Linux. A profile is computed over the stored response, so a record whose bytes
+# depend on the machine that fetched it is not a record. These are pinned so
+# that what was observed is what is read back, anywhere, forever.
+data/**/*.ndjson   -text
+data/**/*.ndjson.gz binary
+data/**/*.json     -text
+
+# Source stays normalised, so the vendored-copy byte-equality test compares the
+# same thing on every platform.
+*.js    text eol=lf
+*.mjs   text eol=lf
+*.ts    text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.yml   text eol=lf

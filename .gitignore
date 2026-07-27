@@ -1,0 +1,20 @@
+node_modules/
+
+# Working copies, not record.
+#
+# `latest.ndjson` is a byte-for-byte duplicate of the newest dated capture,
+# written so the baseline step has a stable path to read. Committing it would
+# double the stored size of every sweep for nothing.
+#
+# `baseline.json` is the uncompressed staging file that exists only between
+# being written and being compressed. The committed baseline is the `.gz`.
+data/observatory/latest.ndjson
+data/observatory/baseline.json
+data/observatory-mcp/latest.ndjson
+data/observatory-mcp/responses-latest.ndjson
+
+# Uncompressed captures. The sweep writes `.ndjson.gz`; a plain one here means
+# something decompressed a capture by hand, and it should not be committed
+# alongside the compressed original.
+data/observatory/capture-*.ndjson
+!data/observatory/capture-*.ndjson.gz

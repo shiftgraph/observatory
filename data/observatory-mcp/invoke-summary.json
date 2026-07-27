@@ -1,0 +1,148 @@
+{
+  "schema_version": "shiftgraph.mcp.invoke.v1",
+  "started_at": "2026-07-26T21:40:15.424Z",
+  "servers_attempted": 13,
+  "servers_ok": 8,
+  "tools_invoked": 10,
+  "tools_skipped": 62,
+  "skipped_for_credentials": [
+    {
+      "id": "mcp-gitlab",
+      "needs": [
+        "GITLAB_PERSONAL_ACCESS_TOKEN"
+      ]
+    },
+    {
+      "id": "mcp-slack",
+      "needs": [
+        "SLACK_BOT_TOKEN",
+        "SLACK_TEAM_ID"
+      ]
+    },
+    {
+      "id": "mcp-brave-search",
+      "needs": [
+        "BRAVE_API_KEY"
+      ]
+    },
+    {
+      "id": "mcp-google-maps",
+      "needs": [
+        "GOOGLE_MAPS_API_KEY"
+      ]
+    },
+    {
+      "id": "mcp-sentry",
+      "needs": [
+        "SENTRY_AUTH_TOKEN"
+      ]
+    },
+    {
+      "id": "mcp-everart",
+      "needs": [
+        "EVERART_API_KEY"
+      ]
+    },
+    {
+      "id": "mcp-gdrive",
+      "needs": [
+        "GDRIVE_CREDENTIALS_PATH"
+      ]
+    }
+  ],
+  "per_server": [
+    {
+      "id": "mcp-everything",
+      "ok": true,
+      "reason": "complete",
+      "invoked": 6,
+      "skipped": 7
+    },
+    {
+      "id": "mcp-filesystem",
+      "ok": true,
+      "reason": "complete",
+      "invoked": 0,
+      "skipped": 14
+    },
+    {
+      "id": "mcp-memory",
+      "ok": true,
+      "reason": "complete",
+      "invoked": 2,
+      "skipped": 7
+    },
+    {
+      "id": "mcp-sequential-thinking",
+      "ok": true,
+      "reason": "complete",
+      "invoked": 0,
+      "skipped": 1
+    },
+    {
+      "id": "mcp-github",
+      "ok": true,
+      "reason": "complete",
+      "invoked": 2,
+      "skipped": 24
+    },
+    {
+      "id": "mcp-postgres",
+      "ok": true,
+      "reason": "complete",
+      "invoked": 0,
+      "skipped": 1
+    },
+    {
+      "id": "mcp-sqlite",
+      "ok": false,
+      "reason": "exited",
+      "invoked": 0,
+      "skipped": 0
+    },
+    {
+      "id": "mcp-puppeteer",
+      "ok": true,
+      "reason": "complete",
+      "invoked": 0,
+      "skipped": 7
+    },
+    {
+      "id": "mcp-fetch",
+      "ok": false,
+      "reason": "exited",
+      "invoked": 0,
+      "skipped": 0
+    },
+    {
+      "id": "mcp-time",
+      "ok": false,
+      "reason": "exited",
+      "invoked": 0,
+      "skipped": 0
+    },
+    {
+      "id": "mcp-aws-kb",
+      "ok": true,
+      "reason": "complete",
+      "invoked": 0,
+      "skipped": 1
+    },
+    {
+      "id": "mcp-redis",
+      "ok": false,
+      "reason": "initialize-failed",
+      "invoked": 0,
+      "skipped": 0
+    },
+    {
+      "id": "mcp-sequential-git",
+      "ok": false,
+      "reason": "exited",
+      "invoked": 0,
+      "skipped": 0
+    }
+  ],
+  "read_bias_note": "Only read-verb tools are invoked. Write and delete tools are never called speculatively, so this record is deliberately biased toward reads.",
+  "finished_at": "2026-07-26T21:40:54.060Z"
+}

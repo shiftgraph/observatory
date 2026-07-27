@@ -1,0 +1,202 @@
+{
+  "schema_version": "shiftgraph.observatory.mcp.run.v1",
+  "started_at": "2026-07-27T17:41:21.971Z",
+  "servers_total": 20,
+  "servers_ok": 8,
+  "servers_failed": 12,
+  "tools_total": 72,
+  "per_server": [
+    {
+      "id": "mcp-everything",
+      "ok": true,
+      "tools": 13,
+      "version": "2.0.0",
+      "protocol": "2024-11-05"
+    },
+    {
+      "id": "mcp-filesystem",
+      "ok": true,
+      "tools": 14,
+      "version": "0.2.0",
+      "protocol": "2024-11-05"
+    },
+    {
+      "id": "mcp-memory",
+      "ok": true,
+      "tools": 9,
+      "version": "0.6.3",
+      "protocol": "2024-11-05"
+    },
+    {
+      "id": "mcp-sequential-thinking",
+      "ok": true,
+      "tools": 1,
+      "version": "0.2.0",
+      "protocol": "2024-11-05"
+    },
+    {
+      "id": "mcp-github",
+      "ok": true,
+      "tools": 26,
+      "version": "0.6.2",
+      "protocol": "2024-11-05"
+    },
+    {
+      "id": "mcp-gitlab",
+      "ok": false,
+      "reason": "exited-before-response (code 1)",
+      "tools": 0
+    },
+    {
+      "id": "mcp-slack",
+      "ok": false,
+      "reason": "exited-before-response (code 1)",
+      "tools": 0
+    },
+    {
+      "id": "mcp-postgres",
+      "ok": true,
+      "tools": 1,
+      "version": "0.1.0",
+      "protocol": "2024-11-05"
+    },
+    {
+      "id": "mcp-sqlite",
+      "ok": false,
+      "reason": "exited-before-response (code 1)",
+      "tools": 0
+    },
+    {
+      "id": "mcp-brave-search",
+      "ok": false,
+      "reason": "exited-before-response (code 1)",
+      "tools": 0
+    },
+    {
+      "id": "mcp-puppeteer",
+      "ok": true,
+      "tools": 7,
+      "version": "0.1.0",
+      "protocol": "2024-11-05"
+    },
+    {
+      "id": "mcp-google-maps",
+      "ok": false,
+      "reason": "exited-before-response (code 1)",
+      "tools": 0
+    },
+    {
+      "id": "mcp-sentry",
+      "ok": false,
+      "reason": "exited-before-response (code 1)",
+      "tools": 0
+    },
+    {
+      "id": "mcp-fetch",
+      "ok": false,
+      "reason": "exited-before-response (code 1)",
+      "tools": 0
+    },
+    {
+      "id": "mcp-time",
+      "ok": false,
+      "reason": "exited-before-response (code 1)",
+      "tools": 0
+    },
+    {
+      "id": "mcp-aws-kb",
+      "ok": true,
+      "tools": 1,
+      "version": "0.2.0",
+      "protocol": "2024-11-05"
+    },
+    {
+      "id": "mcp-redis",
+      "ok": false,
+      "reason": "initialize-failed: call-timeout",
+      "tools": 0
+    },
+    {
+      "id": "mcp-everart",
+      "ok": false,
+      "reason": "exited-before-response (code 1)",
+      "tools": 0
+    },
+    {
+      "id": "mcp-gdrive",
+      "ok": false,
+      "reason": "exited-before-response (code 1)",
+      "tools": 0
+    },
+    {
+      "id": "mcp-sequential-git",
+      "ok": false,
+      "reason": "exited-before-response (code 1)",
+      "tools": 0
+    }
+  ],
+  "failures": [
+    {
+      "id": "mcp-gitlab",
+      "pkg": "@modelcontextprotocol/server-gitlab",
+      "reason": "exited-before-response (code 1)"
+    },
+    {
+      "id": "mcp-slack",
+      "pkg": "@modelcontextprotocol/server-slack",
+      "reason": "exited-before-response (code 1)"
+    },
+    {
+      "id": "mcp-sqlite",
+      "pkg": "@modelcontextprotocol/server-sqlite",
+      "reason": "exited-before-response (code 1)"
+    },
+    {
+      "id": "mcp-brave-search",
+      "pkg": "@modelcontextprotocol/server-brave-search",
+      "reason": "exited-before-response (code 1)"
+    },
+    {
+      "id": "mcp-google-maps",
+      "pkg": "@modelcontextprotocol/server-google-maps",
+      "reason": "exited-before-response (code 1)"
+    },
+    {
+      "id": "mcp-sentry",
+      "pkg": "@modelcontextprotocol/server-sentry",
+      "reason": "exited-before-response (code 1)"
+    },
+    {
+      "id": "mcp-fetch",
+      "pkg": "@modelcontextprotocol/server-fetch",
+      "reason": "exited-before-response (code 1)"
+    },
+    {
+      "id": "mcp-time",
+      "pkg": "@modelcontextprotocol/server-time",
+      "reason": "exited-before-response (code 1)"
+    },
+    {
+      "id": "mcp-redis",
+      "pkg": "@modelcontextprotocol/server-redis",
+      "reason": "initialize-failed: call-timeout"
+    },
+    {
+      "id": "mcp-everart",
+      "pkg": "@modelcontextprotocol/server-everart",
+      "reason": "exited-before-response (code 1)"
+    },
+    {
+      "id": "mcp-gdrive",
+      "pkg": "@modelcontextprotocol/server-gdrive",
+      "reason": "exited-before-response (code 1)"
+    },
+    {
+      "id": "mcp-sequential-git",
+      "pkg": "@modelcontextprotocol/server-git",
+      "reason": "exited-before-response (code 1)"
+    }
+  ],
+  "finished_at": "2026-07-27T17:42:03.369Z",
+  "capture": "data\\observatory-mcp\\capture-2026-07-27T17-42-03-367Z.ndjson"
+}

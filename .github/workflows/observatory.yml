@@ -1,0 +1,100 @@
+name: Observatory sweep
+
+# Every six hours. Four observations a day catches a change that lands and
+# reverts inside one day, which a daily sweep cannot see at all. Hourly would
+# multiply traffic against other people's servers twenty-four-fold for
+# resolution nothing here needs, and politeness is load-bearing when you are an
+# uninvited observer.
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+# One at a time, and never cancel a run in flight. Two concurrent sweeps would
+# both roll the baseline, and the second would compare against a record the
+# first had already moved, producing differences that are ours rather than the
+# provider's. Cancelling mid-run could leave a capture written with no baseline
+# rolled, which is worse than a late run.
+concurrency:
+  group: observatory
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # The profiler is what turns a response into a contract. If it is
+      # producing artifacts then everything this run would append is noise
+      # wearing the shape of evidence, so the gate comes before the record is
+      # touched rather than after.
+      - name: Verify the instrument before trusting it
+        run: npm test
+
+      # A sweep with no baseline reports every field of every endpoint as new.
+      # That is correct on the very first run and wrong on every run after it,
+      # so an absent baseline when captures already exist means something was
+      # lost and the run should stop rather than write a history line that
+      # reads like 180 endpoints all changed at once.
+      - name: Refuse to sweep against a baseline that went missing
+        run: |
+          if [ ! -f data/observatory/baseline.json.gz ] \
+             && ls data/observatory/capture-*.ndjson.gz >/dev/null 2>&1; then
+            echo "Captures exist but the baseline is gone."
+            echo "Seeding a fresh one would report every field of every endpoint as new."
+            exit 1
+          fi
+
+      - name: Sweep, compare, roll the baseline
+        env:
+          OBSERVATORY_CONTACT: "research; polite; contact: hello@shiftgraph.dev"
+        run: npm run sweep
+
+      # Definition of done for the instrument is empirical rather than a claim
+      # about which mechanisms shipped: replaying the retained captures through
+      # the production path must produce no artifacts. A true observation is
+      # allowed to appear and is printed for adjudication; a fabricated one is
+      # not. This runs after the sweep so it sees the capture just written.
+      - name: Replay the whole record through the production path
+        run: npm run replay
+
+      # The record is committed only once the instrument has been verified both
+      # before and after the sweep. Raw captures are committed compressed, so a
+      # sweep adds about 1.2 MB rather than about 9 MB.
+      - name: Commit the record
+        run: |
+          git config user.name "ShiftGraph Observatory"
+          git config user.email "hello@shiftgraph.dev"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "Nothing changed this sweep. Not committing an empty record."
+            exit 0
+          fi
+          git commit -m "Sweep $(date -u +'%Y-%m-%d %H:%M UTC')"
+          # Another sweep cannot be running (concurrency is capped at one), but
+          # a human may have pushed between checkout and now.
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      # The captures are the one thing here that cannot be re-observed. If the
+      # commit step failed for any reason, the runner is about to be destroyed
+      # with this sweep's responses on it, so they are uploaded regardless of
+      # what happened above.
+      - name: Keep this sweep's captures even if the run failed
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: captures-${{ github.run_id }}
+          path: data/observatory/capture-*.ndjson.gz
+          retention-days: 90
+          if-no-files-found: warn

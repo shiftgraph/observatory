@@ -1,0 +1,20 @@
+{
+  "name": "shiftgraph-observatory",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A public, continuously updated record of what real APIs actually return.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "sweep": "node apps/observatory/run-daily.mjs",
+    "poll": "node apps/observatory/poll.js",
+    "replay": "node apps/observatory/replay.mjs",
+    "mcp:poll": "node apps/observatory/mcp-poll.js",
+    "mcp:invoke": "node apps/observatory/mcp-invoke.js",
+    "mcp:sweep": "node apps/observatory/mcp-daily.mjs",
+    "test": "node --test"
+  }
+}
