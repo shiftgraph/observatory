@@ -4,13 +4,39 @@
   "description": "What public APIs were actually observed to return, as an MCP server. Answers from a public record instead of guessing, and refuses when it has none.",
   "type": "module",
   "license": "MIT",
-  "engines": { "node": ">=20" },
-  "bin": { "shiftgraph-mcp": "./cli.js" },
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "shiftgraph-mcp": "./cli.js"
+  },
   "main": "./index.js",
-  "exports": { ".": "./index.js" },
-  "files": ["index.js", "cli.js", "README.md"],
-  "keywords": ["mcp", "model-context-protocol", "api", "types", "typescript", "openapi", "contract", "schema", "agent"],
-  "repository": { "type": "git", "url": "git+https://github.com/shiftgraph/observatory.git" },
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "cli.js",
+    "README.md"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "api",
+    "types",
+    "typescript",
+    "openapi",
+    "contract",
+    "schema",
+    "agent"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shiftgraph/observatory.git"
+  },
   "homepage": "https://github.com/shiftgraph/observatory",
-  "scripts": { "test": "node --test" }
+  "scripts": {
+    "test": "node --test",
+    "prepublishOnly": "node --test"
+  }
 }
