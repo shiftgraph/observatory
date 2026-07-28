@@ -8,7 +8,7 @@
   "host": "www.wikidata.org",
   "path": "/w/api.php",
   "observed_from": "2026-07-26",
-  "confidence": "thin",
+  "confidence": "strong",
   "fields": 6296,
   "optional_fields": 125,
   "oversize": true,

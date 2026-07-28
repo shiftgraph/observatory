@@ -1,31 +1,24 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-07-28T08:13:42.484Z",
+  "started_at": "2026-07-28T13:29:29.387Z",
   "total": 180,
-  "ok": 177,
-  "failed": 3,
-  "body_captured": 173,
+  "ok": 178,
+  "failed": 2,
+  "body_captured": 174,
   "by_status": {
-    "200": 177,
-    "503": 1,
+    "200": 178,
     "ERR": 2
   },
   "failures": [
     {
-      "id": "httpbin-json",
-      "url": "https://httpbin.org/json",
-      "status": 503,
-      "note": null
+      "id": "adviceslip",
+      "url": "https://api.adviceslip.com/advice",
+      "status": null,
+      "note": "UND_ERR_CONNECT_TIMEOUT"
     },
     {
       "id": "maven-search-guava",
       "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
-      "status": null,
-      "note": "timeout"
-    },
-    {
-      "id": "httpbin-get",
-      "url": "https://httpbin.org/get",
       "status": null,
       "note": "timeout"
     }
@@ -52,6 +45,6 @@
       "reason": "too-large (6675kb)"
     }
   ],
-  "finished_at": "2026-07-28T08:15:53.435Z",
-  "capture": "data/observatory/capture-2026-07-28T08-15-53-125Z.ndjson.gz"
+  "finished_at": "2026-07-28T13:31:28.465Z",
+  "capture": "data/observatory/capture-2026-07-28T13-31-28-228Z.ndjson.gz"
 }

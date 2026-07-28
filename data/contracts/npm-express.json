@@ -8,7 +8,7 @@
   "host": "registry.npmjs.org",
   "path": "/express",
   "observed_from": "2026-07-26",
-  "confidence": "thin",
+  "confidence": "strong",
   "fields": 23508,
   "optional_fields": 57,
   "oversize": true,
