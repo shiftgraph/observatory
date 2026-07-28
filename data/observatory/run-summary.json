@@ -1,13 +1,13 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-07-28T13:29:29.387Z",
+  "started_at": "2026-07-28T19:06:10.294Z",
   "total": 180,
-  "ok": 178,
-  "failed": 2,
-  "body_captured": 174,
+  "ok": 179,
+  "failed": 1,
+  "body_captured": 175,
   "by_status": {
-    "200": 178,
-    "ERR": 2
+    "200": 179,
+    "ERR": 1
   },
   "failures": [
     {
@@ -15,12 +15,6 @@
       "url": "https://api.adviceslip.com/advice",
       "status": null,
       "note": "UND_ERR_CONNECT_TIMEOUT"
-    },
-    {
-      "id": "maven-search-guava",
-      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
-      "status": null,
-      "note": "timeout"
     }
   ],
   "shapeless": [
@@ -42,9 +36,9 @@
     {
       "id": "npm-react",
       "url": "https://registry.npmjs.org/react",
-      "reason": "too-large (6675kb)"
+      "reason": "too-large (6679kb)"
     }
   ],
-  "finished_at": "2026-07-28T13:31:28.465Z",
-  "capture": "data/observatory/capture-2026-07-28T13-31-28-228Z.ndjson.gz"
+  "finished_at": "2026-07-28T19:07:37.660Z",
+  "capture": "data/observatory/capture-2026-07-28T19-07-37-352Z.ndjson.gz"
 }
