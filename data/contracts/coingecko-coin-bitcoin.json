@@ -8,7 +8,7 @@
   "host": "api.coingecko.com",
   "path": "/api/v3/coins/bitcoin",
   "observed_from": "2026-07-26",
-  "confidence": "thin",
+  "confidence": "strong",
   "fields": 1546,
   "optional_fields": 0,
   "oversize": true,
