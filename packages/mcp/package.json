@@ -1,6 +1,6 @@
 {
   "name": "@shiftgraph/mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "What public APIs were actually observed to return, as an MCP server. Answers from a public record instead of guessing, and refuses when it has none.",
   "type": "module",
   "license": "MIT",
@@ -8,7 +8,7 @@
     "node": ">=20"
   },
   "bin": {
-    "shiftgraph-mcp": "./cli.js"
+    "mcp": "cli.js"
   },
   "main": "./index.js",
   "exports": {
@@ -37,6 +37,7 @@
   "homepage": "https://github.com/shiftgraph/observatory",
   "scripts": {
     "test": "node --test",
-    "prepublishOnly": "node --test"
+    "prepublishOnly": "node --test && node smoke.mjs",
+    "smoke": "node smoke.mjs"
   }
 }

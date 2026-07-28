@@ -35,7 +35,29 @@ const inFlight = new Set();
 let inputClosed = false;
 
 function maybeExit() {
-  if (inputClosed && inFlight.size === 0) process.exit(0);
+  if (!inputClosed || inFlight.size > 0) return;
+
+  // NOTHING IS CALLED HERE. The process is simply allowed to end.
+  //
+  // This used to be `process.exit(0)`, and on the fastest path — a refusal,
+  // which makes one request and then only computes — that raced libuv's own
+  // teardown and produced a hard Windows assertion:
+  //
+  //     Assertion failed: !(handle->flags & UV_HANDLE_CLOSING), async.c:76
+  //
+  // The answer had already been written to stdout, so a caller saw a correct
+  // response while the host saw the server crash. Deferring the exit by a tick
+  // did not fix it, because the race is with socket teardown rather than with
+  // the microtask queue.
+  //
+  // Node exits on its own once no handle is left open. stdin has ended, the
+  // responses are written, and the fetches close their connections rather than
+  // pooling them, so there is nothing left to wait on and nothing to force.
+  //
+  // Found by the pre-publish smoke test running the installed binary. The unit
+  // tests never saw it: they call the handler directly and never start a
+  // process that has to end.
+  process.exitCode = 0;
 }
 
 process.stdin.setEncoding('utf8');

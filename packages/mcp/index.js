@@ -38,7 +38,28 @@ const DEFAULT_BASE =
 /** The protocol revisions this server knows how to speak. */
 const SUPPORTED_PROTOCOLS = ['2025-06-18', '2025-03-26', '2024-11-05'];
 
-const SERVER_INFO = { name: 'shiftgraph', version: '0.1.0' };
+const SERVER_INFO = { name: 'shiftgraph', version: '0.1.1' };
+
+/**
+ * `Connection: close`, deliberately.
+ *
+ * Node's fetch pools connections and holds each socket open for seconds after
+ * the response. That is the right default for a long-running client and the
+ * wrong one here: this process makes one or two requests and then has nothing
+ * left to do, and a lingering socket meant exiting while libuv was still
+ * closing a handle. On Windows that is not a quiet early exit, it is a hard
+ * assertion:
+ *
+ *     Assertion failed: !(handle->flags & UV_HANDLE_CLOSING), async.c:76
+ *
+ * The response had already reached stdout, so a caller saw a correct answer
+ * while the host saw the server crash. Closing the connection when we are done
+ * with it removes the handle rather than racing it.
+ *
+ * Pooling buys nothing at this volume: the index is fetched once per process
+ * and cached.
+ */
+const FETCH_OPTS = { headers: { connection: 'close' } };
 
 /**
  * Fetched once per process and kept.
@@ -54,7 +75,7 @@ export function createStore({ base = DEFAULT_BASE, fetchImpl = fetch } = {}) {
 
   async function getIndex() {
     if (!indexPromise) {
-      indexPromise = fetchImpl(`${base}/index.json`).then(async (res) => {
+      indexPromise = fetchImpl(`${base}/index.json`, FETCH_OPTS).then(async (res) => {
         if (!res.ok) throw new Error(`contract index unavailable (HTTP ${res.status})`);
         return res.json();
       });
@@ -64,7 +85,7 @@ export function createStore({ base = DEFAULT_BASE, fetchImpl = fetch } = {}) {
 
   async function getContract(id) {
     if (!contracts.has(id)) {
-      const res = await fetchImpl(`${base}/${encodeURIComponent(id)}.json`);
+      const res = await fetchImpl(`${base}/${encodeURIComponent(id)}.json`, FETCH_OPTS);
       if (!res.ok) throw new Error(`no contract file for "${id}" (HTTP ${res.status})`);
       contracts.set(id, await res.json());
     }
