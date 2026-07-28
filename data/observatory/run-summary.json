@@ -1,22 +1,14 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-07-27T22:13:54.480Z",
+  "started_at": "2026-07-28T01:29:25.736Z",
   "total": 180,
-  "ok": 179,
-  "failed": 1,
-  "body_captured": 175,
+  "ok": 180,
+  "failed": 0,
+  "body_captured": 176,
   "by_status": {
-    "200": 179,
-    "504": 1
+    "200": 180
   },
-  "failures": [
-    {
-      "id": "packagist-laravel-framework",
-      "url": "https://repo.packagist.org/p2/laravel/framework.json",
-      "status": 504,
-      "note": null
-    }
-  ],
+  "failures": [],
   "shapeless": [
     {
       "id": "status-algolia",
@@ -39,6 +31,6 @@
       "reason": "too-large (6675kb)"
     }
   ],
-  "finished_at": "2026-07-27T22:15:48.349Z",
-  "capture": "data\\observatory\\capture-2026-07-27T22-15-48-174Z.ndjson.gz"
+  "finished_at": "2026-07-28T01:31:01.506Z",
+  "capture": "data/observatory/capture-2026-07-28T01-31-01-230Z.ndjson.gz"
 }

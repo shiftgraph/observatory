@@ -1,28 +1,19 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-07-27T20:28:37.165Z",
-  "drift_event_count": 1,
-  "new_operation_count": 0,
-  "drift_events": [
+  "baseline_created_at": "2026-07-27T22:15:48.903Z",
+  "drift_event_count": 0,
+  "new_operation_count": 2,
+  "drift_events": [],
+  "new_operations": [
     {
-      "id": "tr_fac54b6d5611fca9",
-      "operation_id": "op_c896c2fb3ea7baba",
-      "operation": "GET status.plaid.com /api/v2/summary.json",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-07-27T22:14:21.326Z",
-      "last_known_before": "2026-07-27T20:27:25.779Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_338ddbc67f8091d0"
-      ],
-      "explanation": "Dominant response shape for GET status.plaid.com /api/v2/summary.json changed since baseline. Diff: added $.incidents[].monitoring_at (string)."
+      "operation": "GET repo.packagist.org /p2/laravel/framework.json",
+      "sample_count": 1,
+      "first_seen": "2026-07-28T01:30:45.922Z"
+    },
+    {
+      "operation": "GET repo.packagist.org /p2/symfony/console.json",
+      "sample_count": 1,
+      "first_seen": "2026-07-28T01:30:13.373Z"
     }
-  ],
-  "new_operations": []
+  ]
 }

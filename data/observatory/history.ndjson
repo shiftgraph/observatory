@@ -5,3 +5,4 @@
 {"at":"2026-07-27T18:53:55.399Z","endpoints":180,"ok":179,"failed":1,"shaped":175,"shapeless":4,"registry_fingerprint":"180:86569b7d4c80","drift_events":0,"new_ops":0,"drift":[]}
 {"at":"2026-07-27T20:28:36.597Z","endpoints":180,"ok":180,"failed":0,"shaped":176,"shapeless":4,"registry_fingerprint":"180:86569b7d4c80","drift_events":0,"new_ops":1,"drift":[]}
 {"at":"2026-07-27T22:15:48.349Z","endpoints":180,"ok":179,"failed":1,"shaped":175,"shapeless":4,"registry_fingerprint":"180:86569b7d4c80","drift_events":1,"new_ops":0,"drift":[{"op":"GET status.plaid.com /api/v2/summary.json","type":"dominant_response_shape_changed","severity":"low"}]}
+{"at":"2026-07-28T01:31:01.506Z","endpoints":180,"ok":180,"failed":0,"shaped":176,"shapeless":4,"registry_fingerprint":"180:86569b7d4c80","drift_events":0,"new_ops":2,"drift":[]}
