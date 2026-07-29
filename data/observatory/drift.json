@@ -1,14 +1,14 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-07-28T13:31:29.364Z",
+  "baseline_created_at": "2026-07-28T19:07:38.807Z",
   "drift_event_count": 0,
   "new_operation_count": 1,
   "drift_events": [],
   "new_operations": [
     {
-      "operation": "GET search.maven.org /solrsearch/select",
+      "operation": "GET api.adviceslip.com /advice",
       "sample_count": 1,
-      "first_seen": "2026-07-28T19:07:04.189Z"
+      "first_seen": "2026-07-29T01:30:52.079Z"
     }
   ]
 }
