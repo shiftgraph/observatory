@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-29T18:58:46.255Z",
+  "generated_at": "2026-07-29T21:43:07.179Z",
   "watching": {
-    "endpoints": 180,
-    "providers": 111,
+    "endpoints": 176,
+    "providers": 108,
     "categories": 15
   },
   "captures_retained": 18,
@@ -12,7 +12,7 @@
     "failed_runs": 0,
     "endpoints_reached": 1966,
     "endpoints_profiled": 1922,
-    "drift_events": 7,
+    "drift_events": 1,
     "latest": {
       "at": "2026-07-29T18:58:44.557Z",
       "reached": 178,

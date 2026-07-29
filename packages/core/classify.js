@@ -15,6 +15,21 @@ const ASSET_PATH = /(?:^|\/)(?:assets|static|_next\/static|_nuxt|dist|build|cdn|
 const ASSET_EXT = /\.(?:js|mjs|cjs|css|map|woff2?|ttf|otf|eot|svg|ico)(?:\?|#|$)/i;
 const MEDIA_EXT = /\.(?:png|jpe?g|gif|webp|avif|bmp|mp4|webm|mov|mp3|wav|pdf)(?:\?|#|$)/i;
 const API_PATH = /(?:^|\/)(?:api|rest|rpc|graphql|gql|v\d+|gateway|webhooks?)(?:\/|$)/i;
+// The same signal in the HOST, which is where most APIs actually put it.
+//
+// Backlog Issue 2: a JSON API served at a bare resource path was classified
+// `other` and dropped from the dependency set, producing a misleading "no
+// third-party dependencies" result. The usual signal is the content-type and the
+// adapters now carry it, but a capture that omits one still fell through - and
+// the canonical example is the endpoint this project quotes constantly:
+// api.github.com/repos/{owner}/{repo} has "api" in the host, not the path.
+//
+// Deliberately narrow: a host LABEL equal to api, apis or rest. Not a substring,
+// so googleapis.com and rapidapi.com do not match, and the rule fails toward
+// `other` rather than sweeping in hosts that merely contain the letters. Any
+// widening here adds dependencies to a customer's quota, so narrow is the safe
+// direction to be wrong in.
+const API_HOST = /(?:^|\.)(?:api|apis|rest)(?:\.|$)/i;
 
 export function requestKind(obs) {
   const rct = String(obs.response_content_type || '').toLowerCase();
@@ -32,7 +47,7 @@ export function requestKind(obs) {
   if (ASSET_PATH.test(path) || ASSET_EXT.test(path) || /(javascript|ecmascript|text\/css|font\/|application\/font|application\/octet-stream)/.test(rct)) return 'asset';
   if (/^image\//.test(rct) || /^(?:video|audio)\//.test(rct) || MEDIA_EXT.test(path)) return 'image';
   if (/text\/html/.test(rct)) return 'page';
-  if (/json/.test(rct) || /json/.test(qct) || API_PATH.test(path) || method !== 'GET') return 'api';
+  if (/json/.test(rct) || /json/.test(qct) || API_PATH.test(path) || API_HOST.test(host) || method !== 'GET') return 'api';
   return 'other';
 }
 
