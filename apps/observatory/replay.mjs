@@ -21,7 +21,7 @@ import { readdirSync, statSync, readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { profileValue, structuralProfile, structuralDiff, carryOptionality } from '../../packages/core/shape.js';
-import { readStoredSync, CAPTURE_FILE } from './capture-io.mjs';
+import { readStoredSync, CAPTURE_FILE, contractBearingSpan } from './capture-io.mjs';
 
 const REPO_ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const DIR = path.join(REPO_ROOT, 'data', 'observatory');
@@ -74,7 +74,8 @@ for (const f of files) {
     const span = JSON.parse(line);
     const id = span.resource?.endpoint_id;
     const raw = span.attributes?.['shiftgraph.response.body'];
-    if (!id || !raw) continue;
+    // A failure is not a contract (capture-io: contractBearingSpan).
+    if (!id || !raw || !contractBearingSpan(span)) continue;
     if (!series.has(id)) series.set(id, []);
     series.get(id).push({ day: f.slice(8, 27), body: JSON.parse(raw) });
   }

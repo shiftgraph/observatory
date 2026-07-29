@@ -11,7 +11,7 @@
 // exists for the roughly two thirds of tools declaring no output schema.
 import { promises as fs } from 'node:fs';
 import { readdirSync, statSync } from 'node:fs';
-import { readStoredSync, CAPTURE_FILE } from './capture-io.mjs';
+import { readStoredSync, CAPTURE_FILE, contractBearingSpan } from './capture-io.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { profileValue, structuralProfile, carryOptionality } from '../../packages/core/shape.js';
@@ -74,7 +74,8 @@ function loadSeries(dir, prefix) {
       try { span = JSON.parse(line); } catch { continue; }
       const id = span.resource?.endpoint_id;
       const raw = span.attributes?.['shiftgraph.response.body'];
-      if (!id || !raw) continue;
+      // A failure is not a contract (capture-io: contractBearingSpan).
+      if (!id || !raw || !contractBearingSpan(span)) continue;
       if (!series.has(id)) series.set(id, []);
       const m = f.match(/(\d{4}-\d{2}-\d{2})/);
       try { series.get(id).push({ day: m ? m[1] : 'unknown', body: decodeEmbeddedJson(JSON.parse(raw)) }); } catch { /* skip */ }

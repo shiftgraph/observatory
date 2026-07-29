@@ -47,11 +47,33 @@ export function publishable(lines) {
     if (r.marker === 'profiler-boundary') lastBoundary = i;
   });
 
+  /**
+   * Retracted drift claims, named by the sweep that made them.
+   *
+   * A profiler-boundary discards everything before it, which is right when the
+   * profiler itself changed but far too blunt for one bad sweep: it would throw
+   * away ten good ones to disown six claims. So a retraction marker names the
+   * sweeps whose DRIFT is disowned while leaving the sweep itself counted - it
+   * genuinely happened and genuinely reached its endpoints.
+   *
+   * Append-only, deliberately. The wrong claims stay in the file where anyone
+   * can see what was said and when; what changes is that the published record
+   * stops repeating them. Correcting by deletion would leave no evidence the
+   * correction happened, which is the failure this whole record exists to avoid.
+   */
+  const retracted = new Set(
+    rows.filter((r) => r.marker === 'drift-retraction').flatMap((r) => r.retracts ?? []),
+  );
+
   const after = rows.slice(lastBoundary + 1);
   const sweeps = after.filter((r) => !r.error && !r.marker && typeof r.ok === 'number');
   const failed = after.filter((r) => r.error).length;
 
-  const sum = (k) => sweeps.reduce((s, r) => s + (r[k] || 0), 0);
+  const sum = (k) =>
+    sweeps.reduce((s, r) => {
+      if (k === 'drift_events' && retracted.has(r.at)) return s;
+      return s + (r[k] || 0);
+    }, 0);
 
   return {
     /** Every value below covers only sweeps after this instant. */

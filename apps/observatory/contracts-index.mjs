@@ -31,7 +31,7 @@ import { fileURLToPath } from 'node:url';
 import { profileValue, structuralProfile, carryOptionality } from '../../packages/core/shape.js';
 import { generateModule, countFields, nullOnlyFields } from '../../packages/generate/index.js';
 import { ENDPOINTS, REGISTRY_META } from './registry.js';
-import { readStoredSync, CAPTURE_FILE } from './capture-io.mjs';
+import { readStoredSync, CAPTURE_FILE, contractBearingSpan } from './capture-io.mjs';
 
 const REPO_ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const DIR = path.join(REPO_ROOT, 'data', 'observatory');
@@ -92,7 +92,8 @@ function loadSeries() {
       }
       const id = span.resource?.endpoint_id;
       const raw = span.attributes?.['shiftgraph.response.body'];
-      if (!id || !raw) continue;
+      // A failure is not a contract (capture-io: contractBearingSpan).
+      if (!id || !raw || !contractBearingSpan(span)) continue;
       let body;
       try {
         body = JSON.parse(raw);

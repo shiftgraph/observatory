@@ -31,6 +31,9 @@ function latestCapture() {
 const tools = [];
 for (const line of readStoredSync(latestCapture()).trim().split('\n')) {
   const span = JSON.parse(line);
+  // No status filter here: this reads the MCP capture, whose spans carry a
+  // tools/call result rather than an HTTP status, so contractBearingSpan would
+  // pass everything anyway. The four HTTP readers do filter.
   const body = span.attributes?.['shiftgraph.response.body'];
   if (body) tools.push(JSON.parse(body));
 }

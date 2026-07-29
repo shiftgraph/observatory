@@ -60,3 +60,27 @@ export async function writeStored(filePath, text) {
   }
   return fs.writeFile(filePath, text, 'utf8');
 }
+
+/**
+ * Does this captured span carry a CONTRACT, or a failure?
+ *
+ * One rule, one place. Four readers walk the capture files directly rather than
+ * through the engine's `normalizeObservation` - the replay, the contracts index,
+ * the generator and the demo - and on 2026-07-29T18:58Z all four profiled
+ * GitHub's rate-limit page as though it were the interface. Six BREAKING drift
+ * events reached the published record, and `message` and `documentation_url`
+ * were merged into the published contract for `/users/{login}`.
+ *
+ * The engine now refuses non-2xx bodies at its own choke point. These readers
+ * bypass it, so they get the same rule from here instead of four copies that can
+ * drift apart - which is the mistake this whole file is a correction for.
+ *
+ * A span with no status recorded is trusted: refusing those would silently drop
+ * every observation from a source that omits the code.
+ */
+export function contractBearingSpan(span) {
+  const status = span?.attributes?.['http.response.status_code'];
+  if (status === undefined || status === null) return true;
+  const n = Number(status);
+  return Number.isFinite(n) && n >= 200 && n < 300;
+}

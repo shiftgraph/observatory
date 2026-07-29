@@ -99,3 +99,55 @@ test('marker rows never count as sweeps', () => {
   assert.equal(record.latest, null);
   assert.equal(record.publishable, false);
 });
+
+/**
+ * One bad sweep is retracted without discarding the good ones.
+ *
+ * A profiler-boundary is the right instrument when the profiler itself changed,
+ * and far too blunt for a single contaminated sweep: it would throw away every
+ * earlier sweep to disown a handful of claims.
+ *
+ * This happened on 2026-07-29T18:58Z. The sweep ran while rate-limited, six
+ * GitHub endpoints answered 403 with a JSON error envelope, and the engine
+ * profiled the rate-limit page as the interface - six BREAKING events, into the
+ * published record. The sweep itself was sound: 178 endpoints reached. Only its
+ * drift claims were wrong.
+ *
+ * So a retraction names the sweeps whose drift is disowned, appends rather than
+ * edits, and leaves the wrong claims visible in the file. Correcting by deletion
+ * would leave no evidence the correction happened, which is the failure this
+ * record exists to avoid.
+ */
+const retraction = (at, retracts) =>
+  JSON.stringify({ at, marker: 'drift-retraction', retracts, reason: 'rate-limited sweep' });
+
+test('a retracted sweep still counts as a sweep, but its drift does not', () => {
+  const lines = [
+    boundary('2026-07-01T00:00:00.000Z'),
+    sweep('2026-07-01T06:00:00.000Z', { drift: 1 }),
+    sweep('2026-07-01T12:00:00.000Z', { drift: 6 }),
+    retraction('2026-07-01T13:00:00.000Z', ['2026-07-01T12:00:00.000Z']),
+  ];
+  const r = publishable(lines);
+  assert.equal(r.sweeps, 2, 'the sweep happened and still counts');
+  assert.equal(r.drift_events, 1, 'only the retracted sweep’s drift is dropped');
+  assert.equal(r.endpoints_reached, 200, 'reach is unaffected by a drift retraction');
+});
+
+test('a retraction naming a sweep that does not exist changes nothing', () => {
+  const lines = [
+    boundary('2026-07-01T00:00:00.000Z'),
+    sweep('2026-07-01T06:00:00.000Z', { drift: 2 }),
+    retraction('2026-07-01T13:00:00.000Z', ['2026-07-01T99:00:00.000Z']),
+  ];
+  assert.equal(publishable(lines).drift_events, 2);
+});
+
+test('a retraction row is not itself counted as a sweep', () => {
+  const lines = [
+    boundary('2026-07-01T00:00:00.000Z'),
+    sweep('2026-07-01T06:00:00.000Z'),
+    retraction('2026-07-01T13:00:00.000Z', []),
+  ];
+  assert.equal(publishable(lines).sweeps, 1);
+});

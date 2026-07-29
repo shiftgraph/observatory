@@ -39,6 +39,36 @@ servers are live and eleven are deprecated, so polling them every six hours
 would accrue a series about packages nobody maintains. The finding it produced
 is a snapshot and is dated as one.
 
+### A retracted sweep, 29 July 2026
+
+The sweep at 18:58 UTC ran while GitHub was rate-limiting us. Six endpoints
+answered `403` with `{"message": "API rate limit exceeded", "documentation_url":
+…}` and a content-type of `application/json`. The sweeper kept the body because
+it only ever checked the content-type, and the engine profiled the rate-limit
+page as the new shape: six breaking changes, including `avatar_url` removed from
+`/users/{login}` and the licences array becoming an object. Nothing at GitHub had
+changed. `message` and `documentation_url` were also merged into the published
+contract for `/users/{login}`.
+
+That is the failure mode this record is built to avoid, and it happened here.
+
+What changed, so it cannot happen again:
+
+- The engine refuses to derive a contract from any non-2xx body, at the one
+  point every adapter passes through. The body is kept as the error, so the
+  status distribution and error rate still see everything that arrived.
+- The sweeper no longer stores a non-2xx body at all, and records the endpoint as
+  shapeless with the status, so a rate-limited sweep is visible instead of
+  looking clean.
+- The four readers that walk capture files directly now share one rule from
+  `capture-io.mjs` rather than four copies that could drift apart.
+- Each of those is covered by a test that was proven to fail first.
+
+The claims themselves stay in `history.ndjson` where they were made, followed by
+a `drift-retraction` marker naming the sweep and the reason. The sweep still
+counts — it genuinely reached 178 endpoints — and its drift no longer does.
+Correcting by deletion would have left no evidence the correction happened.
+
 ### The one file that is not the record
 
 `data/observatory/history.pre-correction.ndjson` holds 19 rows from 8 to 23 July 2026 that were computed by a profiler we have since proven wrong. Between them they claim 18 changes that the profiler was manufacturing rather than observing.

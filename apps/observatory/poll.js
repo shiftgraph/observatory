@@ -133,7 +133,24 @@ async function pollOne(ep) {
     // reason is recorded so dead weight is visible in the run summary and can be
     // fixed or dropped, rather than padding the endpoint count with entries that
     // are never actually compared.
-    if (!/json/i.test(contentType)) bodyNote = `non-json (${contentType.split(';')[0] || 'no content-type'})`;
+    // A NON-2xx BODY IS NOT THE CONTRACT, and this is the check that was
+    // missing. `@shiftgraph/generate` has refused error responses since its
+    // first version - "types from an error response would describe the error,
+    // not the contract" - and the sweeper decided on content-type alone, so a
+    // 403 carrying valid JSON was profiled as though it were the interface.
+    //
+    // It fired on 2026-07-29T18:58Z. Six GitHub endpoints hit "API rate limit
+    // exceeded", every one answered `{message, documentation_url}` with a
+    // content-type of application/json, and the replay reported six BREAKING
+    // events: `$.avatar_url` removed, `$.body` removed, the licences array
+    // becoming an object. Nothing at GitHub had changed. The instrument had
+    // profiled its own rate-limit page and called it drift, on the record whose
+    // entire argument is that it does not cry wolf.
+    //
+    // Recorded as shapeless rather than dropped, so a rate-limited sweep is
+    // visible in the run summary instead of looking like a clean one.
+    if (status < 200 || status >= 300) bodyNote = `non-2xx (${status})`;
+    else if (!/json/i.test(contentType)) bodyNote = `non-json (${contentType.split(';')[0] || 'no content-type'})`;
     else if (text.length === 0) bodyNote = 'empty-body';
     else if (text.length >= MAX_BODY_BYTES) bodyNote = `too-large (${Math.round(text.length / 1024)}kb)`;
     else {
