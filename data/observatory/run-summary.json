@@ -1,26 +1,28 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-07-29T13:44:35.657Z",
+  "started_at": "2026-07-29T18:56:21.642Z",
   "total": 180,
   "ok": 178,
   "failed": 2,
   "body_captured": 174,
   "by_status": {
-    "200": 178,
-    "ERR": 2
+    "200": 172,
+    "403": 6,
+    "502": 1,
+    "ERR": 1
   },
   "failures": [
     {
-      "id": "httpbin-json",
-      "url": "https://httpbin.org/json",
+      "id": "adviceslip",
+      "url": "https://api.adviceslip.com/advice",
       "status": null,
-      "note": "timeout"
+      "note": "UND_ERR_CONNECT_TIMEOUT"
     },
     {
-      "id": "httpbin-get",
-      "url": "https://httpbin.org/get",
-      "status": null,
-      "note": "timeout"
+      "id": "hex-phoenix",
+      "url": "https://hex.pm/api/packages/phoenix",
+      "status": 502,
+      "note": null
     }
   ],
   "shapeless": [
@@ -42,9 +44,9 @@
     {
       "id": "npm-react",
       "url": "https://registry.npmjs.org/react",
-      "reason": "too-large (6679kb)"
+      "reason": "too-large (6684kb)"
     }
   ],
-  "finished_at": "2026-07-29T13:46:39.815Z",
-  "capture": "data/observatory/capture-2026-07-29T13-46-39-507Z.ndjson.gz"
+  "finished_at": "2026-07-29T18:58:44.557Z",
+  "capture": "data/observatory/capture-2026-07-29T18-58-44-289Z.ndjson.gz"
 }
