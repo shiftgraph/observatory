@@ -4,7 +4,10 @@ export function applyCausalAssessment(transition, operation, deploymentAssessmen
   const adjusted = { ...transition };
   const baseConfidence = Number(adjusted.confidence || 0);
   adjusted.causal_analysis = deploymentAssessment;
-  adjusted.confidence = clamp(baseConfidence + (deploymentAssessment?.confidence_adjustment || 0), 0.05, 0.97);
+  // Rounded, because makeEvent rounds to 2dp and this un-rounded it: 0.7 with a
+  // -0.04 adjustment stored 0.6599999999999999, which reached the drift row, the
+  // JSON API and any surface multiplying it by 100.
+  adjusted.confidence = Number(clamp(baseConfidence + (deploymentAssessment?.confidence_adjustment || 0), 0.05, 0.97).toFixed(2));
   adjusted.confidence_label = confidenceLabel(adjusted.confidence);
   if (deploymentAssessment?.severity_adjustment) adjusted.severity = shiftSeverity(adjusted.severity, deploymentAssessment.severity_adjustment);
   const reasons = new Set(adjusted.degraded_reasons || []);
@@ -12,8 +15,12 @@ export function applyCausalAssessment(transition, operation, deploymentAssessmen
   if (deploymentAssessment?.supplied) reasons.delete('no deployment data supplied');
   adjusted.degraded_reasons = [...reasons];
   if (deploymentAssessment?.claim_language) {
-    if (deploymentAssessment.claim_language === 'external-suspected' && ['associated', 'observed'].includes(adjusted.causal_language)) {
-      adjusted.causal_language = adjusted.causal_language === 'associated' ? 'external-suspected' : 'observed';
+    // Only 'associated' is ever assigned upstream (drift.js, every path), so the
+    // old test also listed 'observed' and the ternary carried a branch that could
+    // not be taken. A ladder that names a rung nothing stands on is how the
+    // report came to advertise five values for a three-value scale.
+    if (deploymentAssessment.claim_language === 'external-suspected' && adjusted.causal_language === 'associated') {
+      adjusted.causal_language = 'external-suspected';
     } else {
       adjusted.causal_language = deploymentAssessment.claim_language;
     }

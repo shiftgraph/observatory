@@ -85,3 +85,25 @@ export function describeRegeneration(
   after: ShapeProfile | null | undefined,
   basePath?: string,
 ): RegenerationChange[];
+
+/**
+ * A typed test fixture beside the type — 0.2.0's headline, and it was missing
+ * from this file, on a package that advertises `types` and whose own header
+ * says it exists because a TypeScript-strict codebase rejected the package.
+ */
+export function fixtureValue(node: ShapeProfile | null | undefined, depth?: number): unknown;
+
+export interface GenerateFixtureOptions {
+  /** Becomes the exported constant name, camel-cased. */
+  name: string;
+  profile: ShapeProfile | null | undefined;
+  source: string;
+  observations?: number;
+  observedFrom?: string;
+  observedTo?: string;
+  command?: string;
+  /** Relative path to the type module, so the fixture is typed against it. */
+  typeModule?: string | null;
+}
+
+export function generateFixture(options: GenerateFixtureOptions): string;

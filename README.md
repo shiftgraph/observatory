@@ -22,9 +22,22 @@ That last part is the finding worth taking seriously, including against this pro
 | `data/observatory/capture-*.ndjson.gz` | the raw response bodies from every sweep, kept forever |
 | `data/observatory/baseline.json.gz` | the current profile of every endpoint, rolled forward each sweep |
 | `data/observatory/run-summary.json` | the most recent sweep in detail, including what could not be reached |
-| `data/observatory-mcp/` | the same instrument pointed at MCP tool servers |
+| `data/observatory-mcp/` | the same instrument pointed at MCP tool servers, **once**, on 27 July 2026 |
 | `apps/observatory/` | the sweeper, the comparison, and the replay harness |
 | `packages/` | the profiling engine the record is built with |
+
+### The MCP half is a measurement, not a series
+
+`mcp:sweep` exists and works, and the workflow does not run it — only `test`,
+`sweep` and `replay`. So `data/observatory-mcp/` is one dated measurement taken
+on 27 July 2026, and it has not moved since. The table above used to list it
+beside the running record with nothing distinguishing the two, which invited a
+reader to assume a cadence that was never there.
+
+It stays a one-off deliberately for now. Four of the twenty official reference
+servers are live and eleven are deprecated, so polling them every six hours
+would accrue a series about packages nobody maintains. The finding it produced
+is a snapshot and is dated as one.
 
 ### The one file that is not the record
 
@@ -52,9 +65,9 @@ Run the replay. It takes every retained capture, pushes it back through the same
 npm run replay
 ```
 
-At the time of writing that gives **785 comparisons across 175 endpoints from 7 captures, and one event**: `status-openai`, `field_removed`, `$.incidents[].monitoring_at`, on 27 July 2026.
+It prints its own figures, and this file no longer repeats them. It used to, and they went stale the way every typed number in this project has: the sentence here described a window the harness had stopped measuring, and named a different event from the one `published.json` was counting — two numbers, both called one, describing two different things. `published.mjs` exists for exactly that reason, and its own header warns about the marker this harness was ignoring.
 
-That one is real. The single open incident in OpenAI's status feed carried `monitoring_at` from 24 to 26 July and stopped carrying the key on 27 July. It is a true observation of a real change in a response, reported once. It is also incident-state variation in a status feed rather than a provider altering an interface, which is worth saying plainly rather than letting it read as more than it is.
+The replay now starts at the profiler boundary, so it measures the same window the published record does. Whatever it prints, read the events one at a time. Every one so far has been incident-state variation in a status feed — a field a status page carries while an incident is in the monitoring state and not otherwise — rather than a provider altering an interface. That is worth saying plainly rather than letting a count read as more than it is.
 
 The number that matters is not the event count. It is that the events which appear can be read one at a time and judged. An earlier version of this instrument produced three events across the same window, all of them fabricated, at a rate that would have looked like a finding.
 

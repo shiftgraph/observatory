@@ -72,15 +72,13 @@ const STATUSPAGE_HOSTS = [
   ['mongodb', 'status.mongodb.com'],
   ['hubspot', 'status.hubspot.com'],
   ['segment', 'status.segment.com'],
-  ['algolia', 'status.algolia.com'],
+
   ['squarespace', 'status.squarespace.com'],
   ['zoom', 'status.zoom.us'],
   ['cloudinary', 'status.cloudinary.com'],
   ['figma', 'status.figma.com'],
   ['render', 'status.render.com'],
   ['circleci', 'status.circleci.com'],
-  ['linear', 'status.linear.app'],
-  ['notion', 'status.notion.so'],
 
   // --- appended 2026-07-26 (breadth pass). Every host below answered
   //     /api/v2/summary.json with real Statuspage JSON on the first sweep.
@@ -151,7 +149,6 @@ const DIRECT = [
   { id: 'github-repo-react', provider: 'github', category: 'dev-registry', url: 'https://api.github.com/repos/facebook/react' },
   { id: 'github-repo-node', provider: 'github', category: 'dev-registry', url: 'https://api.github.com/repos/nodejs/node' },
   { id: 'github-ratelimit', provider: 'github', category: 'dev-registry', url: 'https://api.github.com/rate_limit' },
-  { id: 'npm-react', provider: 'npm', category: 'dev-registry', url: 'https://registry.npmjs.org/react' },
   { id: 'npm-express', provider: 'npm', category: 'dev-registry', url: 'https://registry.npmjs.org/express' },
   { id: 'pypi-requests', provider: 'pypi', category: 'dev-registry', url: 'https://pypi.org/pypi/requests/json' },
   { id: 'pypi-django', provider: 'pypi', category: 'dev-registry', url: 'https://pypi.org/pypi/django/json' },
