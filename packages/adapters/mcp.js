@@ -34,7 +34,15 @@ export async function parseFile(filePath, options = {}) {
 function recordFromCall({ request, result, row, responseRow, locator, filePath, observedAt, options }) {
   const toolName = request.params?.name || row.tool || row.tool_name || 'unknown_tool';
   const server = row.server || row.server_name || row.mcp_server || row.transport?.server || 'mcp-server';
-  const error = responseRow?.error || row.error || result?.isError ? (responseRow?.error || row.error || result) : undefined;
+  // Spelled out because the one-liner it replaces read as a precedence bug:
+  // `a || b || c ? (a || b || d) : undefined` groups the whole chain into the
+  // condition, so when only `result.isError` was truthy the ENTIRE result became
+  // the error body. That is in fact the right answer for MCP - a tool failure is
+  // returned inside the result rather than as a protocol error, so the result IS
+  // the error - but nothing said so and nothing tested it, which is how a
+  // deliberate choice becomes indistinguishable from a mistake.
+  const transportError = responseRow?.error ?? row.error;
+  const error = transportError ?? (result?.isError ? result : undefined);
   const obs = normalizeObservation({
     observed_at: observedAt || row.started_at || row.timestamp,
     transport: 'mcp',
