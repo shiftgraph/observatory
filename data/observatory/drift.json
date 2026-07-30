@@ -1,16 +1,16 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-07-29T13:46:40.963Z",
-  "drift_event_count": 6,
+  "baseline_created_at": "2026-07-29T18:58:45.791Z",
+  "drift_event_count": 3,
   "new_operation_count": 2,
   "drift_events": [
     {
-      "id": "tr_216dda7952b71f6b",
+      "id": "tr_9b157aa7de00ae6c",
       "operation_id": "op_ca2eb9fe457c3dd9",
       "operation": "GET api.github.com /gitignore/templates",
       "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-07-29T18:58:43.443Z",
-      "last_known_before": "2026-07-29T13:46:38.343Z",
+      "first_seen": "2026-07-30T01:25:07.434Z",
+      "last_known_before": "2026-07-29T18:58:43.443Z",
       "severity": "high",
       "confidence": 0.7,
       "confidence_label": "medium-high",
@@ -19,17 +19,17 @@
         "no deployment data supplied"
       ],
       "evidence_ids": [
-        "ev_d230c8542a90f54c"
+        "ev_200dc7198a7d5f16"
       ],
-      "explanation": "Dominant response shape for GET api.github.com /gitignore/templates changed since baseline. Diff: $ changed array -> object."
+      "explanation": "Dominant response shape for GET api.github.com /gitignore/templates changed since baseline. Diff: $ changed object -> array."
     },
     {
-      "id": "tr_40977876e0e1180b",
+      "id": "tr_8c1c3fa47ca8a7ca",
       "operation_id": "op_5ea3b89470cd30a7",
       "operation": "GET api.github.com /licenses",
       "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-07-29T18:58:43.654Z",
-      "last_known_before": "2026-07-29T13:46:38.623Z",
+      "first_seen": "2026-07-30T01:25:07.738Z",
+      "last_known_before": "2026-07-29T18:58:43.654Z",
       "severity": "high",
       "confidence": 0.7,
       "confidence_label": "medium-high",
@@ -38,36 +38,17 @@
         "no deployment data supplied"
       ],
       "evidence_ids": [
-        "ev_9c374292aeb5113f"
+        "ev_26c4d4e9a47d64e0"
       ],
-      "explanation": "Dominant response shape for GET api.github.com /licenses changed since baseline. Diff: $ changed array -> object."
+      "explanation": "Dominant response shape for GET api.github.com /licenses changed since baseline. Diff: $ changed object -> array."
     },
     {
-      "id": "tr_02d5e030e805191c",
-      "operation_id": "op_234a08b9a8a143c6",
-      "operation": "GET api.github.com /licenses/mit",
+      "id": "tr_3c843dbffd0bc512",
+      "operation_id": "op_9d772dae225f171e",
+      "operation": "GET api.github.com /versions",
       "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-07-29T18:58:43.865Z",
-      "last_known_before": "2026-07-29T13:46:38.915Z",
-      "severity": "high",
-      "confidence": 0.7,
-      "confidence_label": "medium-high",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_54722e7202423b23"
-      ],
-      "explanation": "Dominant response shape for GET api.github.com /licenses/mit changed since baseline. Diff: removed $.body (string); removed $.description (string); added $.documentation_url (string); removed $.featured (boolean); removed $.html_url (string); removed $.implementation (string); removed $.key (string); added $.message (string); removed $.name (string); removed $.node_id (string); removed $.spdx_id (string); removed $.url (string)."
-    },
-    {
-      "id": "tr_c87780fdcf8fd1dd",
-      "operation_id": "op_5960106212e49dbc",
-      "operation": "GET api.github.com /meta",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-07-29T18:58:43.232Z",
-      "last_known_before": "2026-07-29T13:46:38.038Z",
+      "first_seen": "2026-07-30T01:25:08.365Z",
+      "last_known_before": "2026-07-29T18:58:44.075Z",
       "severity": "high",
       "confidence": 0.7,
       "confidence_label": "medium-high",
@@ -78,57 +59,19 @@
       "evidence_ids": [
         "ev_21d6f289b55d4e2f"
       ],
-      "explanation": "Dominant response shape for GET api.github.com /meta changed since baseline. Diff: added $.documentation_url (string); removed $.domains (object); added $.message (string); removed $.ssh_key_fingerprints (object); removed $.verifiable_password_authentication (redacted-secret)."
-    },
-    {
-      "id": "tr_65a83a0601588f48",
-      "operation_id": "op_d00fe0675877a0d3",
-      "operation": "GET api.github.com /users/torvalds",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-07-29T18:58:43.022Z",
-      "last_known_before": "2026-07-29T13:46:37.775Z",
-      "severity": "high",
-      "confidence": 0.7,
-      "confidence_label": "medium-high",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_d73eeb501954c3e0"
-      ],
-      "explanation": "Dominant response shape for GET api.github.com /users/torvalds changed since baseline. Diff: removed $.avatar_url (string); removed $.blog (string); removed $.company (string); removed $.created_at (string); added $.documentation_url (string); removed $.events_url (string); removed $.followers (number); removed $.followers_url (string); removed $.following (number); removed $.following_url (string); removed $.gists_url (string); removed $.gravatar_id (string); removed $.html_url (string); removed $.id (number); removed $.location (string); removed $.login (string); added $.message (string); removed $.name (string); removed $.node_id (string); removed $.organizations_url (string); removed $.public_gists (number); removed $.public_repos (number); removed $.received_events_url (string); removed $.repos_url (string); removed $.site_admin (boolean); removed $.starred_url (string); removed $.subscriptions_url (string); removed $.type (string); removed $.updated_at (string); removed $.url (string)."
-    },
-    {
-      "id": "tr_9bea7997b57c8e7e",
-      "operation_id": "op_9d772dae225f171e",
-      "operation": "GET api.github.com /versions",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-07-29T18:58:44.075Z",
-      "last_known_before": "2026-07-29T13:46:39.228Z",
-      "severity": "high",
-      "confidence": 0.7,
-      "confidence_label": "medium-high",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_19add900faa0c3e1"
-      ],
-      "explanation": "Dominant response shape for GET api.github.com /versions changed since baseline. Diff: $ changed array -> object."
+      "explanation": "Dominant response shape for GET api.github.com /versions changed since baseline. Diff: $ changed object -> array."
     }
   ],
   "new_operations": [
     {
-      "operation": "GET httpbin.org /get",
+      "operation": "GET api.adviceslip.com /advice",
       "sample_count": 1,
-      "first_seen": "2026-07-29T18:58:25.059Z"
+      "first_seen": "2026-07-30T01:23:57.266Z"
     },
     {
-      "operation": "GET httpbin.org /json",
+      "operation": "GET hex.pm /api/packages/phoenix",
       "sample_count": 1,
-      "first_seen": "2026-07-29T18:57:27.404Z"
+      "first_seen": "2026-07-30T01:24:06.108Z"
     }
   ]
 }

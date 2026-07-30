@@ -1,52 +1,23 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-07-29T18:56:21.642Z",
-  "total": 180,
-  "ok": 178,
-  "failed": 2,
-  "body_captured": 174,
+  "started_at": "2026-07-30T01:22:57.031Z",
+  "total": 176,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 175,
   "by_status": {
-    "200": 172,
-    "403": 6,
-    "502": 1,
+    "200": 175,
     "ERR": 1
   },
   "failures": [
     {
-      "id": "adviceslip",
-      "url": "https://api.adviceslip.com/advice",
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
       "status": null,
-      "note": "UND_ERR_CONNECT_TIMEOUT"
-    },
-    {
-      "id": "hex-phoenix",
-      "url": "https://hex.pm/api/packages/phoenix",
-      "status": 502,
-      "note": null
+      "note": "timeout"
     }
   ],
-  "shapeless": [
-    {
-      "id": "status-algolia",
-      "url": "https://status.algolia.com/api/v2/summary.json",
-      "reason": "non-json (text/html)"
-    },
-    {
-      "id": "status-linear",
-      "url": "https://status.linear.app/api/v2/summary.json",
-      "reason": "non-json (text/html)"
-    },
-    {
-      "id": "status-notion",
-      "url": "https://status.notion.so/api/v2/summary.json",
-      "reason": "non-json (text/html)"
-    },
-    {
-      "id": "npm-react",
-      "url": "https://registry.npmjs.org/react",
-      "reason": "too-large (6684kb)"
-    }
-  ],
-  "finished_at": "2026-07-29T18:58:44.557Z",
-  "capture": "data/observatory/capture-2026-07-29T18-58-44-289Z.ndjson.gz"
+  "shapeless": [],
+  "finished_at": "2026-07-30T01:25:08.954Z",
+  "capture": "data/observatory/capture-2026-07-30T01-25-08-674Z.ndjson.gz"
 }
