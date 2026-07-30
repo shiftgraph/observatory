@@ -1,46 +1,15 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-07-30T13:25:53.810Z",
+  "started_at": "2026-07-30T19:08:50.973Z",
   "total": 176,
-  "ok": 174,
-  "failed": 2,
-  "body_captured": 171,
+  "ok": 176,
+  "failed": 0,
+  "body_captured": 176,
   "by_status": {
-    "200": 171,
-    "403": 3,
-    "503": 2
+    "200": 176
   },
-  "failures": [
-    {
-      "id": "httpbin-json",
-      "url": "https://httpbin.org/json",
-      "status": 503,
-      "note": null
-    },
-    {
-      "id": "httpbin-get",
-      "url": "https://httpbin.org/get",
-      "status": 503,
-      "note": null
-    }
-  ],
-  "shapeless": [
-    {
-      "id": "github-licenses",
-      "url": "https://api.github.com/licenses",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-license-mit",
-      "url": "https://api.github.com/licenses/mit",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-versions",
-      "url": "https://api.github.com/versions",
-      "reason": "non-2xx (403)"
-    }
-  ],
-  "finished_at": "2026-07-30T13:27:24.785Z",
-  "capture": "data/observatory/capture-2026-07-30T13-27-24-506Z.ndjson.gz"
+  "failures": [],
+  "shapeless": [],
+  "finished_at": "2026-07-30T19:10:25.508Z",
+  "capture": "data/observatory/capture-2026-07-30T19-10-25-229Z.ndjson.gz"
 }
