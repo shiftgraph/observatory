@@ -1,8 +1,24 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-07-31T01:50:52.406Z",
+  "baseline_created_at": "2026-07-31T08:34:36.105Z",
   "drift_event_count": 0,
-  "new_operation_count": 0,
+  "new_operation_count": 3,
   "drift_events": [],
-  "new_operations": []
+  "new_operations": [
+    {
+      "operation": "GET codeberg.org /api/v1/repos/forgejo/forgejo",
+      "sample_count": 1,
+      "first_seen": "2026-07-31T13:31:21.394Z"
+    },
+    {
+      "operation": "GET codeberg.org /api/v1/version",
+      "sample_count": 1,
+      "first_seen": "2026-07-31T13:31:57.725Z"
+    },
+    {
+      "operation": "GET search.maven.org /solrsearch/select",
+      "sample_count": 1,
+      "first_seen": "2026-07-31T13:31:19.323Z"
+    }
+  ]
 }
