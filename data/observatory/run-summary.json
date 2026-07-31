@@ -1,30 +1,48 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-07-31T01:49:22.119Z",
+  "started_at": "2026-07-31T08:32:52.774Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 174,
+  "ok": 171,
+  "failed": 5,
+  "body_captured": 171,
   "by_status": {
-    "200": 174,
-    "403": 1,
+    "200": 171,
+    "503": 4,
     "ERR": 1
   },
   "failures": [
+    {
+      "id": "httpbin-json",
+      "url": "https://httpbin.org/json",
+      "status": 503,
+      "note": null
+    },
     {
       "id": "maven-search-guava",
       "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
       "status": null,
       "note": "timeout"
-    }
-  ],
-  "shapeless": [
+    },
     {
-      "id": "github-versions",
-      "url": "https://api.github.com/versions",
-      "reason": "non-2xx (403)"
+      "id": "codeberg-repo",
+      "url": "https://codeberg.org/api/v1/repos/forgejo/forgejo",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "httpbin-get",
+      "url": "https://httpbin.org/get",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "codeberg-version",
+      "url": "https://codeberg.org/api/v1/version",
+      "status": 503,
+      "note": null
     }
   ],
-  "finished_at": "2026-07-31T01:50:51.124Z",
-  "capture": "data/observatory/capture-2026-07-31T01-50-50-841Z.ndjson.gz"
+  "shapeless": [],
+  "finished_at": "2026-07-31T08:34:34.886Z",
+  "capture": "data/observatory/capture-2026-07-31T08-34-34-599Z.ndjson.gz"
 }
