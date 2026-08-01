@@ -1,15 +1,29 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-07-31T19:07:11.447Z",
+  "started_at": "2026-08-01T01:51:00.355Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 176,
+  "ok": 174,
+  "failed": 2,
+  "body_captured": 174,
   "by_status": {
-    "200": 176
+    "200": 174,
+    "ERR": 2
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "sunrise-sunset",
+      "url": "https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400",
+      "status": null,
+      "note": "timeout"
+    }
+  ],
   "shapeless": [],
-  "finished_at": "2026-07-31T19:08:38.631Z",
-  "capture": "data/observatory/capture-2026-07-31T19-08-38-316Z.ndjson.gz"
+  "finished_at": "2026-08-01T01:53:09.800Z",
+  "capture": "data/observatory/capture-2026-08-01T01-53-09-484Z.ndjson.gz"
 }
