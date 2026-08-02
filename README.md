@@ -2,7 +2,19 @@
 
 A public, continuously updated record of what real APIs actually return.
 
-Every six hours this repository polls 180 public endpoints across 111 providers, profiles the structure of every response, compares it against what those endpoints returned last time, and commits the result. The record goes back to 24 July 2026 and nothing in it is ever deleted.
+Every six hours this repository polls 176 public endpoints across 108 providers, profiles the structure of every response, compares it against what those endpoints returned last time, and commits the result. The record goes back to 24 July 2026 and nothing in it is ever deleted.
+
+<!--
+  These two numbers are the registry's, not an estimate: `ENDPOINTS.length` and
+  the count of distinct `provider` values in apps/observatory/registry.js. They
+  said 180 and 111 until 1 August 2026, against an actual 176 and 108.
+
+  That is this project's own thesis happening to this project's own front page.
+  Nothing typed here is checked by anything, while the site that publishes these
+  figures fails its build if a sweep count is typed rather than derived. Re-count
+  from the registry when you change it; do not adjust these by memory.
+-->
+
 
 It runs on GitHub's machines on a schedule, so it does not depend on anyone's laptop being awake.
 
@@ -69,6 +81,30 @@ a `drift-retraction` marker naming the sweep and the reason. The sweep still
 counts — it genuinely reached 178 endpoints — and its drift no longer does.
 Correcting by deletion would have left no evidence the correction happened.
 
+### The rebound, 30 July 2026, and why one retraction was not enough
+
+The sweep at 01:25 UTC on 30 July reported three more high-severity changes on
+`api.github.com` — `/gitignore/templates`, `/licenses` and `/versions`. Those are
+ours too.
+
+Retracting the 29 July sweep disowned its claims but did not un-poison the
+**baseline** that sweep had already written. The 403 rate-limit envelope was
+sitting there as the dominant shape for those operations, so when real 200
+responses returned at 01:25Z the comparison reported the **recovery** as drift.
+Three of the six came back a second time, wearing the opposite sign.
+
+A retraction and a rebuild do different jobs. A rebuild fixes what the next
+sweep compares against; only a retraction disowns what has already been claimed.
+The rebuild landed at 08:08Z and every sweep since is clean. At 13:27Z two of
+the three endpoints were rate-limited again and produced no events at all, which
+is the corrected rule holding.
+
+The second marker is dated 30 July and was published on 1 August. For two days
+this record carried three unretracted high-severity claims against a named
+company that we had already worked out were ours. That gap is recorded here
+rather than smoothed over, because a record whose corrections arrive quietly is
+worth about as much as one that hides them.
+
 ### The one file that is not the record
 
 `data/observatory/history.pre-correction.ndjson` holds 19 rows from 8 to 23 July 2026 that were computed by a profiler we have since proven wrong. Between them they claim 18 changes that the profiler was manufacturing rather than observing.
@@ -97,7 +133,11 @@ npm run replay
 
 It prints its own figures, and this file no longer repeats them. It used to, and they went stale the way every typed number in this project has: the sentence here described a window the harness had stopped measuring, and named a different event from the one `published.json` was counting — two numbers, both called one, describing two different things. `published.mjs` exists for exactly that reason, and its own header warns about the marker this harness was ignoring.
 
-The replay now starts at the profiler boundary, so it measures the same window the published record does. Whatever it prints, read the events one at a time. Every one so far has been incident-state variation in a status feed — a field a status page carries while an incident is in the monitoring state and not otherwise — rather than a provider altering an interface. That is worth saying plainly rather than letting a count read as more than it is.
+The replay now starts at the profiler boundary, so it measures the same window the published record does. Whatever it prints, read the events one at a time.
+
+Three stand in the published window as of 1 August 2026, and they are not all the same kind. Two are incident-state variation in a status feed — a field a status page carries while an incident is in the monitoring state and not otherwise — on `status.plaid.com` and `www.planetscalestatus.com`. The third is `api.coinbase.com/v2/exchange-rates`, a map of currency codes to rates, where the set of keys is the payload rather than the contract. None of the three is a provider altering an interface.
+
+That sentence used to read "every one so far has been incident-state variation in a status feed", which was **wrong in two directions at once**: it was written when the retracted GitHub claims were still standing in the same window and plainly were not status feeds, and the Coinbase event is not one either. A summary that generalises over events it has not re-read is the same defect as a typed count, and it is worse here, because the whole argument of this section is that the events can be read individually. Read them; do not trust this paragraph over the file.
 
 The number that matters is not the event count. It is that the events which appear can be read one at a time and judged. An earlier version of this instrument produced three events across the same window, all of them fabricated, at a rate that would have looked like a finding.
 
