@@ -1,42 +1,23 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-02T12:57:08.845Z",
+  "started_at": "2026-08-02T18:54:08.562Z",
   "total": 176,
-  "ok": 172,
-  "failed": 4,
-  "body_captured": 172,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 175,
   "by_status": {
-    "200": 172,
-    "503": 2,
-    "ERR": 2
+    "200": 175,
+    "ERR": 1
   },
   "failures": [
     {
-      "id": "httpbin-json",
-      "url": "https://httpbin.org/json",
-      "status": 503,
-      "note": null
-    },
-    {
-      "id": "maven-search-guava",
-      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "id": "adviceslip",
+      "url": "https://api.adviceslip.com/advice",
       "status": null,
-      "note": "timeout"
-    },
-    {
-      "id": "httpbin-get",
-      "url": "https://httpbin.org/get",
-      "status": 503,
-      "note": null
-    },
-    {
-      "id": "gbif-occurrence-search",
-      "url": "https://api.gbif.org/v1/occurrence/search?limit=2",
-      "status": null,
-      "note": "timeout"
+      "note": "UND_ERR_CONNECT_TIMEOUT"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-02T12:59:02.895Z",
-  "capture": "data/observatory/capture-2026-08-02T12-59-02-619Z.ndjson.gz"
+  "finished_at": "2026-08-02T18:55:43.520Z",
+  "capture": "data/observatory/capture-2026-08-02T18-55-43-266Z.ndjson.gz"
 }
