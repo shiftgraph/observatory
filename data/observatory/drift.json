@@ -1,8 +1,19 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-08-03T09:22:46.625Z",
+  "baseline_created_at": "2026-08-03T14:16:45.165Z",
   "drift_event_count": 0,
-  "new_operation_count": 0,
+  "new_operation_count": 2,
   "drift_events": [],
-  "new_operations": []
+  "new_operations": [
+    {
+      "operation": "GET httpbin.org /get",
+      "sample_count": 1,
+      "first_seen": "2026-08-03T19:19:34.617Z"
+    },
+    {
+      "operation": "GET httpbin.org /json",
+      "sample_count": 1,
+      "first_seen": "2026-08-03T19:18:44.605Z"
+    }
+  ]
 }
