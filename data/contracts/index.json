@@ -211,8 +211,8 @@
       "observed_days": 12,
       "observed_from": "2026-07-24",
       "observed_to": "2026-08-04",
-      "fields": 640,
-      "optional_fields": 1,
+      "fields": 4,
+      "optional_fields": 0,
       "confidence": "strong",
       "oversize": false
     },
@@ -1418,7 +1418,7 @@
       "observed_days": 10,
       "observed_from": "2026-07-26",
       "observed_to": "2026-08-04",
-      "fields": 23508,
+      "fields": 20861,
       "optional_fields": 57,
       "confidence": "strong",
       "oversize": true
@@ -1605,8 +1605,8 @@
       "observed_days": 10,
       "observed_from": "2026-07-26",
       "observed_to": "2026-08-04",
-      "fields": 135,
-      "optional_fields": 18,
+      "fields": 52,
+      "optional_fields": 17,
       "confidence": "strong",
       "oversize": false
     },

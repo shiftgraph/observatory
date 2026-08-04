@@ -43,10 +43,22 @@ test('the vendored profiler carries every mechanism the canonical one does', () 
     ['wildcard absorption', 'const informative = profiles.filter'],
     ['presence tiers', 'childProfiles.length < informative.length'],
     ['optional carry-through', 'optional: true'],
-    ['map detection', "'{key}': profiled[names[0]]"],
+    // Was `profiled[names[0]]` until 2026-08-04. The representative must come
+    // from the INFORMATIVE siblings: taking names[0] emitted
+    // `{key}: redacted-secret` whenever a redacted key sorted first.
+    ['map detection', "'{key}': profiled[informative[0]]"],
     ['numeric-key exclusion', 'test(n) && !/^\\d+$/.test(n)'],
     ['series memory', 'export function carryOptionality'],
     ['map-vs-record guard', "('{key}' in bk) !== ('{key}' in ak)"],
+    // E1: a redacted sibling is a wildcard, not a shape. One currency ticker
+    // named COOKIE defeated map detection for all 637 Coinbase rates and put a
+    // false breaking change in the public ledger.
+    ['redaction-tolerant homogeneity', "profiled[n]?.type !== 'redacted-secret'"],
+    ['two informative siblings required', 'informative.length >= 2'],
+    // E2: a key optional on the CURRENT side came from within-response array
+    // sampling, so it is not evidence the interface started returning it. One
+    // artwork of two carrying an extra field published a false change.
+    ['appearing-optional suppression', 'if (ak[k]?.optional) continue;'],
   ];
   for (const [name, needle] of mechanisms) {
     assert.ok(b.includes(needle), `the vendored profiler is missing: ${name}`);
