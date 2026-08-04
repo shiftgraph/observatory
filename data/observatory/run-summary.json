@@ -1,14 +1,14 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-04T08:18:20.687Z",
+  "started_at": "2026-08-04T13:46:19.554Z",
   "total": 176,
-  "ok": 173,
-  "failed": 3,
-  "body_captured": 173,
+  "ok": 172,
+  "failed": 4,
+  "body_captured": 172,
   "by_status": {
-    "200": 173,
+    "200": 172,
     "503": 2,
-    "ERR": 1
+    "ERR": 2
   },
   "failures": [
     {
@@ -16,6 +16,12 @@
       "url": "https://httpbin.org/json",
       "status": 503,
       "note": null
+    },
+    {
+      "id": "adviceslip",
+      "url": "https://api.adviceslip.com/advice",
+      "status": null,
+      "note": "UND_ERR_CONNECT_TIMEOUT"
     },
     {
       "id": "openlibrary-search",
@@ -31,6 +37,6 @@
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-04T08:20:00.134Z",
-  "capture": "data/observatory/capture-2026-08-04T08-19-59-856Z.ndjson.gz"
+  "finished_at": "2026-08-04T13:48:13.570Z",
+  "capture": "data/observatory/capture-2026-08-04T13-48-13-280Z.ndjson.gz"
 }
