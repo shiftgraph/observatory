@@ -1,8 +1,14 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-08-04T19:20:02.930Z",
+  "baseline_created_at": "2026-08-05T01:32:01.162Z",
   "drift_event_count": 0,
-  "new_operation_count": 0,
+  "new_operation_count": 1,
   "drift_events": [],
-  "new_operations": []
+  "new_operations": [
+    {
+      "operation": "GET openlibrary.org /search.json",
+      "sample_count": 1,
+      "first_seen": "2026-08-05T08:16:40.043Z"
+    }
+  ]
 }
