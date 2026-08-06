@@ -1,8 +1,28 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-08-06T01:29:20.575Z",
-  "drift_event_count": 0,
+  "baseline_created_at": "2026-08-06T08:15:50.459Z",
+  "drift_event_count": 1,
   "new_operation_count": 0,
-  "drift_events": [],
+  "drift_events": [
+    {
+      "id": "tr_786adf67a9f7c592",
+      "operation_id": "op_205a2ba4f94ddadc",
+      "operation": "GET formulae.brew.sh /api/cask/firefox.json",
+      "transition_type": "dominant_response_shape_changed",
+      "first_seen": "2026-08-06T13:41:44.472Z",
+      "last_known_before": "2026-08-06T08:15:38.964Z",
+      "severity": "low",
+      "confidence": 0.5,
+      "confidence_label": "medium",
+      "causal_language": "associated",
+      "degraded_reasons": [
+        "no deployment data supplied"
+      ],
+      "evidence_ids": [
+        "ev_05444034fabe0c5a"
+      ],
+      "explanation": "Dominant response shape for GET formulae.brew.sh /api/cask/firefox.json changed since baseline. Diff: added $.url_specs.verified (string)."
+    }
+  ],
   "new_operations": []
 }
