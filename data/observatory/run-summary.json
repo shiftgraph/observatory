@@ -1,15 +1,35 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-08T00:51:13.112Z",
+  "started_at": "2026-08-08T06:33:52.898Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 176,
+  "ok": 173,
+  "failed": 3,
+  "body_captured": 173,
   "by_status": {
-    "200": 176
+    "200": 173,
+    "503": 3
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "httpbin-json",
+      "url": "https://httpbin.org/json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "httpbin-get",
+      "url": "https://httpbin.org/get",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "gbif-occurrence-search",
+      "url": "https://api.gbif.org/v1/occurrence/search?limit=2",
+      "status": 503,
+      "note": null
+    }
+  ],
   "shapeless": [],
-  "finished_at": "2026-08-08T00:52:34.393Z",
-  "capture": "data/observatory/capture-2026-08-08T00-52-34-114Z.ndjson.gz"
+  "finished_at": "2026-08-08T06:35:14.961Z",
+  "capture": "data/observatory/capture-2026-08-08T06-35-14-678Z.ndjson.gz"
 }
