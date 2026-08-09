@@ -1,23 +1,29 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-09T06:37:18.520Z",
+  "started_at": "2026-08-09T12:27:40.705Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 175,
+  "ok": 174,
+  "failed": 2,
+  "body_captured": 174,
   "by_status": {
-    "200": 175,
-    "ERR": 1
+    "200": 174,
+    "503": 2
   },
   "failures": [
     {
+      "id": "httpbin-json",
+      "url": "https://httpbin.org/json",
+      "status": 503,
+      "note": null
+    },
+    {
       "id": "httpbin-get",
       "url": "https://httpbin.org/get",
-      "status": null,
-      "note": "timeout"
+      "status": 503,
+      "note": null
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-09T06:38:59.239Z",
-  "capture": "data/observatory/capture-2026-08-09T06-38-58-958Z.ndjson.gz"
+  "finished_at": "2026-08-09T12:29:15.214Z",
+  "capture": "data/observatory/capture-2026-08-09T12-29-14-931Z.ndjson.gz"
 }
