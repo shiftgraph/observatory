@@ -1,23 +1,21 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-08T18:21:50.306Z",
+  "started_at": "2026-08-09T00:53:19.671Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
+  "ok": 176,
+  "failed": 0,
   "body_captured": 175,
   "by_status": {
-    "200": 175,
-    "502": 1
+    "200": 176
   },
-  "failures": [
+  "failures": [],
+  "shapeless": [
     {
-      "id": "fda-food-enforcement",
-      "url": "https://api.fda.gov/food/enforcement.json?limit=1",
-      "status": 502,
-      "note": null
+      "id": "npm-typescript-latest",
+      "url": "https://registry.npmjs.org/typescript/latest",
+      "reason": "non-json (text/plain)"
     }
   ],
-  "shapeless": [],
-  "finished_at": "2026-08-08T18:23:26.697Z",
-  "capture": "data/observatory/capture-2026-08-08T18-23-26-420Z.ndjson.gz"
+  "finished_at": "2026-08-09T00:54:49.590Z",
+  "capture": "data/observatory/capture-2026-08-09T00-54-49-308Z.ndjson.gz"
 }
