@@ -1,8 +1,44 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-08-10T07:12:33.287Z",
-  "drift_event_count": 0,
-  "new_operation_count": 0,
-  "drift_events": [],
-  "new_operations": []
+  "baseline_created_at": "2026-08-10T12:45:26.912Z",
+  "drift_event_count": 1,
+  "new_operation_count": 3,
+  "drift_events": [
+    {
+      "id": "tr_6808c808ba5fd9c0",
+      "operation_id": "op_7e8e32ff4595ff2b",
+      "operation": "GET hex.pm /api/packages/phoenix",
+      "transition_type": "dominant_response_shape_changed",
+      "first_seen": "2026-08-10T18:42:24.325Z",
+      "last_known_before": "2026-08-10T12:44:25.391Z",
+      "severity": "high",
+      "confidence": 0.7,
+      "confidence_label": "medium-high",
+      "causal_language": "associated",
+      "degraded_reasons": [
+        "no deployment data supplied"
+      ],
+      "evidence_ids": [
+        "ev_b6eb758dba501ddd"
+      ],
+      "explanation": "Dominant response shape for GET hex.pm /api/packages/phoenix changed since baseline. Diff: added $.meta.links.Changelog (string); added $.meta.links.GitHub (string); removed $.meta.links.github (string)."
+    }
+  ],
+  "new_operations": [
+    {
+      "operation": "GET httpbin.org /get",
+      "sample_count": 1,
+      "first_seen": "2026-08-10T18:42:45.666Z"
+    },
+    {
+      "operation": "GET httpbin.org /json",
+      "sample_count": 1,
+      "first_seen": "2026-08-10T18:42:10.054Z"
+    },
+    {
+      "operation": "GET search.maven.org /solrsearch/select",
+      "sample_count": 1,
+      "first_seen": "2026-08-10T18:42:24.791Z"
+    }
+  ]
 }
