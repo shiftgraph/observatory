@@ -1,14 +1,8 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-08-11T00:57:12.544Z",
+  "baseline_created_at": "2026-08-11T06:48:20.209Z",
   "drift_event_count": 0,
-  "new_operation_count": 1,
+  "new_operation_count": 0,
   "drift_events": [],
-  "new_operations": [
-    {
-      "operation": "GET search.maven.org /solrsearch/select",
-      "sample_count": 1,
-      "first_seen": "2026-08-11T06:47:34.300Z"
-    }
-  ]
+  "new_operations": []
 }
