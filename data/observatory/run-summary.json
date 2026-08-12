@@ -1,15 +1,42 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-12T01:01:57.661Z",
+  "started_at": "2026-08-12T07:07:24.841Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 176,
+  "ok": 172,
+  "failed": 4,
+  "body_captured": 172,
   "by_status": {
-    "200": 176
+    "200": 172,
+    "503": 2,
+    "ERR": 2
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "frankfurter-latest",
+      "url": "https://api.frankfurter.app/latest",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "httpbin-json",
+      "url": "https://httpbin.org/json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "frankfurter-currencies",
+      "url": "https://api.frankfurter.app/currencies",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "httpbin-get",
+      "url": "https://httpbin.org/get",
+      "status": 503,
+      "note": null
+    }
+  ],
   "shapeless": [],
-  "finished_at": "2026-08-12T01:03:18.381Z",
-  "capture": "data/observatory/capture-2026-08-12T01-03-18-070Z.ndjson.gz"
+  "finished_at": "2026-08-12T07:09:20.806Z",
+  "capture": "data/observatory/capture-2026-08-12T07-09-20-564Z.ndjson.gz"
 }
