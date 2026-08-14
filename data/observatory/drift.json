@@ -1,47 +1,24 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-08-13T18:48:46.563Z",
-  "drift_event_count": 2,
-  "new_operation_count": 0,
-  "drift_events": [
+  "baseline_created_at": "2026-08-14T01:05:07.900Z",
+  "drift_event_count": 0,
+  "new_operation_count": 3,
+  "drift_events": [],
+  "new_operations": [
     {
-      "id": "tr_030cc74151c8dd3d",
-      "operation_id": "op_4b41da14f146f388",
-      "operation": "GET formulae.brew.sh /api/formula/git.json",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-08-14T01:04:19.536Z",
-      "last_known_before": "2026-08-13T18:48:05.621Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_bed5d293d94adb4c"
-      ],
-      "explanation": "Dominant response shape for GET formulae.brew.sh /api/formula/git.json changed since baseline. Diff: added $.vulnerabilities (object)."
+      "operation": "GET openlibrary.org /search.json",
+      "sample_count": 1,
+      "first_seen": "2026-08-14T07:08:52.589Z"
     },
     {
-      "id": "tr_09d2401f4e4ebb39",
-      "operation_id": "op_2a547e4efa891268",
-      "operation": "GET formulae.brew.sh /api/formula/node.json",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-08-14T01:04:47.735Z",
-      "last_known_before": "2026-08-13T18:48:28.282Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_af153aeea3f2179b"
-      ],
-      "explanation": "Dominant response shape for GET formulae.brew.sh /api/formula/node.json changed since baseline. Diff: added $.vulnerabilities (object)."
+      "operation": "GET openlibrary.org /works/OL45804W.json",
+      "sample_count": 1,
+      "first_seen": "2026-08-14T07:08:13.472Z"
+    },
+    {
+      "operation": "GET search.maven.org /solrsearch/select",
+      "sample_count": 1,
+      "first_seen": "2026-08-14T07:08:34.510Z"
     }
-  ],
-  "new_operations": []
+  ]
 }
