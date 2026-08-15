@@ -1,13 +1,13 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-15T00:37:35.402Z",
+  "started_at": "2026-08-15T06:19:47.341Z",
   "total": 176,
-  "ok": 174,
-  "failed": 2,
-  "body_captured": 174,
+  "ok": 172,
+  "failed": 4,
+  "body_captured": 172,
   "by_status": {
-    "200": 174,
-    "ERR": 2
+    "200": 172,
+    "ERR": 4
   },
   "failures": [
     {
@@ -17,13 +17,25 @@
       "note": "ERR_TLS_CERT_ALTNAME_INVALID"
     },
     {
+      "id": "httpbin-json",
+      "url": "https://httpbin.org/json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
       "id": "maven-search-guava",
       "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "httpbin-get",
+      "url": "https://httpbin.org/get",
       "status": null,
       "note": "timeout"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-15T00:39:12.799Z",
-  "capture": "data/observatory/capture-2026-08-15T00-39-12-521Z.ndjson.gz"
+  "finished_at": "2026-08-15T06:22:06.591Z",
+  "capture": "data/observatory/capture-2026-08-15T06-22-06-313Z.ndjson.gz"
 }
