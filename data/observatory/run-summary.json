@@ -1,13 +1,15 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-15T06:19:47.341Z",
+  "started_at": "2026-08-15T12:17:10.649Z",
   "total": 176,
-  "ok": 172,
-  "failed": 4,
-  "body_captured": 172,
+  "ok": 170,
+  "failed": 6,
+  "body_captured": 170,
   "by_status": {
-    "200": 172,
-    "ERR": 4
+    "200": 170,
+    "500": 2,
+    "503": 2,
+    "ERR": 2
   },
   "failures": [
     {
@@ -19,8 +21,8 @@
     {
       "id": "httpbin-json",
       "url": "https://httpbin.org/json",
-      "status": null,
-      "note": "timeout"
+      "status": 503,
+      "note": null
     },
     {
       "id": "maven-search-guava",
@@ -29,13 +31,25 @@
       "note": "timeout"
     },
     {
+      "id": "fda-drug-event",
+      "url": "https://api.fda.gov/drug/event.json?limit=1",
+      "status": 500,
+      "note": null
+    },
+    {
       "id": "httpbin-get",
       "url": "https://httpbin.org/get",
-      "status": null,
-      "note": "timeout"
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "fda-food-enforcement",
+      "url": "https://api.fda.gov/food/enforcement.json?limit=1",
+      "status": 500,
+      "note": null
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-15T06:22:06.591Z",
-  "capture": "data/observatory/capture-2026-08-15T06-22-06-313Z.ndjson.gz"
+  "finished_at": "2026-08-15T12:19:34.170Z",
+  "capture": "data/observatory/capture-2026-08-15T12-19-33-863Z.ndjson.gz"
 }
