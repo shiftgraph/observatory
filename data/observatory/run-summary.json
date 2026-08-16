@@ -1,14 +1,13 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-16T12:17:43.808Z",
+  "started_at": "2026-08-16T18:13:23.264Z",
   "total": 176,
-  "ok": 173,
-  "failed": 3,
-  "body_captured": 173,
+  "ok": 174,
+  "failed": 2,
+  "body_captured": 174,
   "by_status": {
-    "200": 173,
-    "503": 2,
-    "ERR": 1
+    "200": 174,
+    "ERR": 2
   },
   "failures": [
     {
@@ -18,19 +17,13 @@
       "note": "ERR_TLS_CERT_ALTNAME_INVALID"
     },
     {
-      "id": "httpbin-json",
-      "url": "https://httpbin.org/json",
-      "status": 503,
-      "note": null
-    },
-    {
-      "id": "httpbin-get",
-      "url": "https://httpbin.org/get",
-      "status": 503,
-      "note": null
+      "id": "adviceslip",
+      "url": "https://api.adviceslip.com/advice",
+      "status": null,
+      "note": "UND_ERR_CONNECT_TIMEOUT"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-16T12:19:09.705Z",
-  "capture": "data/observatory/capture-2026-08-16T12-19-09-428Z.ndjson.gz"
+  "finished_at": "2026-08-16T18:14:53.918Z",
+  "capture": "data/observatory/capture-2026-08-16T18-14-53-678Z.ndjson.gz"
 }
