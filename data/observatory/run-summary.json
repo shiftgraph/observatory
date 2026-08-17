@@ -1,14 +1,13 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-17T12:21:22.469Z",
+  "started_at": "2026-08-17T18:22:45.882Z",
   "total": 176,
-  "ok": 172,
-  "failed": 4,
-  "body_captured": 172,
+  "ok": 174,
+  "failed": 2,
+  "body_captured": 174,
   "by_status": {
-    "200": 172,
-    "503": 3,
-    "ERR": 1
+    "200": 174,
+    "ERR": 2
   },
   "failures": [
     {
@@ -18,25 +17,13 @@
       "note": "ERR_TLS_CERT_ALTNAME_INVALID"
     },
     {
-      "id": "openlibrary-work",
-      "url": "https://openlibrary.org/works/OL45804W.json",
-      "status": 503,
-      "note": null
-    },
-    {
-      "id": "httpbin-json",
-      "url": "https://httpbin.org/json",
-      "status": 503,
-      "note": null
-    },
-    {
-      "id": "httpbin-get",
-      "url": "https://httpbin.org/get",
-      "status": 503,
-      "note": null
+      "id": "adviceslip",
+      "url": "https://api.adviceslip.com/advice",
+      "status": null,
+      "note": "UND_ERR_CONNECT_TIMEOUT"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-17T12:23:14.116Z",
-  "capture": "data/observatory/capture-2026-08-17T12-23-13-847Z.ndjson.gz"
+  "finished_at": "2026-08-17T18:24:30.473Z",
+  "capture": "data/observatory/capture-2026-08-17T18-24-30-229Z.ndjson.gz"
 }
