@@ -1,14 +1,14 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-17T06:32:23.060Z",
+  "started_at": "2026-08-17T12:21:22.469Z",
   "total": 176,
-  "ok": 170,
-  "failed": 6,
-  "body_captured": 170,
+  "ok": 172,
+  "failed": 4,
+  "body_captured": 172,
   "by_status": {
-    "200": 170,
-    "503": 1,
-    "ERR": 5
+    "200": 172,
+    "503": 3,
+    "ERR": 1
   },
   "failures": [
     {
@@ -20,8 +20,8 @@
     {
       "id": "openlibrary-work",
       "url": "https://openlibrary.org/works/OL45804W.json",
-      "status": null,
-      "note": "UND_ERR_CONNECT_TIMEOUT"
+      "status": 503,
+      "note": null
     },
     {
       "id": "httpbin-json",
@@ -30,25 +30,13 @@
       "note": null
     },
     {
-      "id": "openlibrary-search",
-      "url": "https://openlibrary.org/search.json?q=api&limit=2",
-      "status": null,
-      "note": "UND_ERR_CONNECT_TIMEOUT"
-    },
-    {
       "id": "httpbin-get",
       "url": "https://httpbin.org/get",
-      "status": null,
-      "note": "timeout"
-    },
-    {
-      "id": "gbif-occurrence-search",
-      "url": "https://api.gbif.org/v1/occurrence/search?limit=2",
-      "status": null,
-      "note": "timeout"
+      "status": 503,
+      "note": null
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-17T06:34:39.005Z",
-  "capture": "data/observatory/capture-2026-08-17T06-34-38-733Z.ndjson.gz"
+  "finished_at": "2026-08-17T12:23:14.116Z",
+  "capture": "data/observatory/capture-2026-08-17T12-23-13-847Z.ndjson.gz"
 }
