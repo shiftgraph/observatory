@@ -1,13 +1,14 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-17T00:37:26.185Z",
+  "started_at": "2026-08-17T06:32:23.060Z",
   "total": 176,
-  "ok": 173,
-  "failed": 3,
-  "body_captured": 173,
+  "ok": 170,
+  "failed": 6,
+  "body_captured": 170,
   "by_status": {
-    "200": 173,
-    "ERR": 3
+    "200": 170,
+    "503": 1,
+    "ERR": 5
   },
   "failures": [
     {
@@ -23,13 +24,31 @@
       "note": "UND_ERR_CONNECT_TIMEOUT"
     },
     {
+      "id": "httpbin-json",
+      "url": "https://httpbin.org/json",
+      "status": 503,
+      "note": null
+    },
+    {
       "id": "openlibrary-search",
       "url": "https://openlibrary.org/search.json?q=api&limit=2",
       "status": null,
       "note": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "id": "httpbin-get",
+      "url": "https://httpbin.org/get",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "gbif-occurrence-search",
+      "url": "https://api.gbif.org/v1/occurrence/search?limit=2",
+      "status": null,
+      "note": "timeout"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-17T00:39:09.364Z",
-  "capture": "data/observatory/capture-2026-08-17T00-39-09-087Z.ndjson.gz"
+  "finished_at": "2026-08-17T06:34:39.005Z",
+  "capture": "data/observatory/capture-2026-08-17T06-34-38-733Z.ndjson.gz"
 }
