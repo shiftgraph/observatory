@@ -1,13 +1,13 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-17T18:22:45.882Z",
+  "started_at": "2026-08-18T00:37:25.557Z",
   "total": 176,
-  "ok": 174,
-  "failed": 2,
-  "body_captured": 174,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 175,
   "by_status": {
-    "200": 174,
-    "ERR": 2
+    "200": 175,
+    "ERR": 1
   },
   "failures": [
     {
@@ -15,15 +15,9 @@
       "url": "https://status.sendgrid.com/api/v2/summary.json",
       "status": null,
       "note": "ERR_TLS_CERT_ALTNAME_INVALID"
-    },
-    {
-      "id": "adviceslip",
-      "url": "https://api.adviceslip.com/advice",
-      "status": null,
-      "note": "UND_ERR_CONNECT_TIMEOUT"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-17T18:24:30.473Z",
-  "capture": "data/observatory/capture-2026-08-17T18-24-30-229Z.ndjson.gz"
+  "finished_at": "2026-08-18T00:38:50.239Z",
+  "capture": "data/observatory/capture-2026-08-18T00-38-49-966Z.ndjson.gz"
 }
