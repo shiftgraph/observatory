@@ -1,13 +1,13 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-21T00:39:37.748Z",
+  "started_at": "2026-08-21T06:27:18.784Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 164,
+  "ok": 174,
+  "failed": 2,
+  "body_captured": 174,
   "by_status": {
-    "200": 164,
-    "403": 11,
+    "200": 174,
+    "503": 1,
     "ERR": 1
   },
   "failures": [
@@ -16,65 +16,15 @@
       "url": "https://status.sendgrid.com/api/v2/summary.json",
       "status": null,
       "note": "ERR_TLS_CERT_ALTNAME_INVALID"
+    },
+    {
+      "id": "httpbin-get",
+      "url": "https://httpbin.org/get",
+      "status": 503,
+      "note": null
     }
   ],
-  "shapeless": [
-    {
-      "id": "github-languages",
-      "url": "https://api.github.com/repos/facebook/react/languages",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-topics",
-      "url": "https://api.github.com/repos/facebook/react/topics",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-license",
-      "url": "https://api.github.com/repos/facebook/react/license",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-contributors",
-      "url": "https://api.github.com/repos/facebook/react/contributors?per_page=3",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-org",
-      "url": "https://api.github.com/orgs/github",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-user",
-      "url": "https://api.github.com/users/torvalds",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-meta",
-      "url": "https://api.github.com/meta",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-gitignore-templates",
-      "url": "https://api.github.com/gitignore/templates",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-licenses",
-      "url": "https://api.github.com/licenses",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-license-mit",
-      "url": "https://api.github.com/licenses/mit",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-versions",
-      "url": "https://api.github.com/versions",
-      "reason": "non-2xx (403)"
-    }
-  ],
-  "finished_at": "2026-08-21T00:41:41.809Z",
-  "capture": "data/observatory/capture-2026-08-21T00-41-41-517Z.ndjson.gz"
+  "shapeless": [],
+  "finished_at": "2026-08-21T06:28:49.838Z",
+  "capture": "data/observatory/capture-2026-08-21T06-28-49-530Z.ndjson.gz"
 }
