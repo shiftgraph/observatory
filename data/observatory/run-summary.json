@@ -1,12 +1,13 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-20T18:22:55.335Z",
+  "started_at": "2026-08-21T00:39:37.748Z",
   "total": 176,
   "ok": 175,
   "failed": 1,
-  "body_captured": 175,
+  "body_captured": 164,
   "by_status": {
-    "200": 175,
+    "200": 164,
+    "403": 11,
     "ERR": 1
   },
   "failures": [
@@ -17,7 +18,63 @@
       "note": "ERR_TLS_CERT_ALTNAME_INVALID"
     }
   ],
-  "shapeless": [],
-  "finished_at": "2026-08-20T18:24:13.928Z",
-  "capture": "data/observatory/capture-2026-08-20T18-24-13-688Z.ndjson.gz"
+  "shapeless": [
+    {
+      "id": "github-languages",
+      "url": "https://api.github.com/repos/facebook/react/languages",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-topics",
+      "url": "https://api.github.com/repos/facebook/react/topics",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-license",
+      "url": "https://api.github.com/repos/facebook/react/license",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-contributors",
+      "url": "https://api.github.com/repos/facebook/react/contributors?per_page=3",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-org",
+      "url": "https://api.github.com/orgs/github",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-user",
+      "url": "https://api.github.com/users/torvalds",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-meta",
+      "url": "https://api.github.com/meta",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-gitignore-templates",
+      "url": "https://api.github.com/gitignore/templates",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-licenses",
+      "url": "https://api.github.com/licenses",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-license-mit",
+      "url": "https://api.github.com/licenses/mit",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-versions",
+      "url": "https://api.github.com/versions",
+      "reason": "non-2xx (403)"
+    }
+  ],
+  "finished_at": "2026-08-21T00:41:41.809Z",
+  "capture": "data/observatory/capture-2026-08-21T00-41-41-517Z.ndjson.gz"
 }
