@@ -1,13 +1,12 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-21T12:24:36.254Z",
+  "started_at": "2026-08-21T18:21:28.133Z",
   "total": 176,
-  "ok": 174,
-  "failed": 2,
-  "body_captured": 174,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 175,
   "by_status": {
-    "200": 174,
-    "503": 1,
+    "200": 175,
     "ERR": 1
   },
   "failures": [
@@ -16,15 +15,9 @@
       "url": "https://status.sendgrid.com/api/v2/summary.json",
       "status": null,
       "note": "ERR_TLS_CERT_ALTNAME_INVALID"
-    },
-    {
-      "id": "httpbin-get",
-      "url": "https://httpbin.org/get",
-      "status": 503,
-      "note": null
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-21T12:26:03.804Z",
-  "capture": "data/observatory/capture-2026-08-21T12-26-03-526Z.ndjson.gz"
+  "finished_at": "2026-08-21T18:23:09.737Z",
+  "capture": "data/observatory/capture-2026-08-21T18-23-09-495Z.ndjson.gz"
 }

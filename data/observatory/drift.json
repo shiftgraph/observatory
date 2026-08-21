@@ -1,28 +1,19 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-08-21T06:28:51.006Z",
-  "drift_event_count": 1,
-  "new_operation_count": 0,
-  "drift_events": [
+  "baseline_created_at": "2026-08-21T12:26:05.008Z",
+  "drift_event_count": 0,
+  "new_operation_count": 2,
+  "drift_events": [],
+  "new_operations": [
     {
-      "id": "tr_3bb357aedc073f04",
-      "operation_id": "op_b7d58ad539e72cba",
-      "operation": "GET api.coingecko.com /api/v3/coins/bitcoin",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-08-21T12:25:54.679Z",
-      "last_known_before": "2026-08-21T06:28:40.102Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_bac9baa1f901060f"
-      ],
-      "explanation": "Dominant response shape for GET api.coingecko.com /api/v3/coins/bitcoin changed since baseline. Diff: added $.listing_currency (string); added $.listing_source (string); added $.listing_source_url (string)."
+      "operation": "GET httpbin.org /get",
+      "sample_count": 1,
+      "first_seen": "2026-08-21T18:22:51.405Z"
+    },
+    {
+      "operation": "GET httpbin.org /json",
+      "sample_count": 1,
+      "first_seen": "2026-08-21T18:22:14.099Z"
     }
-  ],
-  "new_operations": []
+  ]
 }
