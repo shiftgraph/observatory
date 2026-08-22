@@ -1,14 +1,13 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-22T00:37:14.097Z",
+  "started_at": "2026-08-22T06:21:03.627Z",
   "total": 176,
   "ok": 174,
   "failed": 2,
   "body_captured": 174,
   "by_status": {
     "200": 174,
-    "500": 1,
-    "ERR": 1
+    "ERR": 2
   },
   "failures": [
     {
@@ -18,13 +17,13 @@
       "note": "ERR_TLS_CERT_ALTNAME_INVALID"
     },
     {
-      "id": "nws-points",
-      "url": "https://api.weather.gov/points/39.7456,-97.0892",
-      "status": 500,
-      "note": null
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-22T00:38:36.828Z",
-  "capture": "data/observatory/capture-2026-08-22T00-38-36-520Z.ndjson.gz"
+  "finished_at": "2026-08-22T06:22:39.274Z",
+  "capture": "data/observatory/capture-2026-08-22T06-22-38-997Z.ndjson.gz"
 }

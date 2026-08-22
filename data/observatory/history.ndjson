@@ -111,3 +111,4 @@
 {"at":"2026-08-21T12:26:03.804Z","endpoints":176,"ok":174,"failed":2,"shaped":174,"shapeless":0,"registry_fingerprint":"176:eb74bc6016fd","drift_events":1,"new_ops":0,"drift":[{"op":"GET api.coingecko.com /api/v3/coins/bitcoin","type":"dominant_response_shape_changed","severity":"low"}]}
 {"at":"2026-08-21T18:23:09.737Z","endpoints":176,"ok":175,"failed":1,"shaped":175,"shapeless":0,"registry_fingerprint":"176:eb74bc6016fd","drift_events":0,"new_ops":2,"drift":[]}
 {"at":"2026-08-22T00:38:36.828Z","endpoints":176,"ok":174,"failed":2,"shaped":174,"shapeless":0,"registry_fingerprint":"176:eb74bc6016fd","drift_events":0,"new_ops":0,"drift":[]}
+{"at":"2026-08-22T06:22:39.274Z","endpoints":176,"ok":174,"failed":2,"shaped":174,"shapeless":0,"registry_fingerprint":"176:eb74bc6016fd","drift_events":0,"new_ops":1,"drift":[]}
