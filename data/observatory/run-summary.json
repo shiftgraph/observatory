@@ -1,13 +1,13 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-22T18:14:35.225Z",
+  "started_at": "2026-08-23T00:40:06.100Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 175,
+  "ok": 174,
+  "failed": 2,
+  "body_captured": 174,
   "by_status": {
-    "200": 175,
-    "ERR": 1
+    "200": 174,
+    "ERR": 2
   },
   "failures": [
     {
@@ -15,9 +15,15 @@
       "url": "https://status.sendgrid.com/api/v2/summary.json",
       "status": null,
       "note": "ERR_TLS_CERT_ALTNAME_INVALID"
+    },
+    {
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-22T18:16:16.973Z",
-  "capture": "data/observatory/capture-2026-08-22T18-16-16-657Z.ndjson.gz"
+  "finished_at": "2026-08-23T00:41:37.075Z",
+  "capture": "data/observatory/capture-2026-08-23T00-41-36-796Z.ndjson.gz"
 }
