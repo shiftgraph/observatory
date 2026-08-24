@@ -1,6 +1,6 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-08-23T12:19:42.085Z",
+  "baseline_created_at": "2026-08-23T18:16:07.830Z",
   "drift_event_count": 0,
   "new_operation_count": 0,
   "drift_events": [],
