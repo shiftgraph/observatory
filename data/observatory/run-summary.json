@@ -1,6 +1,6 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-24T06:35:17.380Z",
+  "started_at": "2026-08-24T12:25:50.316Z",
   "total": 176,
   "ok": 174,
   "failed": 2,
@@ -17,13 +17,13 @@
       "note": "ERR_TLS_CERT_ALTNAME_INVALID"
     },
     {
-      "id": "nuget-index",
-      "url": "https://api.nuget.org/v3/index.json",
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
       "status": null,
-      "note": "ETIMEDOUT"
+      "note": "timeout"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-24T06:36:42.423Z",
-  "capture": "data/observatory/capture-2026-08-24T06-36-42-140Z.ndjson.gz"
+  "finished_at": "2026-08-24T12:27:45.674Z",
+  "capture": "data/observatory/capture-2026-08-24T12-27-45-396Z.ndjson.gz"
 }
