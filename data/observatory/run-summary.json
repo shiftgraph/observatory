@@ -1,13 +1,13 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-25T00:38:29.910Z",
+  "started_at": "2026-08-25T06:26:37.640Z",
   "total": 176,
-  "ok": 174,
-  "failed": 2,
-  "body_captured": 174,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 175,
   "by_status": {
-    "200": 174,
-    "ERR": 2
+    "200": 175,
+    "ERR": 1
   },
   "failures": [
     {
@@ -15,15 +15,9 @@
       "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
       "status": null,
       "note": "timeout"
-    },
-    {
-      "id": "artic-artworks",
-      "url": "https://api.artic.edu/api/v1/artworks?limit=2",
-      "status": null,
-      "note": "timeout"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-08-25T00:40:13.993Z",
-  "capture": "data/observatory/capture-2026-08-25T00-40-13-714Z.ndjson.gz"
+  "finished_at": "2026-08-25T06:28:10.835Z",
+  "capture": "data/observatory/capture-2026-08-25T06-28-10-558Z.ndjson.gz"
 }
