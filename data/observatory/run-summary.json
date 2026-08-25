@@ -1,15 +1,23 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-25T12:26:09.580Z",
+  "started_at": "2026-08-25T18:23:12.766Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 176,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 175,
   "by_status": {
-    "200": 176
+    "200": 175,
+    "ERR": 1
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "status-sendgrid",
+      "url": "https://status.sendgrid.com/api/v2/summary.json",
+      "status": null,
+      "note": "ERR_SSL_SSLV3_ALERT_HANDSHAKE_FAILURE"
+    }
+  ],
   "shapeless": [],
-  "finished_at": "2026-08-25T12:27:38.379Z",
-  "capture": "data/observatory/capture-2026-08-25T12-27-38-053Z.ndjson.gz"
+  "finished_at": "2026-08-25T18:24:38.344Z",
+  "capture": "data/observatory/capture-2026-08-25T18-24-38-033Z.ndjson.gz"
 }

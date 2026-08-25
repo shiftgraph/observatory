@@ -1,53 +1,8 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-08-25T06:28:12.063Z",
-  "drift_event_count": 2,
-  "new_operation_count": 1,
-  "drift_events": [
-    {
-      "id": "tr_07d289e86dffac1f",
-      "operation_id": "op_4aae184591a0882c",
-      "operation": "GET crates.io /api/v1/crates/serde",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-08-25T12:26:45.824Z",
-      "last_known_before": "2026-08-25T06:27:07.922Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_dbd6a5582ea3d8b4"
-      ],
-      "explanation": "Dominant response shape for GET crates.io /api/v1/crates/serde changed since baseline. Diff: added $.versions[].audit_actions[].user.github_username_matches (boolean); added $.versions[].published_by.github_username_matches (boolean)."
-    },
-    {
-      "id": "tr_f6a887291567f0f7",
-      "operation_id": "op_acf91a3d457fe56e",
-      "operation": "GET crates.io /api/v1/crates/serde/versions",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-08-25T12:27:15.824Z",
-      "last_known_before": "2026-08-25T06:27:49.889Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_b370102d358cf7e7"
-      ],
-      "explanation": "Dominant response shape for GET crates.io /api/v1/crates/serde/versions changed since baseline. Diff: added $.versions[].audit_actions[].user.github_username_matches (boolean); added $.versions[].published_by.github_username_matches (boolean)."
-    }
-  ],
-  "new_operations": [
-    {
-      "operation": "GET search.maven.org /solrsearch/select",
-      "sample_count": 1,
-      "first_seen": "2026-08-25T12:26:58.079Z"
-    }
-  ]
+  "baseline_created_at": "2026-08-25T12:27:39.486Z",
+  "drift_event_count": 0,
+  "new_operation_count": 0,
+  "drift_events": [],
+  "new_operations": []
 }
