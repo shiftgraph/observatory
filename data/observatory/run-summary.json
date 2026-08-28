@@ -1,15 +1,102 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-27T17:04:04.009Z",
+  "started_at": "2026-08-28T01:53:18.849Z",
   "total": 176,
   "ok": 176,
   "failed": 0,
-  "body_captured": 176,
+  "body_captured": 159,
   "by_status": {
-    "200": 176
+    "200": 159,
+    "403": 17
   },
   "failures": [],
-  "shapeless": [],
-  "finished_at": "2026-08-27T17:05:37.865Z",
-  "capture": "data/observatory/capture-2026-08-27T17-05-37-534Z.ndjson.gz"
+  "shapeless": [
+    {
+      "id": "github-repo-react",
+      "url": "https://api.github.com/repos/facebook/react",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-repo-node",
+      "url": "https://api.github.com/repos/nodejs/node",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-repo-hello-world",
+      "url": "https://api.github.com/repos/octocat/Hello-World",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-repo-next",
+      "url": "https://api.github.com/repos/vercel/next.js",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-release-latest",
+      "url": "https://api.github.com/repos/facebook/react/releases/latest",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-tags",
+      "url": "https://api.github.com/repos/facebook/react/tags?per_page=3",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-languages",
+      "url": "https://api.github.com/repos/facebook/react/languages",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-topics",
+      "url": "https://api.github.com/repos/facebook/react/topics",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-license",
+      "url": "https://api.github.com/repos/facebook/react/license",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-contributors",
+      "url": "https://api.github.com/repos/facebook/react/contributors?per_page=3",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-org",
+      "url": "https://api.github.com/orgs/github",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-user",
+      "url": "https://api.github.com/users/torvalds",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-meta",
+      "url": "https://api.github.com/meta",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-gitignore-templates",
+      "url": "https://api.github.com/gitignore/templates",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-licenses",
+      "url": "https://api.github.com/licenses",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-license-mit",
+      "url": "https://api.github.com/licenses/mit",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-versions",
+      "url": "https://api.github.com/versions",
+      "reason": "non-2xx (403)"
+    }
+  ],
+  "finished_at": "2026-08-28T01:54:43.055Z",
+  "capture": "data/observatory/capture-2026-08-28T01-54-42-757Z.ndjson.gz"
 }
