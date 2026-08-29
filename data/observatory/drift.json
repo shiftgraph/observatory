@@ -1,28 +1,8 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-08-29T01:19:00.304Z",
-  "drift_event_count": 1,
+  "baseline_created_at": "2026-08-29T11:58:15.937Z",
+  "drift_event_count": 0,
   "new_operation_count": 0,
-  "drift_events": [
-    {
-      "id": "tr_d5b433cd614dc370",
-      "operation_id": "op_2a547e4efa891268",
-      "operation": "GET formulae.brew.sh /api/formula/node.json",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-08-29T11:57:57.106Z",
-      "last_known_before": "2026-08-29T01:18:42.663Z",
-      "severity": "high",
-      "confidence": 0.7,
-      "confidence_label": "medium-high",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_af153aeea3f2179b"
-      ],
-      "explanation": "Dominant response shape for GET formulae.brew.sh /api/formula/node.json changed since baseline. Diff: removed $.bottle.stable.files.sonoma (object)."
-    }
-  ],
+  "drift_events": [],
   "new_operations": []
 }
