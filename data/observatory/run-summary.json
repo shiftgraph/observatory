@@ -1,23 +1,15 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-08-28T17:51:52.925Z",
+  "started_at": "2026-08-29T01:17:37.570Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 175,
+  "ok": 176,
+  "failed": 0,
+  "body_captured": 176,
   "by_status": {
-    "200": 175,
-    "ERR": 1
+    "200": 176
   },
-  "failures": [
-    {
-      "id": "openlibrary-search",
-      "url": "https://openlibrary.org/search.json?q=api&limit=2",
-      "status": null,
-      "note": "UND_ERR_CONNECT_TIMEOUT"
-    }
-  ],
+  "failures": [],
   "shapeless": [],
-  "finished_at": "2026-08-28T17:53:27.161Z",
-  "capture": "data/observatory/capture-2026-08-28T17-53-26-845Z.ndjson.gz"
+  "finished_at": "2026-08-29T01:18:59.337Z",
+  "capture": "data/observatory/capture-2026-08-29T01-18-59-087Z.ndjson.gz"
 }
