@@ -1,8 +1,28 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-08-29T16:03:21.137Z",
-  "drift_event_count": 0,
+  "baseline_created_at": "2026-08-29T20:10:57.347Z",
+  "drift_event_count": 1,
   "new_operation_count": 0,
-  "drift_events": [],
+  "drift_events": [
+    {
+      "id": "tr_c39674fa29dfe86e",
+      "operation_id": "op_92e2069838dd0fae",
+      "operation": "GET pokeapi.co /api/v2/pokemon/{int}",
+      "transition_type": "dominant_response_shape_changed",
+      "first_seen": "2026-08-30T02:20:28.407Z",
+      "last_known_before": "2026-08-29T20:10:17.468Z",
+      "severity": "low",
+      "confidence": 0.5,
+      "confidence_label": "medium",
+      "causal_language": "associated",
+      "degraded_reasons": [
+        "no deployment data supplied"
+      ],
+      "evidence_ids": [
+        "ev_1e8772b7ef2941b2"
+      ],
+      "explanation": "Dominant response shape for GET pokeapi.co /api/v2/pokemon/{int} changed since baseline. Diff: added $.sprites.versions.generation-ii.crystal.animated (object); added $.sprites.versions.generation-v.icons (object)."
+    }
+  ],
   "new_operations": []
 }
