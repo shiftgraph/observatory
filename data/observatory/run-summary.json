@@ -1,15 +1,29 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-02T10:09:21.371Z",
+  "started_at": "2026-09-02T20:15:55.955Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 176,
+  "ok": 174,
+  "failed": 2,
+  "body_captured": 174,
   "by_status": {
-    "200": 176
+    "200": 174,
+    "ERR": 2
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "openmeteo-geocode",
+      "url": "https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=1",
+      "status": null,
+      "note": "ETIMEDOUT"
+    },
+    {
+      "id": "gbif-occurrence-search",
+      "url": "https://api.gbif.org/v1/occurrence/search?limit=2",
+      "status": null,
+      "note": "timeout"
+    }
+  ],
   "shapeless": [],
-  "finished_at": "2026-09-02T10:10:49.715Z",
-  "capture": "data/observatory/capture-2026-09-02T10-10-49-395Z.ndjson.gz"
+  "finished_at": "2026-09-02T20:17:37.202Z",
+  "capture": "data/observatory/capture-2026-09-02T20-17-36-920Z.ndjson.gz"
 }
