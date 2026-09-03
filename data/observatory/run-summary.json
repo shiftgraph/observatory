@@ -1,29 +1,27 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-02T20:15:55.955Z",
+  "started_at": "2026-09-03T02:00:16.863Z",
   "total": 176,
-  "ok": 174,
-  "failed": 2,
+  "ok": 176,
+  "failed": 0,
   "body_captured": 174,
   "by_status": {
     "200": 174,
-    "ERR": 2
+    "403": 2
   },
-  "failures": [
+  "failures": [],
+  "shapeless": [
     {
-      "id": "openmeteo-geocode",
-      "url": "https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=1",
-      "status": null,
-      "note": "ETIMEDOUT"
+      "id": "status-shopify",
+      "url": "https://www.shopifystatus.com/api/v2/summary.json",
+      "reason": "non-2xx (403)"
     },
     {
-      "id": "gbif-occurrence-search",
-      "url": "https://api.gbif.org/v1/occurrence/search?limit=2",
-      "status": null,
-      "note": "timeout"
+      "id": "github-versions",
+      "url": "https://api.github.com/versions",
+      "reason": "non-2xx (403)"
     }
   ],
-  "shapeless": [],
-  "finished_at": "2026-09-02T20:17:37.202Z",
-  "capture": "data/observatory/capture-2026-09-02T20-17-36-920Z.ndjson.gz"
+  "finished_at": "2026-09-03T02:01:49.280Z",
+  "capture": "data/observatory/capture-2026-09-03T02-01-48-960Z.ndjson.gz"
 }
