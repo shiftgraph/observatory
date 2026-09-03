@@ -1,27 +1,23 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-03T02:00:16.863Z",
+  "started_at": "2026-09-03T10:21:05.386Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 174,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 175,
   "by_status": {
-    "200": 174,
-    "403": 2
+    "200": 175,
+    "ERR": 1
   },
-  "failures": [],
-  "shapeless": [
+  "failures": [
     {
-      "id": "status-shopify",
-      "url": "https://www.shopifystatus.com/api/v2/summary.json",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-versions",
-      "url": "https://api.github.com/versions",
-      "reason": "non-2xx (403)"
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
     }
   ],
-  "finished_at": "2026-09-03T02:01:49.280Z",
-  "capture": "data/observatory/capture-2026-09-03T02-01-48-960Z.ndjson.gz"
+  "shapeless": [],
+  "finished_at": "2026-09-03T10:22:44.538Z",
+  "capture": "data/observatory/capture-2026-09-03T10-22-44-250Z.ndjson.gz"
 }
