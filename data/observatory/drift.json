@@ -1,19 +1,8 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-09-04T01:57:22.337Z",
+  "baseline_created_at": "2026-09-04T10:10:06.093Z",
   "drift_event_count": 0,
-  "new_operation_count": 2,
+  "new_operation_count": 0,
   "drift_events": [],
-  "new_operations": [
-    {
-      "operation": "GET openlibrary.org /search.json",
-      "sample_count": 1,
-      "first_seen": "2026-09-04T10:09:47.471Z"
-    },
-    {
-      "operation": "GET openlibrary.org /works/OL45804W.json",
-      "sample_count": 1,
-      "first_seen": "2026-09-04T10:09:25.300Z"
-    }
-  ]
+  "new_operations": []
 }
