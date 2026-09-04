@@ -1,8 +1,28 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-09-04T10:10:06.093Z",
-  "drift_event_count": 0,
+  "baseline_created_at": "2026-09-04T15:25:36.685Z",
+  "drift_event_count": 1,
   "new_operation_count": 0,
-  "drift_events": [],
+  "drift_events": [
+    {
+      "id": "tr_52d0646ac7fd7a03",
+      "operation_id": "op_7f88daf0306b7eb8",
+      "operation": "GET www.wikidata.org /w/api.php",
+      "transition_type": "dominant_response_shape_changed",
+      "first_seen": "2026-09-04T20:02:19.743Z",
+      "last_known_before": "2026-09-04T15:25:11.762Z",
+      "severity": "low",
+      "confidence": 0.5,
+      "confidence_label": "medium",
+      "causal_language": "associated",
+      "degraded_reasons": [
+        "no deployment data supplied"
+      ],
+      "evidence_ids": [
+        "ev_066e3a0803c52c56"
+      ],
+      "explanation": "Dominant response shape for GET www.wikidata.org /w/api.php changed since baseline. Diff: added $.entities.Q42.claims.P8895[].qualifiers (object)."
+    }
+  ],
   "new_operations": []
 }
