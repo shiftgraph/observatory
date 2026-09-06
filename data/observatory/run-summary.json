@@ -1,6 +1,6 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-05T19:41:06.909Z",
+  "started_at": "2026-09-06T01:51:12.670Z",
   "total": 176,
   "ok": 175,
   "failed": 1,
@@ -11,13 +11,13 @@
   },
   "failures": [
     {
-      "id": "maven-search-guava",
-      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "id": "gbif-occurrence-search",
+      "url": "https://api.gbif.org/v1/occurrence/search?limit=2",
       "status": null,
       "note": "timeout"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-09-05T19:42:51.790Z",
-  "capture": "data/observatory/capture-2026-09-05T19-42-51-473Z.ndjson.gz"
+  "finished_at": "2026-09-06T01:53:43.299Z",
+  "capture": "data/observatory/capture-2026-09-06T01-53-43-044Z.ndjson.gz"
 }
