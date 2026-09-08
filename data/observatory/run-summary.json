@@ -1,15 +1,23 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-07T20:53:58.687Z",
+  "started_at": "2026-09-08T01:59:19.394Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 176,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 175,
   "by_status": {
-    "200": 176
+    "200": 175,
+    "ERR": 1
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
+    }
+  ],
   "shapeless": [],
-  "finished_at": "2026-09-07T20:55:40.276Z",
-  "capture": "data/observatory/capture-2026-09-07T20-55-39-989Z.ndjson.gz"
+  "finished_at": "2026-09-08T02:01:18.400Z",
+  "capture": "data/observatory/capture-2026-09-08T02-01-18-159Z.ndjson.gz"
 }
