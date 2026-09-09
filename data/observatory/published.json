@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-08T20:29:41.024Z",
+  "generated_at": "2026-09-09T02:06:24.725Z",
   "watching": {
     "endpoints": 176,
     "providers": 108,
     "categories": 15
   },
-  "captures_retained": 176,
+  "captures_retained": 177,
   "record": {
     "since": "2026-07-27T17:58:12.147Z",
-    "sweeps": 169,
+    "sweeps": 170,
     "failed_runs": 0,
-    "endpoints_reached": 29540,
-    "endpoints_profiled": 29441,
+    "endpoints_reached": 29716,
+    "endpoints_profiled": 29617,
     "drift_events": 11,
     "latest": {
-      "at": "2026-09-08T20:29:39.317Z",
-      "reached": 173,
-      "profiled": 173,
+      "at": "2026-09-09T02:06:23.007Z",
+      "reached": 176,
+      "profiled": 176,
       "unprofilable": 0
     },
     "publishable": true,
