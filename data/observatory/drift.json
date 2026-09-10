@@ -1,8 +1,28 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-09-10T10:15:46.824Z",
-  "drift_event_count": 0,
+  "baseline_created_at": "2026-09-10T15:29:02.767Z",
+  "drift_event_count": 1,
   "new_operation_count": 0,
-  "drift_events": [],
+  "drift_events": [
+    {
+      "id": "tr_4588fe27d1d9fc9f",
+      "operation_id": "op_2a547e4efa891268",
+      "operation": "GET formulae.brew.sh /api/formula/node.json",
+      "transition_type": "dominant_response_shape_changed",
+      "first_seen": "2026-09-10T20:14:02.847Z",
+      "last_known_before": "2026-09-10T15:28:44.280Z",
+      "severity": "low",
+      "confidence": 0.5,
+      "confidence_label": "medium",
+      "causal_language": "associated",
+      "degraded_reasons": [
+        "no deployment data supplied"
+      ],
+      "evidence_ids": [
+        "ev_af153aeea3f2179b"
+      ],
+      "explanation": "Dominant response shape for GET formulae.brew.sh /api/formula/node.json changed since baseline. Diff: added $.bottle.stable.files.arm64_golden_gate (object)."
+    }
+  ],
   "new_operations": []
 }
