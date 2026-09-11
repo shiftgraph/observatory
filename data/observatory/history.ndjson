@@ -185,3 +185,4 @@
 {"at":"2026-09-10T15:29:01.738Z","endpoints":176,"ok":175,"failed":1,"shaped":175,"shapeless":0,"registry_fingerprint":"176:eb74bc6016fd","drift_events":0,"new_ops":0,"drift":[]}
 {"at":"2026-09-10T20:14:19.389Z","endpoints":176,"ok":175,"failed":1,"shaped":175,"shapeless":0,"registry_fingerprint":"176:eb74bc6016fd","drift_events":1,"new_ops":0,"drift":[{"op":"GET formulae.brew.sh /api/formula/node.json","type":"dominant_response_shape_changed","severity":"low"}]}
 {"at":"2026-09-11T02:01:08.855Z","endpoints":176,"ok":175,"failed":1,"shaped":175,"shapeless":0,"registry_fingerprint":"176:eb74bc6016fd","drift_events":1,"new_ops":0,"drift":[{"op":"GET formulae.brew.sh /api/formula/git.json","type":"dominant_response_shape_changed","severity":"low"}]}
+{"at":"2026-09-11T10:13:15.157Z","endpoints":176,"ok":174,"failed":2,"shaped":174,"shapeless":0,"registry_fingerprint":"176:eb74bc6016fd","drift_events":0,"new_ops":0,"drift":[]}

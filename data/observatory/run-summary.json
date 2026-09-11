@@ -1,13 +1,13 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-11T01:59:30.947Z",
+  "started_at": "2026-09-11T10:11:26.326Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 175,
+  "ok": 174,
+  "failed": 2,
+  "body_captured": 174,
   "by_status": {
-    "200": 175,
-    "ERR": 1
+    "200": 174,
+    "ERR": 2
   },
   "failures": [
     {
@@ -15,9 +15,15 @@
       "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
       "status": null,
       "note": "timeout"
+    },
+    {
+      "id": "codeberg-repo",
+      "url": "https://codeberg.org/api/v1/repos/forgejo/forgejo",
+      "status": null,
+      "note": "timeout"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-09-11T02:01:08.855Z",
-  "capture": "data/observatory/capture-2026-09-11T02-01-08-574Z.ndjson.gz"
+  "finished_at": "2026-09-11T10:13:15.157Z",
+  "capture": "data/observatory/capture-2026-09-11T10-13-14-869Z.ndjson.gz"
 }
