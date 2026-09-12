@@ -1,29 +1,23 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-12T02:04:29.917Z",
+  "started_at": "2026-09-12T09:45:18.701Z",
   "total": 176,
-  "ok": 174,
-  "failed": 2,
-  "body_captured": 174,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 175,
   "by_status": {
-    "200": 174,
-    "ERR": 2
+    "200": 175,
+    "503": 1
   },
   "failures": [
     {
       "id": "openlibrary-work",
       "url": "https://openlibrary.org/works/OL45804W.json",
-      "status": null,
-      "note": "UND_ERR_CONNECT_TIMEOUT"
-    },
-    {
-      "id": "maven-search-guava",
-      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
-      "status": null,
-      "note": "timeout"
+      "status": 503,
+      "note": null
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-09-12T02:06:23.821Z",
-  "capture": "data/observatory/capture-2026-09-12T02-06-23-573Z.ndjson.gz"
+  "finished_at": "2026-09-12T09:46:53.210Z",
+  "capture": "data/observatory/capture-2026-09-12T09-46-52-924Z.ndjson.gz"
 }
