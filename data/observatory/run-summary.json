@@ -1,23 +1,23 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-12T14:36:40.227Z",
+  "started_at": "2026-09-12T19:50:39.708Z",
   "total": 176,
   "ok": 175,
   "failed": 1,
   "body_captured": 175,
   "by_status": {
     "200": 175,
-    "503": 1
+    "ERR": 1
   },
   "failures": [
     {
-      "id": "gbif-occurrence-search",
-      "url": "https://api.gbif.org/v1/occurrence/search?limit=2",
-      "status": 503,
-      "note": null
+      "id": "nuget-index",
+      "url": "https://api.nuget.org/v3/index.json",
+      "status": null,
+      "note": "ETIMEDOUT"
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-09-12T14:37:56.047Z",
-  "capture": "data/observatory/capture-2026-09-12T14-37-55-760Z.ndjson.gz"
+  "finished_at": "2026-09-12T19:51:59.618Z",
+  "capture": "data/observatory/capture-2026-09-12T19-51-59-298Z.ndjson.gz"
 }
