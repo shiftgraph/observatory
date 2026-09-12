@@ -1,6 +1,6 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-12T09:45:18.701Z",
+  "started_at": "2026-09-12T14:36:40.227Z",
   "total": 176,
   "ok": 175,
   "failed": 1,
@@ -11,13 +11,13 @@
   },
   "failures": [
     {
-      "id": "openlibrary-work",
-      "url": "https://openlibrary.org/works/OL45804W.json",
+      "id": "gbif-occurrence-search",
+      "url": "https://api.gbif.org/v1/occurrence/search?limit=2",
       "status": 503,
       "note": null
     }
   ],
   "shapeless": [],
-  "finished_at": "2026-09-12T09:46:53.210Z",
-  "capture": "data/observatory/capture-2026-09-12T09-46-52-924Z.ndjson.gz"
+  "finished_at": "2026-09-12T14:37:56.047Z",
+  "capture": "data/observatory/capture-2026-09-12T14-37-55-760Z.ndjson.gz"
 }
