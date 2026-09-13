@@ -1,23 +1,15 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-12T19:50:39.708Z",
+  "started_at": "2026-09-13T01:59:25.171Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 175,
+  "ok": 176,
+  "failed": 0,
+  "body_captured": 176,
   "by_status": {
-    "200": 175,
-    "ERR": 1
+    "200": 176
   },
-  "failures": [
-    {
-      "id": "nuget-index",
-      "url": "https://api.nuget.org/v3/index.json",
-      "status": null,
-      "note": "ETIMEDOUT"
-    }
-  ],
+  "failures": [],
   "shapeless": [],
-  "finished_at": "2026-09-12T19:51:59.618Z",
-  "capture": "data/observatory/capture-2026-09-12T19-51-59-298Z.ndjson.gz"
+  "finished_at": "2026-09-13T02:01:10.984Z",
+  "capture": "data/observatory/capture-2026-09-13T02-01-10-695Z.ndjson.gz"
 }
