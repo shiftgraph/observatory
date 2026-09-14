@@ -9,8 +9,8 @@
   "path": "/express",
   "observed_from": "2026-07-26",
   "confidence": "strong",
-  "fields": 20861,
-  "optional_fields": 57,
+  "fields": 20974,
+  "optional_fields": 58,
   "oversize": true,
   "notes": [
     "observed on public, unauthenticated requests. A response to an authenticated caller, on a different plan, or for a different resource can carry fields this does not",
