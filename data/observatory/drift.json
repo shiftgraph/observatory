@@ -1,28 +1,8 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-09-14T02:18:56.510Z",
-  "drift_event_count": 1,
+  "baseline_created_at": "2026-09-14T11:14:12.985Z",
+  "drift_event_count": 0,
   "new_operation_count": 0,
-  "drift_events": [
-    {
-      "id": "tr_103aad22dda0598a",
-      "operation_id": "op_93cda8f3b876bfc5",
-      "operation": "GET registry.npmjs.org /express",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-09-14T11:12:55.768Z",
-      "last_known_before": "2026-09-14T02:17:50.883Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_ebb6f363ee96e34b"
-      ],
-      "explanation": "Dominant response shape for GET registry.npmjs.org /express changed since baseline. Diff: added $.versions.4.22.3 (object)."
-    }
-  ],
+  "drift_events": [],
   "new_operations": []
 }
