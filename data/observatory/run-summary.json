@@ -1,23 +1,15 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-13T19:59:15.554Z",
+  "started_at": "2026-09-14T02:17:15.636Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 175,
+  "ok": 176,
+  "failed": 0,
+  "body_captured": 176,
   "by_status": {
-    "200": 175,
-    "ERR": 1
+    "200": 176
   },
-  "failures": [
-    {
-      "id": "spacedevs-upcoming",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=2",
-      "status": null,
-      "note": "timeout"
-    }
-  ],
+  "failures": [],
   "shapeless": [],
-  "finished_at": "2026-09-13T20:00:59.346Z",
-  "capture": "data/observatory/capture-2026-09-13T20-00-59-028Z.ndjson.gz"
+  "finished_at": "2026-09-14T02:18:55.529Z",
+  "capture": "data/observatory/capture-2026-09-14T02-18-55-243Z.ndjson.gz"
 }
