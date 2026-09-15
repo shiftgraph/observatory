@@ -1,15 +1,90 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-15T15:53:14.341Z",
+  "started_at": "2026-09-15T20:37:34.255Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 176,
+  "ok": 164,
+  "failed": 12,
+  "body_captured": 164,
   "by_status": {
-    "200": 176
+    "200": 164,
+    "504": 10,
+    "ERR": 2
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "github-repo-react",
+      "url": "https://api.github.com/repos/facebook/react",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "github-repo-node",
+      "url": "https://api.github.com/repos/nodejs/node",
+      "status": 504,
+      "note": null
+    },
+    {
+      "id": "github-repo-hello-world",
+      "url": "https://api.github.com/repos/octocat/Hello-World",
+      "status": 504,
+      "note": null
+    },
+    {
+      "id": "github-tags",
+      "url": "https://api.github.com/repos/facebook/react/tags?per_page=3",
+      "status": 504,
+      "note": null
+    },
+    {
+      "id": "github-languages",
+      "url": "https://api.github.com/repos/facebook/react/languages",
+      "status": 504,
+      "note": null
+    },
+    {
+      "id": "github-topics",
+      "url": "https://api.github.com/repos/facebook/react/topics",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "github-license",
+      "url": "https://api.github.com/repos/facebook/react/license",
+      "status": 504,
+      "note": null
+    },
+    {
+      "id": "github-contributors",
+      "url": "https://api.github.com/repos/facebook/react/contributors?per_page=3",
+      "status": 504,
+      "note": null
+    },
+    {
+      "id": "github-org",
+      "url": "https://api.github.com/orgs/github",
+      "status": 504,
+      "note": null
+    },
+    {
+      "id": "github-meta",
+      "url": "https://api.github.com/meta",
+      "status": 504,
+      "note": null
+    },
+    {
+      "id": "github-licenses",
+      "url": "https://api.github.com/licenses",
+      "status": 504,
+      "note": null
+    },
+    {
+      "id": "github-license-mit",
+      "url": "https://api.github.com/licenses/mit",
+      "status": 504,
+      "note": null
+    }
+  ],
   "shapeless": [],
-  "finished_at": "2026-09-15T15:54:49.959Z",
-  "capture": "data/observatory/capture-2026-09-15T15-54-49-674Z.ndjson.gz"
+  "finished_at": "2026-09-15T20:41:36.594Z",
+  "capture": "data/observatory/capture-2026-09-15T20-41-36-290Z.ndjson.gz"
 }
