@@ -1,28 +1,14 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-09-19T19:47:02.518Z",
-  "drift_event_count": 1,
-  "new_operation_count": 0,
-  "drift_events": [
+  "baseline_created_at": "2026-09-20T02:18:46.135Z",
+  "drift_event_count": 0,
+  "new_operation_count": 1,
+  "drift_events": [],
+  "new_operations": [
     {
-      "id": "tr_72e1c0242c4a452b",
-      "operation_id": "op_7f88daf0306b7eb8",
-      "operation": "GET www.wikidata.org /w/api.php",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-09-20T02:18:22.462Z",
-      "last_known_before": "2026-09-19T19:46:36.959Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_066e3a0803c52c56"
-      ],
-      "explanation": "Dominant response shape for GET www.wikidata.org /w/api.php changed since baseline. Diff: added $.entities.Q42.labels.en (object); added $.entities.Q42.labels.en-us (object)."
+      "operation": "GET search.maven.org /solrsearch/select",
+      "sample_count": 1,
+      "first_seen": "2026-09-20T10:17:08.364Z"
     }
-  ],
-  "new_operations": []
+  ]
 }
