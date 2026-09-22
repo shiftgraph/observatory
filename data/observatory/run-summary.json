@@ -1,6 +1,6 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-22T15:55:39.555Z",
+  "started_at": "2026-09-22T20:38:26.970Z",
   "total": 176,
   "ok": 176,
   "failed": 0,
@@ -10,6 +10,6 @@
   },
   "failures": [],
   "shapeless": [],
-  "finished_at": "2026-09-22T15:57:06.320Z",
-  "capture": "data/observatory/capture-2026-09-22T15-57-06-142Z.ndjson.gz"
+  "finished_at": "2026-09-22T20:39:48.800Z",
+  "capture": "data/observatory/capture-2026-09-22T20-39-48-512Z.ndjson.gz"
 }
