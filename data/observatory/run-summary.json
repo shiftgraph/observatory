@@ -1,22 +1,16 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-24T16:06:46.921Z",
+  "started_at": "2026-09-24T20:55:15.115Z",
   "total": 176,
-  "ok": 174,
-  "failed": 2,
-  "body_captured": 174,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 159,
   "by_status": {
-    "200": 174,
-    "503": 1,
+    "200": 159,
+    "403": 16,
     "ERR": 1
   },
   "failures": [
-    {
-      "id": "openmeteo-forecast",
-      "url": "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true",
-      "status": 503,
-      "note": null
-    },
     {
       "id": "maven-search-guava",
       "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
@@ -24,7 +18,88 @@
       "note": "timeout"
     }
   ],
-  "shapeless": [],
-  "finished_at": "2026-09-24T16:08:29.226Z",
-  "capture": "data/observatory/capture-2026-09-24T16-08-28-937Z.ndjson.gz"
+  "shapeless": [
+    {
+      "id": "github-repo-node",
+      "url": "https://api.github.com/repos/nodejs/node",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-repo-hello-world",
+      "url": "https://api.github.com/repos/octocat/Hello-World",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-repo-next",
+      "url": "https://api.github.com/repos/vercel/next.js",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-release-latest",
+      "url": "https://api.github.com/repos/facebook/react/releases/latest",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-tags",
+      "url": "https://api.github.com/repos/facebook/react/tags?per_page=3",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-languages",
+      "url": "https://api.github.com/repos/facebook/react/languages",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-topics",
+      "url": "https://api.github.com/repos/facebook/react/topics",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-license",
+      "url": "https://api.github.com/repos/facebook/react/license",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-contributors",
+      "url": "https://api.github.com/repos/facebook/react/contributors?per_page=3",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-org",
+      "url": "https://api.github.com/orgs/github",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-user",
+      "url": "https://api.github.com/users/torvalds",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-meta",
+      "url": "https://api.github.com/meta",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-gitignore-templates",
+      "url": "https://api.github.com/gitignore/templates",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-licenses",
+      "url": "https://api.github.com/licenses",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-license-mit",
+      "url": "https://api.github.com/licenses/mit",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-versions",
+      "url": "https://api.github.com/versions",
+      "reason": "non-2xx (403)"
+    }
+  ],
+  "finished_at": "2026-09-24T20:56:40.763Z",
+  "capture": "data/observatory/capture-2026-09-24T20-56-40-474Z.ndjson.gz"
 }
