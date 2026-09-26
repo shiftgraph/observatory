@@ -1,34 +1,8 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-09-25T16:08:39.528Z",
-  "drift_event_count": 1,
-  "new_operation_count": 1,
-  "drift_events": [
-    {
-      "id": "tr_ebe60c3565cc63ec",
-      "operation_id": "op_92e2069838dd0fae",
-      "operation": "GET pokeapi.co /api/v2/pokemon/{int}",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-09-25T20:52:00.953Z",
-      "last_known_before": "2026-09-25T16:07:39.456Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_1e8772b7ef2941b2"
-      ],
-      "explanation": "Dominant response shape for GET pokeapi.co /api/v2/pokemon/{int} changed since baseline. Diff: added $.sprites.other.official-artwork.versions (object); added $.sprites.versions.generation-i.red-blue.back_transparent_gray (string); added $.sprites.versions.generation-i.red-blue.front_transparent_gray (string); added $.sprites.versions.generation-i.red-green-japan (object); added $.sprites.versions.generation-i.yellow.back_gbc (string); added $.sprites.versions.generation-i.yellow.back_transparent_gray (string); added $.sprites.versions.generation-i.yellow.front_gbc (string); added $.sprites.versions.generation-i.yellow.front_transparent_gray (string); added $.sprites.versions.generation-ii.gold.back_shiny_transparent (string); added $.sprites.versions.generation-ii.gold.back_transparent (string); added $.sprites.versions.generation-ii.gold.front_shiny_transparent (string); added $.sprites.versions.generation-ii.silver.back_shiny_transparent (string); added $.sprites.versions.generation-ii.silver.back_transparent (string); added $.sprites.versions.generation-ii.silver.front_shiny_transparent (string); added $.sprites.versions.generation-iii.emerald.animated (object); added $.sprites.versions.generation-iii.emerald.back_default (string); added $.sprites.versions.generation-iii.emerald.back_shiny (string); added $.sprites.versions.generation-iii.icons (object); added $.sprites.versions.generation-iv.diamond-pearl.animated (object); added $.sprites.versions.generation-iv.heartgold-soulsilver.animated (object); added $.sprites.versions.generation-iv.icons (object); added $.sprites.versions.generation-iv.platinum.animated (object); added $.sprites.versions.generation-ix.champions (object); added $.sprites.versions.generation-vi.icons (object); added $.sprites.versions.generation-vi.omegaruby-alphasapphire.back_default (string); added $.sprites.versions.generation-vi.omegaruby-alphasapphire.back_shiny (string); added $.sprites.versions.generation-vi.x-y.back_default (string); added $.sprites.versions.generation-vi.x-y.back_shiny (string); added $.sprites.versions.generation-vii.lets-go-pikachu-lets-go-eevee (object); added $.sprites.versions.generation-vii.ultra-sun-ultra-moon.back_default (string)."
-    }
-  ],
-  "new_operations": [
-    {
-      "operation": "GET search.maven.org /solrsearch/select",
-      "sample_count": 1,
-      "first_seen": "2026-09-25T20:52:06.576Z"
-    }
-  ]
+  "baseline_created_at": "2026-09-25T20:52:49.453Z",
+  "drift_event_count": 0,
+  "new_operation_count": 0,
+  "drift_events": [],
+  "new_operations": []
 }
