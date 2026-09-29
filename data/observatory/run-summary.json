@@ -1,10 +1,10 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-29T17:14:13.517Z",
+  "started_at": "2026-09-29T21:38:16.403Z",
   "total": 176,
   "ok": 176,
   "failed": 0,
-  "body_captured": 175,
+  "body_captured": 174,
   "by_status": {
     "200": 175,
     "403": 1
@@ -15,8 +15,13 @@
       "id": "coingecko-price",
       "url": "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd",
       "reason": "non-2xx (403)"
+    },
+    {
+      "id": "packagist-laravel-framework",
+      "url": "https://repo.packagist.org/p2/laravel/framework.json",
+      "reason": "too-large (977kb)"
     }
   ],
-  "finished_at": "2026-09-29T17:15:51.508Z",
-  "capture": "data/observatory/capture-2026-09-29T17-15-51-214Z.ndjson.gz"
+  "finished_at": "2026-09-29T21:39:46.535Z",
+  "capture": "data/observatory/capture-2026-09-29T21-39-46-235Z.ndjson.gz"
 }
