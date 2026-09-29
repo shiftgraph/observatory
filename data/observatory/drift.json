@@ -1,8 +1,28 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-09-29T03:14:28.417Z",
-  "drift_event_count": 0,
+  "baseline_created_at": "2026-09-29T11:48:13.007Z",
+  "drift_event_count": 1,
   "new_operation_count": 0,
-  "drift_events": [],
+  "drift_events": [
+    {
+      "id": "tr_cba080c323071cc3",
+      "operation_id": "op_4b41da14f146f388",
+      "operation": "GET formulae.brew.sh /api/formula/git.json",
+      "transition_type": "dominant_response_shape_changed",
+      "first_seen": "2026-09-29T17:15:03.442Z",
+      "last_known_before": "2026-09-29T11:47:31.775Z",
+      "severity": "high",
+      "confidence": 0.7,
+      "confidence_label": "medium-high",
+      "causal_language": "associated",
+      "degraded_reasons": [
+        "no deployment data supplied"
+      ],
+      "evidence_ids": [
+        "ev_bed5d293d94adb4c"
+      ],
+      "explanation": "Dominant response shape for GET formulae.brew.sh /api/formula/git.json changed since baseline. Diff: removed $.bottle.stable.files.arm64_sonoma (object); removed $.bottle.stable.files.sonoma (object)."
+    }
+  ],
   "new_operations": []
 }
