@@ -1,15 +1,22 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-29T03:13:02.623Z",
+  "started_at": "2026-09-29T11:46:48.442Z",
   "total": 176,
   "ok": 176,
   "failed": 0,
-  "body_captured": 176,
+  "body_captured": 175,
   "by_status": {
-    "200": 176
+    "200": 175,
+    "403": 1
   },
   "failures": [],
-  "shapeless": [],
-  "finished_at": "2026-09-29T03:14:27.171Z",
-  "capture": "data/observatory/capture-2026-09-29T03-14-26-878Z.ndjson.gz"
+  "shapeless": [
+    {
+      "id": "coingecko-price",
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd",
+      "reason": "non-2xx (403)"
+    }
+  ],
+  "finished_at": "2026-09-29T11:48:11.755Z",
+  "capture": "data/observatory/capture-2026-09-29T11-48-11-460Z.ndjson.gz"
 }
