@@ -1,6 +1,6 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-30T02:55:36.210Z",
+  "started_at": "2026-09-30T11:33:12.130Z",
   "total": 176,
   "ok": 175,
   "failed": 1,
@@ -11,10 +11,10 @@
   },
   "failures": [
     {
-      "id": "maven-search-guava",
-      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "id": "openmeteo-airquality",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=52.52&longitude=13.41&current=pm10",
       "status": null,
-      "note": "timeout"
+      "note": "ETIMEDOUT"
     }
   ],
   "shapeless": [
@@ -24,6 +24,6 @@
       "reason": "too-large (977kb)"
     }
   ],
-  "finished_at": "2026-09-30T02:57:21.544Z",
-  "capture": "data/observatory/capture-2026-09-30T02-57-21-276Z.ndjson.gz"
+  "finished_at": "2026-09-30T11:34:44.945Z",
+  "capture": "data/observatory/capture-2026-09-30T11-34-44-713Z.ndjson.gz"
 }

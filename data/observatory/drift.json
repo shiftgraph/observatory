@@ -1,24 +1,14 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-09-29T21:39:47.703Z",
+  "baseline_created_at": "2026-09-30T02:57:22.809Z",
   "drift_event_count": 0,
-  "new_operation_count": 3,
+  "new_operation_count": 1,
   "drift_events": [],
   "new_operations": [
     {
-      "operation": "GET api.coingecko.com /api/v3/coins/bitcoin",
+      "operation": "GET search.maven.org /solrsearch/select",
       "sample_count": 1,
-      "first_seen": "2026-09-30T02:57:12.484Z"
-    },
-    {
-      "operation": "GET api.coingecko.com /api/v3/ping",
-      "sample_count": 1,
-      "first_seen": "2026-09-30T02:56:14.431Z"
-    },
-    {
-      "operation": "GET api.coingecko.com /api/v3/simple/price",
-      "sample_count": 1,
-      "first_seen": "2026-09-30T02:57:00.670Z"
+      "first_seen": "2026-09-30T11:34:02.025Z"
     }
   ]
 }
