@@ -1,27 +1,29 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-29T21:38:16.403Z",
+  "started_at": "2026-09-30T02:55:36.210Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
+  "ok": 175,
+  "failed": 1,
   "body_captured": 174,
   "by_status": {
     "200": 175,
-    "403": 1
+    "ERR": 1
   },
-  "failures": [],
-  "shapeless": [
+  "failures": [
     {
-      "id": "coingecko-price",
-      "url": "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd",
-      "reason": "non-2xx (403)"
-    },
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
+    }
+  ],
+  "shapeless": [
     {
       "id": "packagist-laravel-framework",
       "url": "https://repo.packagist.org/p2/laravel/framework.json",
       "reason": "too-large (977kb)"
     }
   ],
-  "finished_at": "2026-09-29T21:39:46.535Z",
-  "capture": "data/observatory/capture-2026-09-29T21-39-46-235Z.ndjson.gz"
+  "finished_at": "2026-09-30T02:57:21.544Z",
+  "capture": "data/observatory/capture-2026-09-30T02-57-21-276Z.ndjson.gz"
 }
