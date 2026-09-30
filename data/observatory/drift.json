@@ -1,14 +1,28 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-09-30T02:57:22.809Z",
-  "drift_event_count": 0,
-  "new_operation_count": 1,
-  "drift_events": [],
-  "new_operations": [
+  "baseline_created_at": "2026-09-30T11:34:45.861Z",
+  "drift_event_count": 1,
+  "new_operation_count": 0,
+  "drift_events": [
     {
-      "operation": "GET search.maven.org /solrsearch/select",
-      "sample_count": 1,
-      "first_seen": "2026-09-30T11:34:02.025Z"
+      "id": "tr_ac7a8a0776ced60d",
+      "operation_id": "op_f4a8af64684ded36",
+      "operation": "GET status.flyio.net /api/v2/summary.json",
+      "transition_type": "dominant_response_shape_changed",
+      "first_seen": "2026-09-30T17:12:34.323Z",
+      "last_known_before": "2026-09-30T11:33:27.797Z",
+      "severity": "high",
+      "confidence": 0.7,
+      "confidence_label": "medium-high",
+      "causal_language": "associated",
+      "degraded_reasons": [
+        "no deployment data supplied"
+      ],
+      "evidence_ids": [
+        "ev_52c388c275d0863f"
+      ],
+      "explanation": "Dominant response shape for GET status.flyio.net /api/v2/summary.json changed since baseline. Diff: removed $.components[].description (string); removed $.components[].group (boolean); removed $.components[].group_id (string); removed $.components[].only_show_if_degraded (boolean); removed $.components[].showcase (boolean); removed $.components[].start_date (string); removed $.page.time_zone (string)."
     }
-  ]
+  ],
+  "new_operations": []
 }

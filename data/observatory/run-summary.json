@@ -1,22 +1,14 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-09-30T11:33:12.130Z",
+  "started_at": "2026-09-30T17:12:21.310Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 174,
+  "ok": 176,
+  "failed": 0,
+  "body_captured": 175,
   "by_status": {
-    "200": 175,
-    "ERR": 1
+    "200": 176
   },
-  "failures": [
-    {
-      "id": "openmeteo-airquality",
-      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=52.52&longitude=13.41&current=pm10",
-      "status": null,
-      "note": "ETIMEDOUT"
-    }
-  ],
+  "failures": [],
   "shapeless": [
     {
       "id": "packagist-laravel-framework",
@@ -24,6 +16,6 @@
       "reason": "too-large (977kb)"
     }
   ],
-  "finished_at": "2026-09-30T11:34:44.945Z",
-  "capture": "data/observatory/capture-2026-09-30T11-34-44-713Z.ndjson.gz"
+  "finished_at": "2026-09-30T17:13:43.834Z",
+  "capture": "data/observatory/capture-2026-09-30T17-13-43-601Z.ndjson.gz"
 }
