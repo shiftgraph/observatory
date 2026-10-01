@@ -1,34 +1,14 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-10-01T12:01:35.699Z",
+  "started_at": "2026-10-01T22:07:13.487Z",
   "total": 176,
-  "ok": 173,
-  "failed": 3,
-  "body_captured": 172,
+  "ok": 176,
+  "failed": 0,
+  "body_captured": 175,
   "by_status": {
-    "200": 173,
-    "ERR": 3
+    "200": 176
   },
-  "failures": [
-    {
-      "id": "maven-search-guava",
-      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
-      "status": null,
-      "note": "timeout"
-    },
-    {
-      "id": "gbif-species",
-      "url": "https://api.gbif.org/v1/species/5231190",
-      "status": null,
-      "note": "UND_ERR_CONNECT_TIMEOUT"
-    },
-    {
-      "id": "gbif-occurrence-search",
-      "url": "https://api.gbif.org/v1/occurrence/search?limit=2",
-      "status": null,
-      "note": "UND_ERR_CONNECT_TIMEOUT"
-    }
-  ],
+  "failures": [],
   "shapeless": [
     {
       "id": "packagist-laravel-framework",
@@ -36,6 +16,6 @@
       "reason": "too-large (977kb)"
     }
   ],
-  "finished_at": "2026-10-01T12:03:33.773Z",
-  "capture": "data/observatory/capture-2026-10-01T12-03-33-501Z.ndjson.gz"
+  "finished_at": "2026-10-01T22:08:28.677Z",
+  "capture": "data/observatory/capture-2026-10-01T22-08-28-411Z.ndjson.gz"
 }
