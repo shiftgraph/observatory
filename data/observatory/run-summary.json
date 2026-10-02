@@ -1,24 +1,18 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-10-02T17:00:36.413Z",
+  "started_at": "2026-10-02T21:34:11.795Z",
   "total": 176,
-  "ok": 174,
-  "failed": 2,
-  "body_captured": 173,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 174,
   "by_status": {
-    "200": 174,
-    "ERR": 2
+    "200": 175,
+    "ERR": 1
   },
   "failures": [
     {
       "id": "maven-search-guava",
       "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
-      "status": null,
-      "note": "timeout"
-    },
-    {
-      "id": "spacedevs-upcoming",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=2",
       "status": null,
       "note": "timeout"
     }
@@ -30,6 +24,6 @@
       "reason": "too-large (977kb)"
     }
   ],
-  "finished_at": "2026-10-02T17:02:41.039Z",
-  "capture": "data/observatory/capture-2026-10-02T17-02-40-767Z.ndjson.gz"
+  "finished_at": "2026-10-02T21:35:53.297Z",
+  "capture": "data/observatory/capture-2026-10-02T21-35-53-017Z.ndjson.gz"
 }
