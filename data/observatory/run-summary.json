@@ -1,115 +1,21 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-10-03T20:19:52.072Z",
+  "started_at": "2026-10-04T03:20:42.380Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 157,
+  "ok": 176,
+  "failed": 0,
+  "body_captured": 175,
   "by_status": {
-    "200": 158,
-    "403": 17,
-    "500": 1
+    "200": 176
   },
-  "failures": [
-    {
-      "id": "fda-drug-event",
-      "url": "https://api.fda.gov/drug/event.json?limit=1",
-      "status": 500,
-      "note": null
-    }
-  ],
+  "failures": [],
   "shapeless": [
-    {
-      "id": "github-repo-react",
-      "url": "https://api.github.com/repos/facebook/react",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-repo-node",
-      "url": "https://api.github.com/repos/nodejs/node",
-      "reason": "non-2xx (403)"
-    },
     {
       "id": "packagist-laravel-framework",
       "url": "https://repo.packagist.org/p2/laravel/framework.json",
       "reason": "too-large (977kb)"
-    },
-    {
-      "id": "github-repo-hello-world",
-      "url": "https://api.github.com/repos/octocat/Hello-World",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-repo-next",
-      "url": "https://api.github.com/repos/vercel/next.js",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-release-latest",
-      "url": "https://api.github.com/repos/facebook/react/releases/latest",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-tags",
-      "url": "https://api.github.com/repos/facebook/react/tags?per_page=3",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-languages",
-      "url": "https://api.github.com/repos/facebook/react/languages",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-topics",
-      "url": "https://api.github.com/repos/facebook/react/topics",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-license",
-      "url": "https://api.github.com/repos/facebook/react/license",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-contributors",
-      "url": "https://api.github.com/repos/facebook/react/contributors?per_page=3",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-org",
-      "url": "https://api.github.com/orgs/github",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-user",
-      "url": "https://api.github.com/users/torvalds",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-meta",
-      "url": "https://api.github.com/meta",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-gitignore-templates",
-      "url": "https://api.github.com/gitignore/templates",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-licenses",
-      "url": "https://api.github.com/licenses",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-license-mit",
-      "url": "https://api.github.com/licenses/mit",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-versions",
-      "url": "https://api.github.com/versions",
-      "reason": "non-2xx (403)"
     }
   ],
-  "finished_at": "2026-10-03T20:24:02.050Z",
-  "capture": "data/observatory/capture-2026-10-03T20-24-01-805Z.ndjson.gz"
+  "finished_at": "2026-10-04T03:22:06.634Z",
+  "capture": "data/observatory/capture-2026-10-04T03-22-06-357Z.ndjson.gz"
 }
