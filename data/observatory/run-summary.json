@@ -1,13 +1,12 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-10-05T23:28:00.386Z",
+  "started_at": "2026-10-06T03:47:08.050Z",
   "total": 176,
   "ok": 175,
   "failed": 1,
-  "body_captured": 165,
+  "body_captured": 174,
   "by_status": {
-    "200": 166,
-    "403": 9,
+    "200": 175,
     "ERR": 1
   },
   "failures": [
@@ -23,53 +22,8 @@
       "id": "packagist-laravel-framework",
       "url": "https://repo.packagist.org/p2/laravel/framework.json",
       "reason": "too-large (977kb)"
-    },
-    {
-      "id": "github-license",
-      "url": "https://api.github.com/repos/facebook/react/license",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-contributors",
-      "url": "https://api.github.com/repos/facebook/react/contributors?per_page=3",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-org",
-      "url": "https://api.github.com/orgs/github",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-user",
-      "url": "https://api.github.com/users/torvalds",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-meta",
-      "url": "https://api.github.com/meta",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-gitignore-templates",
-      "url": "https://api.github.com/gitignore/templates",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-licenses",
-      "url": "https://api.github.com/licenses",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-license-mit",
-      "url": "https://api.github.com/licenses/mit",
-      "reason": "non-2xx (403)"
-    },
-    {
-      "id": "github-versions",
-      "url": "https://api.github.com/versions",
-      "reason": "non-2xx (403)"
     }
   ],
-  "finished_at": "2026-10-05T23:29:38.383Z",
-  "capture": "data/observatory/capture-2026-10-05T23-29-38-162Z.ndjson.gz"
+  "finished_at": "2026-10-06T03:48:43.827Z",
+  "capture": "data/observatory/capture-2026-10-06T03-48-43-560Z.ndjson.gz"
 }
