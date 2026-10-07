@@ -1,14 +1,47 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-10-07T03:16:47.724Z",
-  "drift_event_count": 0,
-  "new_operation_count": 1,
-  "drift_events": [],
-  "new_operations": [
+  "baseline_created_at": "2026-10-07T12:18:23.404Z",
+  "drift_event_count": 2,
+  "new_operation_count": 0,
+  "drift_events": [
     {
-      "operation": "GET search.maven.org /solrsearch/select",
-      "sample_count": 1,
-      "first_seen": "2026-10-07T12:17:44.525Z"
+      "id": "tr_ebb44062f22def80",
+      "operation_id": "op_92e2069838dd0fae",
+      "operation": "GET pokeapi.co /api/v2/pokemon/{int}",
+      "transition_type": "dominant_response_shape_changed",
+      "first_seen": "2026-10-07T22:26:05.033Z",
+      "last_known_before": "2026-10-07T12:17:38.364Z",
+      "severity": "high",
+      "confidence": 0.7,
+      "confidence_label": "medium-high",
+      "causal_language": "associated",
+      "degraded_reasons": [
+        "no deployment data supplied"
+      ],
+      "evidence_ids": [
+        "ev_1e8772b7ef2941b2"
+      ],
+      "explanation": "Dominant response shape for GET pokeapi.co /api/v2/pokemon/{int} changed since baseline. Diff: added $.sprites.versions.generation-vi.omega-ruby-alpha-sapphire (object); removed $.sprites.versions.generation-vi.omegaruby-alphasapphire (object); added $.sprites.versions.generation-viii.brilliant-diamond-shining-pearl.back_default (string); added $.sprites.versions.generation-viii.brilliant-diamond-shining-pearl.back_shiny (string); added $.sprites.versions.generation-viii.brilliant-diamond-shining-pearl.front_shiny (string); added $.sprites.versions.generation-viii.brilliant-diamond-shining-pearl.icons (object); added $.sprites.versions.generation-viii.legends-arceus (object); added $.sprites.versions.generation-viii.sword-shield (object)."
+    },
+    {
+      "id": "tr_1e9e0a765a355e67",
+      "operation_id": "op_f8aaed760046d28f",
+      "operation": "GET status.supabase.com /api/v2/summary.json",
+      "transition_type": "dominant_response_shape_changed",
+      "first_seen": "2026-10-07T22:25:25.199Z",
+      "last_known_before": "2026-10-07T12:16:56.466Z",
+      "severity": "high",
+      "confidence": 0.7,
+      "confidence_label": "medium-high",
+      "causal_language": "associated",
+      "degraded_reasons": [
+        "no deployment data supplied"
+      ],
+      "evidence_ids": [
+        "ev_47ac9b860d7fd521"
+      ],
+      "explanation": "Dominant response shape for GET status.supabase.com /api/v2/summary.json changed since baseline. Diff: removed $.components[].description (string); removed $.components[].group (boolean); removed $.components[].group_id (string); removed $.components[].only_show_if_degraded (boolean); removed $.components[].showcase (boolean); removed $.components[].start_date (string); removed $.page.time_zone (string); removed $.scheduled_maintenances[].incident_updates[].deliver_notifications (boolean); removed $.scheduled_maintenances[].scheduled_for (string); removed $.scheduled_maintenances[].scheduled_until (string); removed $.scheduled_maintenances[].shortlink (string); removed $.scheduled_maintenances[].started_at (string)."
     }
-  ]
+  ],
+  "new_operations": []
 }
