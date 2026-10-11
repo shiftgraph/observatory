@@ -1,21 +1,34 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-10-11T02:49:19.813Z",
+  "started_at": "2026-10-11T11:47:17.567Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 175,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 173,
   "by_status": {
-    "200": 176
+    "200": 175,
+    "ERR": 1
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "artic-artworks",
+      "url": "https://api.artic.edu/api/v1/artworks?limit=2",
+      "status": null,
+      "note": "timeout"
+    }
+  ],
   "shapeless": [
     {
       "id": "packagist-laravel-framework",
       "url": "https://repo.packagist.org/p2/laravel/framework.json",
       "reason": "too-large (977kb)"
+    },
+    {
+      "id": "npm-typescript-latest",
+      "url": "https://registry.npmjs.org/typescript/latest",
+      "reason": "non-json (text/plain)"
     }
   ],
-  "finished_at": "2026-10-11T02:50:37.177Z",
-  "capture": "data/observatory/capture-2026-10-11T02-50-36-947Z.ndjson.gz"
+  "finished_at": "2026-10-11T11:48:52.760Z",
+  "capture": "data/observatory/capture-2026-10-11T11-48-52-485Z.ndjson.gz"
 }
