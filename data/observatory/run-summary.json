@@ -1,21 +1,70 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-10-13T22:04:41.070Z",
+  "started_at": "2026-10-14T02:38:08.011Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 175,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 166,
   "by_status": {
-    "200": 176
+    "200": 167,
+    "403": 8,
+    "ERR": 1
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
+    }
+  ],
   "shapeless": [
     {
       "id": "packagist-laravel-framework",
       "url": "https://repo.packagist.org/p2/laravel/framework.json",
       "reason": "too-large (981kb)"
+    },
+    {
+      "id": "github-contributors",
+      "url": "https://api.github.com/repos/facebook/react/contributors?per_page=3",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-org",
+      "url": "https://api.github.com/orgs/github",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-user",
+      "url": "https://api.github.com/users/torvalds",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-meta",
+      "url": "https://api.github.com/meta",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-gitignore-templates",
+      "url": "https://api.github.com/gitignore/templates",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-licenses",
+      "url": "https://api.github.com/licenses",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-license-mit",
+      "url": "https://api.github.com/licenses/mit",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-versions",
+      "url": "https://api.github.com/versions",
+      "reason": "non-2xx (403)"
     }
   ],
-  "finished_at": "2026-10-13T22:06:00.163Z",
-  "capture": "data/observatory/capture-2026-10-13T22-05-59-897Z.ndjson.gz"
+  "finished_at": "2026-10-14T02:39:37.915Z",
+  "capture": "data/observatory/capture-2026-10-14T02-39-37-639Z.ndjson.gz"
 }
