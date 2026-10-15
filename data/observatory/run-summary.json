@@ -1,14 +1,22 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-10-14T21:05:46.041Z",
+  "started_at": "2026-10-15T02:18:20.976Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 175,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 174,
   "by_status": {
-    "200": 176
+    "200": 175,
+    "ERR": 1
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
+    }
+  ],
   "shapeless": [
     {
       "id": "packagist-laravel-framework",
@@ -16,6 +24,6 @@
       "reason": "too-large (981kb)"
     }
   ],
-  "finished_at": "2026-10-14T21:07:10.865Z",
-  "capture": "data/observatory/capture-2026-10-14T21-07-10-565Z.ndjson.gz"
+  "finished_at": "2026-10-15T02:20:10.076Z",
+  "capture": "data/observatory/capture-2026-10-15T02-20-09-805Z.ndjson.gz"
 }
