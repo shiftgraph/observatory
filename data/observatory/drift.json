@@ -1,47 +1,8 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-10-18T10:06:13.868Z",
-  "drift_event_count": 2,
+  "baseline_created_at": "2026-10-18T15:06:53.794Z",
+  "drift_event_count": 0,
   "new_operation_count": 0,
-  "drift_events": [
-    {
-      "id": "tr_b934dcb43d1a54ff",
-      "operation_id": "op_4b41da14f146f388",
-      "operation": "GET formulae.brew.sh /api/formula/git.json",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-10-18T15:06:06.744Z",
-      "last_known_before": "2026-10-18T10:05:36.331Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_bed5d293d94adb4c"
-      ],
-      "explanation": "Dominant response shape for GET formulae.brew.sh /api/formula/git.json changed since baseline. Diff: added $.local_patch_checksums (object)."
-    },
-    {
-      "id": "tr_db671a2135022f1c",
-      "operation_id": "op_2a547e4efa891268",
-      "operation": "GET formulae.brew.sh /api/formula/node.json",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-10-18T15:06:33.065Z",
-      "last_known_before": "2026-10-18T10:05:56.681Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_af153aeea3f2179b"
-      ],
-      "explanation": "Dominant response shape for GET formulae.brew.sh /api/formula/node.json changed since baseline. Diff: added $.local_patch_checksums (object)."
-    }
-  ],
+  "drift_events": [],
   "new_operations": []
 }
