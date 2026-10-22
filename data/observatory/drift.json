@@ -1,8 +1,14 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-10-21T16:18:52.734Z",
+  "baseline_created_at": "2026-10-21T21:02:11.704Z",
   "drift_event_count": 0,
-  "new_operation_count": 0,
+  "new_operation_count": 1,
   "drift_events": [],
-  "new_operations": []
+  "new_operations": [
+    {
+      "operation": "GET api.artic.edu /api/v1/artworks",
+      "sample_count": 1,
+      "first_seen": "2026-10-22T02:24:33.864Z"
+    }
+  ]
 }
