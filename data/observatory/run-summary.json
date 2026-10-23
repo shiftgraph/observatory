@@ -1,14 +1,22 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-10-23T10:41:40.686Z",
+  "started_at": "2026-10-23T16:06:05.727Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 175,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 174,
   "by_status": {
-    "200": 176
+    "200": 175,
+    "ERR": 1
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "nager-holidays-us",
+      "url": "https://date.nager.at/api/v3/PublicHolidays/2026/US",
+      "status": null,
+      "note": "timeout"
+    }
+  ],
   "shapeless": [
     {
       "id": "packagist-laravel-framework",
@@ -16,6 +24,6 @@
       "reason": "too-large (986kb)"
     }
   ],
-  "finished_at": "2026-10-23T10:42:53.285Z",
-  "capture": "data/observatory/capture-2026-10-23T10-42-53-020Z.ndjson.gz"
+  "finished_at": "2026-10-23T16:07:56.804Z",
+  "capture": "data/observatory/capture-2026-10-23T16-07-56-544Z.ndjson.gz"
 }
