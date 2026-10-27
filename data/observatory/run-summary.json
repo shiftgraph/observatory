@@ -1,21 +1,29 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-10-27T11:14:48.634Z",
+  "started_at": "2026-10-27T17:04:03.931Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 175,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 174,
   "by_status": {
-    "200": 176
+    "200": 175,
+    "ERR": 1
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "openlibrary-search",
+      "url": "https://openlibrary.org/search.json?q=api&limit=2",
+      "status": null,
+      "note": "timeout"
+    }
+  ],
   "shapeless": [
     {
       "id": "packagist-laravel-framework",
       "url": "https://repo.packagist.org/p2/laravel/framework.json",
-      "reason": "too-large (986kb)"
+      "reason": "too-large (988kb)"
     }
   ],
-  "finished_at": "2026-10-27T11:16:32.473Z",
-  "capture": "data/observatory/capture-2026-10-27T11-16-32-191Z.ndjson.gz"
+  "finished_at": "2026-10-27T17:05:55.264Z",
+  "capture": "data/observatory/capture-2026-10-27T17-05-55-031Z.ndjson.gz"
 }
