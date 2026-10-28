@@ -1,14 +1,100 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-10-28T17:38:19.208Z",
+  "started_at": "2026-10-28T22:00:03.041Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 175,
+  "ok": 162,
+  "failed": 14,
+  "body_captured": 161,
   "by_status": {
-    "200": 176
+    "200": 162,
+    "ERR": 14
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "status-atlassian",
+      "url": "https://status.atlassian.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-hubspot",
+      "url": "https://status.hubspot.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-zoom",
+      "url": "https://status.zoom.us/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-figma",
+      "url": "https://status.figma.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-render",
+      "url": "https://status.render.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-cockroachlabs",
+      "url": "https://status.cockroachlabs.cloud/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-elastic",
+      "url": "https://status.elastic.co/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-grafana",
+      "url": "https://status.grafana.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-honeycomb",
+      "url": "https://status.honeycomb.io/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-trello",
+      "url": "https://trello.status.atlassian.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-sanity",
+      "url": "https://status.sanity.io/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-mixpanel",
+      "url": "https://status.mixpanel.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-shopify",
+      "url": "https://www.shopifystatus.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-bigcommerce",
+      "url": "https://status.bigcommerce.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    }
+  ],
   "shapeless": [
     {
       "id": "packagist-laravel-framework",
@@ -16,6 +102,6 @@
       "reason": "too-large (988kb)"
     }
   ],
-  "finished_at": "2026-10-28T17:41:16.182Z",
-  "capture": "data/observatory/capture-2026-10-28T17-41-15-868Z.ndjson.gz"
+  "finished_at": "2026-10-28T22:07:31.747Z",
+  "capture": "data/observatory/capture-2026-10-28T22-07-31-469Z.ndjson.gz"
 }
