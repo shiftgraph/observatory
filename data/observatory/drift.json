@@ -1,8 +1,159 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-10-28T22:07:32.924Z",
+  "baseline_created_at": "2026-10-29T03:33:18.996Z",
   "drift_event_count": 0,
-  "new_operation_count": 0,
+  "new_operation_count": 30,
   "drift_events": [],
-  "new_operations": []
+  "new_operations": [
+    {
+      "operation": "GET api.npmjs.org /downloads/point/last-week/react",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:58:03.500Z"
+    },
+    {
+      "operation": "GET api.npmjs.org /downloads/range/last-week/express",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:58:26.760Z"
+    },
+    {
+      "operation": "GET bitbucket.status.atlassian.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:24.634Z"
+    },
+    {
+      "operation": "GET ll.thespacedevs.com /2.2.0/launch/upcoming",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:58:13.111Z"
+    },
+    {
+      "operation": "GET registry.npmjs.org /-/v1/search",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:58:37.207Z"
+    },
+    {
+      "operation": "GET registry.npmjs.org /express",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:53.924Z"
+    },
+    {
+      "operation": "GET registry.npmjs.org /react/latest",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:58:22.330Z"
+    },
+    {
+      "operation": "GET registry.npmjs.org /typescript/latest",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:58:33.351Z"
+    },
+    {
+      "operation": "GET search.maven.org /solrsearch/select",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:58:05.314Z"
+    },
+    {
+      "operation": "GET status.airtable.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:45.255Z"
+    },
+    {
+      "operation": "GET status.asana.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:45.883Z"
+    },
+    {
+      "operation": "GET status.atlassian.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:24.086Z"
+    },
+    {
+      "operation": "GET status.bigcommerce.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:51.012Z"
+    },
+    {
+      "operation": "GET status.chargebee.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:44.026Z"
+    },
+    {
+      "operation": "GET status.cloudinary.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:30.256Z"
+    },
+    {
+      "operation": "GET status.digitalocean.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:26.323Z"
+    },
+    {
+      "operation": "GET status.dropbox.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:22.261Z"
+    },
+    {
+      "operation": "GET status.elastic.co /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:34.882Z"
+    },
+    {
+      "operation": "GET status.figma.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:30.797Z"
+    },
+    {
+      "operation": "GET status.grafana.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:40.210Z"
+    },
+    {
+      "operation": "GET status.honeycomb.io /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:40.767Z"
+    },
+    {
+      "operation": "GET status.npmjs.org /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:25.800Z"
+    },
+    {
+      "operation": "GET status.sanity.io /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:48.081Z"
+    },
+    {
+      "operation": "GET status.snowflake.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:35.476Z"
+    },
+    {
+      "operation": "GET status.twilio.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:22.662Z"
+    },
+    {
+      "operation": "GET status.upstash.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:33.622Z"
+    },
+    {
+      "operation": "GET status.webflow.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:46.969Z"
+    },
+    {
+      "operation": "GET trello.status.atlassian.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:46.409Z"
+    },
+    {
+      "operation": "GET www.redditstatus.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:21.672Z"
+    },
+    {
+      "operation": "GET www.shopifystatus.com /api/v2/summary.json",
+      "sample_count": 1,
+      "first_seen": "2026-10-29T11:57:50.596Z"
+    }
+  ]
 }
