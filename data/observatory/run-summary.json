@@ -1,18 +1,79 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-10-28T22:00:03.041Z",
+  "started_at": "2026-10-29T03:25:28.100Z",
   "total": 176,
-  "ok": 162,
-  "failed": 14,
-  "body_captured": 161,
+  "ok": 128,
+  "failed": 48,
+  "body_captured": 127,
   "by_status": {
-    "200": 162,
-    "ERR": 14
+    "200": 128,
+    "503": 24,
+    "ERR": 24
   },
   "failures": [
     {
+      "id": "status-vercel",
+      "url": "https://www.vercel-status.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-discord",
+      "url": "https://discordstatus.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-reddit",
+      "url": "https://www.redditstatus.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-dropbox",
+      "url": "https://status.dropbox.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-twilio",
+      "url": "https://status.twilio.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-sendgrid",
+      "url": "https://status.sendgrid.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
       "id": "status-atlassian",
       "url": "https://status.atlassian.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-bitbucket",
+      "url": "https://bitbucket.status.atlassian.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-npm",
+      "url": "https://status.npmjs.org/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-digitalocean",
+      "url": "https://status.digitalocean.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-mongodb",
+      "url": "https://status.mongodb.com/api/v2/summary.json",
       "status": null,
       "note": "timeout"
     },
@@ -23,22 +84,46 @@
       "note": "timeout"
     },
     {
+      "id": "status-segment",
+      "url": "https://status.segment.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-squarespace",
+      "url": "https://status.squarespace.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
       "id": "status-zoom",
       "url": "https://status.zoom.us/api/v2/summary.json",
       "status": null,
       "note": "timeout"
     },
     {
+      "id": "status-cloudinary",
+      "url": "https://status.cloudinary.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
       "id": "status-figma",
       "url": "https://status.figma.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-circleci",
+      "url": "https://status.circleci.com/api/v2/summary.json",
       "status": null,
       "note": "timeout"
     },
     {
-      "id": "status-render",
-      "url": "https://status.render.com/api/v2/summary.json",
-      "status": null,
-      "note": "timeout"
+      "id": "status-upstash",
+      "url": "https://status.upstash.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
     },
     {
       "id": "status-cockroachlabs",
@@ -49,48 +134,168 @@
     {
       "id": "status-elastic",
       "url": "https://status.elastic.co/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-snowflake",
+      "url": "https://status.snowflake.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-confluent",
+      "url": "https://status.confluent.cloud/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-jfrog",
+      "url": "https://status.jfrog.io/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-workos",
+      "url": "https://status.workos.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-newrelic",
+      "url": "https://status.newrelic.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-launchdarkly",
+      "url": "https://status.launchdarkly.com/api/v2/summary.json",
       "status": null,
       "note": "timeout"
     },
     {
       "id": "status-grafana",
       "url": "https://status.grafana.com/api/v2/summary.json",
-      "status": null,
-      "note": "timeout"
+      "status": 503,
+      "note": null
     },
     {
       "id": "status-honeycomb",
       "url": "https://status.honeycomb.io/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-bugsnag",
+      "url": "https://status.bugsnag.com/api/v2/summary.json",
       "status": null,
       "note": "timeout"
     },
     {
+      "id": "status-mailgun",
+      "url": "https://status.mailgun.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-mux",
+      "url": "https://status.mux.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-chargebee",
+      "url": "https://status.chargebee.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-kraken",
+      "url": "https://status.kraken.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "status-airtable",
+      "url": "https://status.airtable.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-asana",
+      "url": "https://status.asana.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
       "id": "status-trello",
       "url": "https://trello.status.atlassian.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-webflow",
+      "url": "https://status.webflow.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-contentful",
+      "url": "https://www.contentfulstatus.com/api/v2/summary.json",
       "status": null,
       "note": "timeout"
     },
     {
       "id": "status-sanity",
       "url": "https://status.sanity.io/api/v2/summary.json",
-      "status": null,
-      "note": "timeout"
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-amplitude",
+      "url": "https://status.amplitude.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
     },
     {
       "id": "status-mixpanel",
       "url": "https://status.mixpanel.com/api/v2/summary.json",
-      "status": null,
-      "note": "timeout"
+      "status": 503,
+      "note": null
     },
     {
       "id": "status-shopify",
       "url": "https://www.shopifystatus.com/api/v2/summary.json",
-      "status": null,
-      "note": "timeout"
+      "status": 503,
+      "note": null
     },
     {
       "id": "status-bigcommerce",
       "url": "https://status.bigcommerce.com/api/v2/summary.json",
+      "status": 503,
+      "note": null
+    },
+    {
+      "id": "status-typeform",
+      "url": "https://status.typeform.com/api/v2/summary.json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "hex-phoenix",
+      "url": "https://hex.pm/api/packages/phoenix",
+      "status": null,
+      "note": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "spacedevs-upcoming",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=2",
       "status": null,
       "note": "timeout"
     }
@@ -102,6 +307,6 @@
       "reason": "too-large (988kb)"
     }
   ],
-  "finished_at": "2026-10-28T22:07:31.747Z",
-  "capture": "data/observatory/capture-2026-10-28T22-07-31-469Z.ndjson.gz"
+  "finished_at": "2026-10-29T03:33:18.275Z",
+  "capture": "data/observatory/capture-2026-10-29T03-33-18-150Z.ndjson.gz"
 }
