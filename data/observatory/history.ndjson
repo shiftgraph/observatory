@@ -374,3 +374,4 @@
 {"at":"2026-10-30T03:29:01.297Z","endpoints":176,"ok":176,"failed":0,"shaped":174,"shapeless":2,"registry_fingerprint":"176:eb74bc6016fd","drift_events":0,"new_ops":0,"drift":[]}
 {"at":"2026-10-30T11:52:24.397Z","endpoints":176,"ok":176,"failed":0,"shaped":170,"shapeless":6,"registry_fingerprint":"176:eb74bc6016fd","drift_events":0,"new_ops":0,"drift":[]}
 {"at":"2026-10-30T17:27:42.913Z","endpoints":176,"ok":176,"failed":0,"shaped":174,"shapeless":2,"registry_fingerprint":"176:eb74bc6016fd","drift_events":0,"new_ops":0,"drift":[]}
+{"at":"2026-10-30T21:48:26.024Z","endpoints":176,"ok":176,"failed":0,"shaped":174,"shapeless":2,"registry_fingerprint":"176:eb74bc6016fd","drift_events":1,"new_ops":0,"drift":[{"op":"GET www.wikidata.org /w/api.php","type":"dominant_response_shape_changed","severity":"low"}]}
