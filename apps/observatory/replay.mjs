@@ -67,8 +67,20 @@ const files = readdirSync(DIR)
   .filter((f) => f.slice('capture-'.length) >= BOUNDARY)
   .sort();
 
-// endpoint -> ordered list of observed bodies
-const series = new Map();
+// endpoint -> its replay so far, advanced one observation at a time.
+//
+// This used to collect every observed body of every endpoint before replaying
+// any of them, which kept the whole retained record resident at once and grew
+// with every sweep; the contracts index, which walks the same files the same
+// way, ran out of the runner's 4 GB on 2026-10-31 and this was next in line.
+// Each body is now compared and rolled into its endpoint's baseline as it is
+// read, in the same order as before, so every comparison, event and line of
+// output is the one the buffered replay produced. An endpoint's first body
+// waits, unprofiled, for a second one: the buffered replay never profiled an
+// endpoint observed only once, and neither does this.
+let comparisons = 0;
+let events = 0;
+const runs = new Map();
 for (const f of files) {
   for (const line of readStoredSync(path.join(DIR, f)).trim().split('\n')) {
     const span = JSON.parse(line);
@@ -76,38 +88,40 @@ for (const f of files) {
     const raw = span.attributes?.['shiftgraph.response.body'];
     // A failure is not a contract (capture-io: contractBearingSpan).
     if (!id || !raw || !contractBearingSpan(span)) continue;
-    if (!series.has(id)) series.set(id, []);
-    series.get(id).push({ day: f.slice(8, 27), body: JSON.parse(raw) });
-  }
-}
-
-let comparisons = 0;
-let events = 0;
-const found = [];
-
-for (const [id, seq] of series) {
-  if (seq.length < 2) continue;
-  // Day one establishes the baseline; nothing to compare against yet.
-  let baseline = structuralProfile(profileValue(seq[0].body));
-  for (let i = 1; i < seq.length; i++) {
-    const observed = structuralProfile(profileValue(seq[i].body));
+    const body = JSON.parse(raw);
+    const run = runs.get(id);
+    if (!run) {
+      // Day one establishes the baseline; nothing to compare against yet.
+      runs.set(id, { observations: 1, first: body, baseline: null, found: [] });
+      continue;
+    }
+    if (run.observations === 1) {
+      run.baseline = structuralProfile(profileValue(run.first));
+      run.first = null;
+    }
+    run.observations += 1;
+    const observed = structuralProfile(profileValue(body));
     comparisons++;
-    const diffs = structuralDiff(baseline, observed);
+    const diffs = structuralDiff(run.baseline, observed);
     if (diffs.length) {
       events++;
-      found.push({ id, day: seq[i].day, diffs });
+      run.found.push({ id, day: f.slice(8, 27), diffs });
     }
     // Roll forward exactly as production does.
-    baseline = carryOptionality(baseline, observed);
+    run.baseline = carryOptionality(run.baseline, observed);
   }
 }
+
+// Grouped by endpoint in the order each was first seen, oldest first within
+// one, which is the order the buffered replay printed them in.
+const found = [...runs.values()].flatMap((run) => run.found);
 
 console.log('='.repeat(72));
 console.log('  REPLAY THROUGH THE REAL PIPELINE (rolled baseline + series memory)');
 console.log('='.repeat(72));
 console.log();
 console.log(`  captures replayed   : ${files.length}  (after the profiler boundary)`);
-console.log(`  endpoints with >1   : ${[...series.values()].filter((s) => s.length > 1).length}`);
+console.log(`  endpoints with >1   : ${[...runs.values()].filter((run) => run.observations > 1).length}`);
 console.log(`  comparisons made    : ${comparisons}`);
 console.log(`  events reported     : ${events}`);
 console.log();

@@ -72,14 +72,35 @@ function confidence(n) {
   return 'insufficient';
 }
 
-/** endpoint id -> observations, oldest first. */
-function loadSeries() {
+/**
+ * Every observation folded into one profile per endpoint, oldest first,
+ * carrying optionality forward exactly as the baseline roll does.
+ *
+ * This is the whole reason the record is worth consulting. A field is marked
+ * optional only where the interface was WATCHED omitting it, so a type built
+ * from the fold is narrow where the evidence supports narrow and honest where
+ * it does not. A single observation would produce a confidently wrong type.
+ *
+ * Each body is folded the moment it is read, and dropped. This used to read
+ * every capture into one list per endpoint and fold the lists afterwards, which
+ * kept every parsed body of every sweep resident at once: memory that grows
+ * with the record, not with any one sweep. On 2026-10-31, at 377 captures,
+ * that passed the 4 GB a GitHub runner's heap allows, and the sweep died here
+ * after the baseline had already rolled, so nothing it observed was committed.
+ * The fold is the same sequence of carryOptionality steps in the same order,
+ * and carryOptionality and the profiler keep no state between calls, so the
+ * profile each endpoint ends on is the one the buffered version produced. What
+ * stays resident is one running profile per endpoint.
+ *
+ * endpoint id -> { profile, observations, days }
+ */
+function foldRecord() {
   const files = readdirSync(DIR)
     .filter((f) => f.startsWith('capture-') && CAPTURE_FILE.test(f))
     .filter((f) => statSync(path.join(DIR, f)).size > 1000)
     .sort();
 
-  const series = new Map();
+  const folds = new Map();
   for (const f of files) {
     const day = f.match(/(\d{4}-\d{2}-\d{2})/)?.[1] ?? 'unknown';
     for (const line of readStoredSync(path.join(DIR, f)).trim().split('\n')) {
@@ -100,32 +121,22 @@ function loadSeries() {
       } catch {
         continue;
       }
-      if (!series.has(id)) series.set(id, []);
-      series.get(id).push({ day, body });
+      const observed = structuralProfile(profileValue(body));
+      const so = folds.get(id);
+      if (!so) {
+        folds.set(id, { profile: observed, observations: 1, days: new Set([day]) });
+      } else {
+        so.profile = carryOptionality(so.profile, observed);
+        so.observations += 1;
+        so.days.add(day);
+      }
     }
   }
-  return series;
-}
-
-/**
- * Fold every observation into one profile, carrying optionality forward
- * exactly as the baseline roll does.
- *
- * This is the whole reason the record is worth consulting. A field is marked
- * optional only where the interface was WATCHED omitting it, so a type built
- * from the fold is narrow where the evidence supports narrow and honest where
- * it does not. A single observation would produce a confidently wrong type.
- */
-function fold(observations) {
-  let profile = structuralProfile(profileValue(observations[0].body));
-  for (let i = 1; i < observations.length; i += 1) {
-    profile = carryOptionality(profile, structuralProfile(profileValue(observations[i].body)));
-  }
-  return profile;
+  return folds;
 }
 
 function main() {
-  const series = loadSeries();
+  const folds = foldRecord();
   const byId = new Map(ENDPOINTS.map((e) => [e.id, e]));
 
   if (existsSync(OUT)) rmSync(OUT, { recursive: true, force: true });
@@ -133,14 +144,14 @@ function main() {
 
   const entries = [];
 
-  for (const [id, observations] of series) {
+  for (const [id, folded] of folds) {
     const ep = byId.get(id);
-    if (!ep || !observations.length) continue;
+    if (!ep) continue;
 
-    const profile = fold(observations);
+    const profile = folded.profile;
     const counts = countFields(profile);
-    const days = [...new Set(observations.map((o) => o.day))].sort();
-    const n = observations.length;
+    const days = [...folded.days].sort();
+    const n = folded.observations;
 
     const notes = [];
     if (n < THIN_OBSERVATIONS) {

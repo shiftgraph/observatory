@@ -22,10 +22,6 @@ const HTTP_DIR = path.join(REPO_ROOT, 'data', 'observatory');
 const MCP_DIR = path.join(REPO_ROOT, 'data', 'observatory-mcp');
 
 /**
- * Load every observation of every endpoint, oldest first.
- * Returns Map<endpointId, {day, body}[]>.
- */
-/**
  * Decode a payload that a server encoded as JSON inside a text block.
  *
  * This is not a nicety, it is the difference between a useful type and a
@@ -58,7 +54,18 @@ function decodeEmbeddedJson(body) {
   return decodedAny ? { ...body, content } : body;
 }
 
-function loadSeries(dir, prefix) {
+/**
+ * Hands every observation of every target to `visit(id, day, body)`, oldest
+ * first, as it is read, and keeps none of them.
+ *
+ * This used to return every parsed body of every target in one map. That is
+ * memory growing with the record rather than with any one sweep, and on
+ * 2026-10-31 the contracts index, walking the same API record the same way,
+ * ran out of the 4 GB a GitHub runner's heap allows. `list` read exactly as
+ * much, so it was the same failure waiting for the record to grow a little
+ * further on whatever machine ran it.
+ */
+function walkObservations(dir, prefix, visit) {
   const files = readdirSync(dir)
     .filter((f) => f.startsWith(prefix) && CAPTURE_FILE.test(f))
     // `*-latest.ndjson` is a copy of the newest dated file. Counting it would
@@ -66,7 +73,6 @@ function loadSeries(dir, prefix) {
     .filter((f) => !f.includes('latest'))
     .filter((f) => statSync(path.join(dir, f)).size > 200)
     .sort();
-  const series = new Map();
   for (const f of files) {
     for (const line of readStoredSync(path.join(dir, f)).trim().split('\n')) {
       if (!line) continue;
@@ -76,26 +82,90 @@ function loadSeries(dir, prefix) {
       const raw = span.attributes?.['shiftgraph.response.body'];
       // A failure is not a contract (capture-io: contractBearingSpan).
       if (!id || !raw || !contractBearingSpan(span)) continue;
-      if (!series.has(id)) series.set(id, []);
       const m = f.match(/(\d{4}-\d{2}-\d{2})/);
-      try { series.get(id).push({ day: m ? m[1] : 'unknown', body: decodeEmbeddedJson(JSON.parse(raw)) }); } catch { /* skip */ }
+      let body;
+      try { body = decodeEmbeddedJson(JSON.parse(raw)); } catch { continue; }
+      visit(id, m ? m[1] : 'unknown', body);
     }
   }
-  return series;
 }
 
 /**
- * Fold a whole series into one profile, carrying optionality forward exactly as
- * the baseline roll does. This is the point: the type is built from everything
- * ever observed, so a field seen absent even once is optional in the emitted
- * type. A single observation would produce a confidently over-narrow type.
+ * Every target's observations folded into one profile per target, carrying
+ * optionality forward exactly as the baseline roll does. This is the point:
+ * the type is built from everything ever observed, so a field seen absent even
+ * once is optional in the emitted type. A single observation would produce a
+ * confidently over-narrow type.
+ *
+ * Each body is folded as it is read, in the order the buffered fold took them,
+ * and the profiler and carryOptionality keep no state between calls, so each
+ * target ends on the profile it always did.
+ *
+ * Returns Map<id, { profile, observations, from, to }>.
  */
-function foldSeries(observations) {
-  let profile = structuralProfile(profileValue(observations[0].body));
-  for (let i = 1; i < observations.length; i++) {
-    profile = carryOptionality(profile, structuralProfile(profileValue(observations[i].body)));
+function foldEach(dir, prefix) {
+  const folds = new Map();
+  walkObservations(dir, prefix, (id, day, body) => {
+    const observed = structuralProfile(profileValue(body));
+    const so = folds.get(id);
+    if (!so) {
+      folds.set(id, { profile: observed, observations: 1, from: day, to: day });
+    } else {
+      so.profile = carryOptionality(so.profile, observed);
+      so.observations += 1;
+      so.to = day;
+    }
+  });
+  return folds;
+}
+
+/**
+ * The observations of several targets folded into ONE profile, in the order the
+ * buffered version concatenated them: every observation of the first target,
+ * oldest first, then every observation of the next.
+ *
+ * The first target's observations come first in that order, so they are
+ * folded as they are read, exactly as `foldEach` folds a target. A later
+ * target's observations arrive interleaved with the first's and have to wait
+ * for them, so a target named after the first position keeps its observations
+ * as profiles until the walk ends. Profiles, never bodies: a profile holds the
+ * shape and none of the values, which is the part that weighs.
+ *
+ * Returns { fold, missing, ids }: the chain's fold, or null with the targets
+ * that had no observation, in chain order; and every target the record holds,
+ * for suggesting a near name.
+ */
+function foldChain(dir, prefix, chain) {
+  const [head] = chain;
+  const waiting = new Map(chain.slice(1).map((id) => [id, []]));
+  const ids = new Set();
+  let first = null;
+  walkObservations(dir, prefix, (id, day, body) => {
+    ids.add(id);
+    if (id !== head && !waiting.has(id)) return;
+    const observed = structuralProfile(profileValue(body));
+    if (id === head) {
+      if (!first) {
+        first = { profile: observed, observations: 1, from: day, to: day };
+      } else {
+        first.profile = carryOptionality(first.profile, observed);
+        first.observations += 1;
+        first.to = day;
+      }
+    }
+    if (waiting.has(id)) waiting.get(id).push({ profile: observed, day });
+  });
+  const missing = chain.filter((id, i) => (i === 0 ? !first : !waiting.get(id).length));
+  if (missing.length) return { fold: null, missing, ids };
+  const fold = { ...first };
+  for (const id of chain.slice(1)) {
+    for (const o of waiting.get(id)) {
+      fold.profile = carryOptionality(fold.profile, o.profile);
+      fold.observations += 1;
+      fold.to = o.day;
+    }
   }
-  return profile;
+  return { fold, missing, ids };
 }
 
 function parseArgs(argv) {
@@ -112,15 +182,14 @@ async function main() {
   const { positional, flags } = parseArgs(process.argv.slice(2));
   const [mode, target] = positional;
 
-  const load = (m) =>
-    m === 'mcp' ? loadSeries(MCP_DIR, 'responses-') : loadSeries(HTTP_DIR, 'capture-');
+  const source = (m) => (m === 'mcp' ? [MCP_DIR, 'responses-'] : [HTTP_DIR, 'capture-']);
 
   if (mode === 'list' || !mode) {
     for (const m of target ? [target] : ['api', 'mcp']) {
-      const series = load(m);
-      console.log(`\n${m.toUpperCase()} — ${series.size} targets with observed responses:\n`);
-      const rows = [...series.entries()]
-        .map(([id, obs]) => ({ id, n: obs.length, fields: countFields(foldSeries(obs)).total }))
+      const folds = foldEach(...source(m));
+      console.log(`\n${m.toUpperCase()} — ${folds.size} targets with observed responses:\n`);
+      const rows = [...folds.entries()]
+        .map(([id, f]) => ({ id, n: f.observations, fields: countFields(f.profile).total }))
         .sort((a, b) => b.fields - a.fields);
       for (const r of rows.slice(0, 25)) {
         console.log(`  ${r.id.padEnd(40)} ${String(r.n).padStart(3)} obs  ${String(r.fields).padStart(4)} fields`);
@@ -134,7 +203,6 @@ async function main() {
   if (!['api', 'mcp'].includes(mode)) throw new Error(`unknown mode: ${mode}. Use api, mcp or list.`);
   if (!target) throw new Error(`generate ${mode} needs a target. Run 'generate list ${mode}' to see them.`);
 
-  const series = load(mode);
   // Fold several targets into one type when they are the same operation
   // observed on different resources.
   //
@@ -156,28 +224,23 @@ async function main() {
   // found: one team observes their own resources, and their type is narrow in
   // exactly the ways their own data happens to be.
   const foldIds = flags.fold ? flags.fold.split(',').map((s) => s.trim()) : null;
-  const observations = foldIds
-    ? foldIds.flatMap((id) => {
-        const s = series.get(id);
-        if (!s) throw new Error(`no observations for "${id}" in the fold list`);
-        return s;
-      })
-    : series.get(target);
-  if (!observations) {
-    const near = [...series.keys()].filter((k) => k.includes(target)).slice(0, 5);
+  const { fold, missing, ids } = foldChain(...source(mode), foldIds ?? [target]);
+  if (!fold && foldIds) throw new Error(`no observations for "${missing[0]}" in the fold list`);
+  if (!fold) {
+    const near = [...ids].filter((k) => k.includes(target)).slice(0, 5);
     throw new Error(
       `no observations for "${target}".` + (near.length ? ` Did you mean: ${near.join(', ')}?` : ` Run 'generate list ${mode}'.`),
     );
   }
 
-  const profile = foldSeries(observations);
+  const { profile } = fold;
   const counts = countFields(profile);
 
   // The honest limits go IN the file, not in a footnote nobody reads.
   const notes = [];
-  if (observations.length < 3) {
+  if (fold.observations < 3) {
     notes.push(
-      `only ${observations.length} observation${observations.length === 1 ? '' : 's'}, so optionality is under-evidenced: a field that IS conditional may be typed required here.`,
+      `only ${fold.observations} observation${fold.observations === 1 ? '' : 's'}, so optionality is under-evidenced: a field that IS conditional may be typed required here.`,
     );
   }
   if (mode === 'mcp') {
@@ -199,9 +262,9 @@ async function main() {
     name: target,
     profile,
     source: mode === 'mcp' ? `MCP tool ${target}` : `HTTP endpoint ${target}`,
-    observations: observations.length,
-    observedFrom: observations[0].day,
-    observedTo: observations[observations.length - 1].day,
+    observations: fold.observations,
+    observedFrom: fold.from,
+    observedTo: fold.to,
     command: `npx shiftgraph generate ${mode} ${target}`,
     notes,
   });
@@ -209,8 +272,8 @@ async function main() {
   const out = flags.out || `${target.replace(/[^A-Za-z0-9]+/g, '-')}.ts`;
   await fs.writeFile(out, module, 'utf8');
   console.log(`Wrote ${out}`);
-  console.log(`  ${counts.total} fields (${counts.optional} optional) from ${observations.length} observation(s)`);
-  console.log(`  observed ${observations[0].day} to ${observations[observations.length - 1].day}`);
+  console.log(`  ${counts.total} fields (${counts.optional} optional) from ${fold.observations} observation(s)`);
+  console.log(`  observed ${fold.from} to ${fold.to}`);
 }
 
 main().catch((err) => {
