@@ -1,15 +1,23 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-02T03:18:11.916Z",
+  "started_at": "2026-11-02T14:09:09.837Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 174,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 173,
   "by_status": {
-    "200": 175,
-    "403": 1
+    "200": 174,
+    "403": 1,
+    "500": 1
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "fda-drug-event",
+      "url": "https://api.fda.gov/drug/event.json?limit=1",
+      "status": 500,
+      "note": null
+    }
+  ],
   "shapeless": [
     {
       "id": "status-datadog",
@@ -22,6 +30,6 @@
       "reason": "too-large (989kb)"
     }
   ],
-  "finished_at": "2026-11-02T03:19:34.900Z",
-  "capture": "data/observatory/capture-2026-11-02T03-19-34-625Z.ndjson.gz"
+  "finished_at": "2026-11-02T14:10:47.441Z",
+  "capture": "data/observatory/capture-2026-11-02T14-10-47-149Z.ndjson.gz"
 }
