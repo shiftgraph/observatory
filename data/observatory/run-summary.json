@@ -1,20 +1,27 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-02T14:09:09.837Z",
+  "started_at": "2026-11-03T00:10:52.326Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 173,
+  "ok": 174,
+  "failed": 2,
+  "body_captured": 172,
   "by_status": {
-    "200": 174,
+    "200": 173,
     "403": 1,
-    "500": 1
+    "503": 1,
+    "ERR": 1
   },
   "failures": [
     {
-      "id": "fda-drug-event",
-      "url": "https://api.fda.gov/drug/event.json?limit=1",
-      "status": 500,
+      "id": "openlibrary-search",
+      "url": "https://openlibrary.org/search.json?q=api&limit=2",
+      "status": null,
+      "note": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "id": "gbif-occurrence-search",
+      "url": "https://api.gbif.org/v1/occurrence/search?limit=2",
+      "status": 503,
       "note": null
     }
   ],
@@ -30,6 +37,6 @@
       "reason": "too-large (989kb)"
     }
   ],
-  "finished_at": "2026-11-02T14:10:47.441Z",
-  "capture": "data/observatory/capture-2026-11-02T14-10-47-149Z.ndjson.gz"
+  "finished_at": "2026-11-03T00:12:31.796Z",
+  "capture": "data/observatory/capture-2026-11-03T00-12-31-552Z.ndjson.gz"
 }
