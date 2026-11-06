@@ -1,19 +1,32 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-06T04:06:46.566Z",
+  "started_at": "2026-11-06T13:26:19.310Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 172,
+  "ok": 173,
+  "failed": 3,
+  "body_captured": 170,
   "by_status": {
-    "200": 174,
+    "200": 172,
     "403": 1,
-    "ERR": 1
+    "504": 1,
+    "ERR": 2
   },
   "failures": [
     {
-      "id": "maven-search-guava",
-      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "id": "github-topics",
+      "url": "https://api.github.com/repos/facebook/react/topics",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "github-license",
+      "url": "https://api.github.com/repos/facebook/react/license",
+      "status": 504,
+      "note": null
+    },
+    {
+      "id": "github-contributors",
+      "url": "https://api.github.com/repos/facebook/react/contributors?per_page=3",
       "status": null,
       "note": "timeout"
     }
@@ -35,6 +48,6 @@
       "reason": "too-large (989kb)"
     }
   ],
-  "finished_at": "2026-11-06T04:08:23.460Z",
-  "capture": "data/observatory/capture-2026-11-06T04-08-23-224Z.ndjson.gz"
+  "finished_at": "2026-11-06T13:28:39.340Z",
+  "capture": "data/observatory/capture-2026-11-06T13-28-39-037Z.ndjson.gz"
 }
