@@ -1,36 +1,15 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-06T13:26:19.310Z",
+  "started_at": "2026-11-06T22:30:38.789Z",
   "total": 176,
-  "ok": 173,
-  "failed": 3,
-  "body_captured": 170,
+  "ok": 176,
+  "failed": 0,
+  "body_captured": 173,
   "by_status": {
-    "200": 172,
-    "403": 1,
-    "504": 1,
-    "ERR": 2
+    "200": 175,
+    "403": 1
   },
-  "failures": [
-    {
-      "id": "github-topics",
-      "url": "https://api.github.com/repos/facebook/react/topics",
-      "status": null,
-      "note": "timeout"
-    },
-    {
-      "id": "github-license",
-      "url": "https://api.github.com/repos/facebook/react/license",
-      "status": 504,
-      "note": null
-    },
-    {
-      "id": "github-contributors",
-      "url": "https://api.github.com/repos/facebook/react/contributors?per_page=3",
-      "status": null,
-      "note": "timeout"
-    }
-  ],
+  "failures": [],
   "shapeless": [
     {
       "id": "status-datadog",
@@ -48,6 +27,6 @@
       "reason": "too-large (989kb)"
     }
   ],
-  "finished_at": "2026-11-06T13:28:39.340Z",
-  "capture": "data/observatory/capture-2026-11-06T13-28-39-037Z.ndjson.gz"
+  "finished_at": "2026-11-06T22:32:04.294Z",
+  "capture": "data/observatory/capture-2026-11-06T22-32-04-053Z.ndjson.gz"
 }
