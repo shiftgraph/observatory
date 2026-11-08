@@ -1,15 +1,42 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-07T21:13:03.954Z",
+  "started_at": "2026-11-08T03:16:18.500Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 173,
+  "ok": 172,
+  "failed": 4,
+  "body_captured": 169,
   "by_status": {
-    "200": 175,
-    "403": 1
+    "200": 171,
+    "403": 1,
+    "504": 3,
+    "ERR": 1
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "github-repo-react",
+      "url": "https://api.github.com/repos/facebook/react",
+      "status": 504,
+      "note": null
+    },
+    {
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
+    },
+    {
+      "id": "github-repo-node",
+      "url": "https://api.github.com/repos/nodejs/node",
+      "status": 504,
+      "note": null
+    },
+    {
+      "id": "github-repo-hello-world",
+      "url": "https://api.github.com/repos/octocat/Hello-World",
+      "status": 504,
+      "note": null
+    }
+  ],
   "shapeless": [
     {
       "id": "status-datadog",
@@ -27,6 +54,6 @@
       "reason": "too-large (989kb)"
     }
   ],
-  "finished_at": "2026-11-07T21:14:27.866Z",
-  "capture": "data/observatory/capture-2026-11-07T21-14-27-589Z.ndjson.gz"
+  "finished_at": "2026-11-08T03:18:49.764Z",
+  "capture": "data/observatory/capture-2026-11-08T03-18-49-482Z.ndjson.gz"
 }
