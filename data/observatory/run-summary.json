@@ -1,13 +1,13 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-10T00:58:11.789Z",
+  "started_at": "2026-11-10T13:56:55.343Z",
   "total": 176,
   "ok": 176,
   "failed": 0,
-  "body_captured": 173,
+  "body_captured": 156,
   "by_status": {
-    "200": 175,
-    "403": 1
+    "200": 158,
+    "403": 18
   },
   "failures": [],
   "shapeless": [
@@ -22,11 +22,96 @@
       "reason": "non-json (text/html)"
     },
     {
+      "id": "github-repo-react",
+      "url": "https://api.github.com/repos/facebook/react",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-repo-node",
+      "url": "https://api.github.com/repos/nodejs/node",
+      "reason": "non-2xx (403)"
+    },
+    {
       "id": "packagist-laravel-framework",
       "url": "https://repo.packagist.org/p2/laravel/framework.json",
       "reason": "too-large (989kb)"
+    },
+    {
+      "id": "github-repo-hello-world",
+      "url": "https://api.github.com/repos/octocat/Hello-World",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-repo-next",
+      "url": "https://api.github.com/repos/vercel/next.js",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-release-latest",
+      "url": "https://api.github.com/repos/facebook/react/releases/latest",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-tags",
+      "url": "https://api.github.com/repos/facebook/react/tags?per_page=3",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-languages",
+      "url": "https://api.github.com/repos/facebook/react/languages",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-topics",
+      "url": "https://api.github.com/repos/facebook/react/topics",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-license",
+      "url": "https://api.github.com/repos/facebook/react/license",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-contributors",
+      "url": "https://api.github.com/repos/facebook/react/contributors?per_page=3",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-org",
+      "url": "https://api.github.com/orgs/github",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-user",
+      "url": "https://api.github.com/users/torvalds",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-meta",
+      "url": "https://api.github.com/meta",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-gitignore-templates",
+      "url": "https://api.github.com/gitignore/templates",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-licenses",
+      "url": "https://api.github.com/licenses",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-license-mit",
+      "url": "https://api.github.com/licenses/mit",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-versions",
+      "url": "https://api.github.com/versions",
+      "reason": "non-2xx (403)"
     }
   ],
-  "finished_at": "2026-11-10T00:59:40.194Z",
-  "capture": "data/observatory/capture-2026-11-10T00-59-40-009Z.ndjson.gz"
+  "finished_at": "2026-11-10T13:58:27.485Z",
+  "capture": "data/observatory/capture-2026-11-10T13-58-27-222Z.ndjson.gz"
 }
