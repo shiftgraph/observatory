@@ -65,7 +65,13 @@ test('a failed run is counted as a failure, not as a quiet sweep', () => {
     sweep('2026-07-04T00:00:00Z'),
   ]);
   assert.equal(record.sweeps, 2, 'a failed run must not inflate the sweep count');
-  assert.equal(record.failed_runs, 1);
+  assert.equal(record.failed_runs_recorded, 1, 'a run that wrote its error row is counted as recorded');
+  assert.equal(
+    record.failed_runs,
+    null,
+    'the record cannot see a run that failed before writing a row, so it must not print a count of failed runs',
+  );
+  assert.equal(record.failed_runs_measured, false);
   assert.equal(record.endpoints_reached, 200, 'and must not contribute zeros to the totals');
 });
 

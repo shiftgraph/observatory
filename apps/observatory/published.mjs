@@ -79,7 +79,23 @@ export function publishable(lines) {
     /** Every value below covers only sweeps after this instant. */
     since: rows[lastBoundary]?.at ?? sweeps[0]?.at ?? null,
     sweeps: sweeps.length,
-    failed_runs: failed,
+    /**
+     * NOT MEASURED HERE, so null rather than a count (corrected 10 November 2026).
+     * This field used to carry `failed_runs_recorded`'s number under this name,
+     * and printed 0 while GitHub Actions held failed scheduled runs: a run that
+     * dies before it writes a row (the two that ran out of memory on 1 November
+     * 2026, for one) leaves nothing in history.ndjson to count. How many scheduled
+     * runs failed is a fact the Actions run list holds and this file cannot read,
+     * and a zero that cannot see a failure is the typed number this file exists
+     * to prevent. It stays null until a reader of that list supplies the count.
+     */
+    failed_runs: null,
+    failed_runs_measured: false,
+    /** Runs that reached the history and wrote an error row: a lower bound only. */
+    failed_runs_recorded: failed,
+    failed_runs_note:
+      'not measured: a scheduled run that fails before it writes a row leaves nothing in the history; ' +
+      'the count is in the repository\'s GitHub Actions run list, which this record does not read',
     endpoints_reached: sum('ok'),
     endpoints_profiled: sum('shaped'),
     drift_events: sum('drift_events'),

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T00:59:41.313Z",
+  "generated_at": "2026-11-10T02:41:44.563Z",
   "watching": {
     "endpoints": 176,
     "providers": 108,
@@ -9,7 +9,10 @@
   "record": {
     "since": "2026-07-27T17:58:12.147Z",
     "sweeps": 396,
-    "failed_runs": 0,
+    "failed_runs": null,
+    "failed_runs_measured": false,
+    "failed_runs_recorded": 0,
+    "failed_runs_note": "not measured: a scheduled run that fails before it writes a row leaves nothing in the history; the count is in the repository's GitHub Actions run list, which this record does not read",
     "endpoints_reached": 69295,
     "endpoints_profiled": 68836,
     "drift_events": 35,
