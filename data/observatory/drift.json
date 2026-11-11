@@ -1,28 +1,8 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-11-11T03:43:28.900Z",
-  "drift_event_count": 1,
+  "baseline_created_at": "2026-11-11T13:11:55.129Z",
+  "drift_event_count": 0,
   "new_operation_count": 0,
-  "drift_events": [
-    {
-      "id": "tr_63c377c79417543d",
-      "operation_id": "op_2a547e4efa891268",
-      "operation": "GET formulae.brew.sh /api/formula/node.json",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-11-11T13:11:35.545Z",
-      "last_known_before": "2026-11-11T03:43:10.128Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_af153aeea3f2179b"
-      ],
-      "explanation": "Dominant response shape for GET formulae.brew.sh /api/formula/node.json changed since baseline. Diff: added $.variations.arm64_big_sur (object); added $.variations.arm64_monterey (object); added $.variations.arm64_sonoma (object); added $.variations.arm64_ventura (object); added $.variations.big_sur (object); added $.variations.monterey (object); added $.variations.sonoma (object); added $.variations.ventura (object)."
-    }
-  ],
+  "drift_events": [],
   "new_operations": []
 }
