@@ -1,6 +1,6 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-12T14:13:03.946Z",
+  "started_at": "2026-11-12T22:57:48.956Z",
   "total": 176,
   "ok": 175,
   "failed": 1,
@@ -12,10 +12,10 @@
   },
   "failures": [
     {
-      "id": "maven-search-guava",
-      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "id": "openmeteo-forecast",
+      "url": "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true",
       "status": null,
-      "note": "timeout"
+      "note": "UND_ERR_CONNECT_TIMEOUT"
     }
   ],
   "shapeless": [
@@ -35,6 +35,6 @@
       "reason": "too-large (996kb)"
     }
   ],
-  "finished_at": "2026-11-12T14:14:42.610Z",
-  "capture": "data/observatory/capture-2026-11-12T14-14-42-430Z.ndjson.gz"
+  "finished_at": "2026-11-12T22:59:24.580Z",
+  "capture": "data/observatory/capture-2026-11-12T22-59-24-339Z.ndjson.gz"
 }

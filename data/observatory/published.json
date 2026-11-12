@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-11-12T14:14:43.739Z",
+  "generated_at": "2026-11-12T22:59:25.885Z",
   "watching": {
     "endpoints": 176,
     "providers": 108,
     "categories": 15
   },
-  "captures_retained": 410,
+  "captures_retained": 411,
   "record": {
     "since": "2026-07-27T17:58:12.147Z",
-    "sweeps": 403,
+    "sweeps": 404,
     "failed_runs": null,
     "failed_runs_measured": false,
     "failed_runs_recorded": 0,
     "failed_runs_note": "not measured: a scheduled run that fails before it writes a row leaves nothing in the history; the count is in the repository's GitHub Actions run list, which this record does not read",
-    "endpoints_reached": 70524,
-    "endpoints_profiled": 70027,
+    "endpoints_reached": 70699,
+    "endpoints_profiled": 70199,
     "drift_events": 36,
     "latest": {
-      "at": "2026-11-12T14:14:42.610Z",
+      "at": "2026-11-12T22:59:24.580Z",
       "reached": 175,
       "profiled": 172,
       "unprofilable": 3
