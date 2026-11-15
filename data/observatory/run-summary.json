@@ -1,23 +1,15 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-14T21:47:49.902Z",
+  "started_at": "2026-11-15T03:44:26.607Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 172,
+  "ok": 176,
+  "failed": 0,
+  "body_captured": 158,
   "by_status": {
-    "200": 174,
-    "403": 1,
-    "ERR": 1
+    "200": 160,
+    "403": 16
   },
-  "failures": [
-    {
-      "id": "openmeteo-forecast",
-      "url": "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true",
-      "status": null,
-      "note": "UND_ERR_CONNECT_TIMEOUT"
-    }
-  ],
+  "failures": [],
   "shapeless": [
     {
       "id": "status-datadog",
@@ -33,8 +25,83 @@
       "id": "packagist-laravel-framework",
       "url": "https://repo.packagist.org/p2/laravel/framework.json",
       "reason": "too-large (996kb)"
+    },
+    {
+      "id": "github-repo-hello-world",
+      "url": "https://api.github.com/repos/octocat/Hello-World",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-repo-next",
+      "url": "https://api.github.com/repos/vercel/next.js",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-release-latest",
+      "url": "https://api.github.com/repos/facebook/react/releases/latest",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-tags",
+      "url": "https://api.github.com/repos/facebook/react/tags?per_page=3",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-languages",
+      "url": "https://api.github.com/repos/facebook/react/languages",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-topics",
+      "url": "https://api.github.com/repos/facebook/react/topics",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-license",
+      "url": "https://api.github.com/repos/facebook/react/license",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-contributors",
+      "url": "https://api.github.com/repos/facebook/react/contributors?per_page=3",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-org",
+      "url": "https://api.github.com/orgs/github",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-user",
+      "url": "https://api.github.com/users/torvalds",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-meta",
+      "url": "https://api.github.com/meta",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-gitignore-templates",
+      "url": "https://api.github.com/gitignore/templates",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-licenses",
+      "url": "https://api.github.com/licenses",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-license-mit",
+      "url": "https://api.github.com/licenses/mit",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-versions",
+      "url": "https://api.github.com/versions",
+      "reason": "non-2xx (403)"
     }
   ],
-  "finished_at": "2026-11-14T21:49:23.126Z",
-  "capture": "data/observatory/capture-2026-11-14T21-49-22-885Z.ndjson.gz"
+  "finished_at": "2026-11-15T03:45:30.745Z",
+  "capture": "data/observatory/capture-2026-11-15T03-45-30-481Z.ndjson.gz"
 }
