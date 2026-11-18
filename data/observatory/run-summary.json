@@ -1,14 +1,14 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-18T00:11:21.268Z",
+  "started_at": "2026-11-18T14:46:43.590Z",
   "total": 176,
-  "ok": 175,
-  "failed": 1,
-  "body_captured": 172,
+  "ok": 174,
+  "failed": 2,
+  "body_captured": 171,
   "by_status": {
-    "200": 174,
+    "200": 173,
     "403": 1,
-    "ERR": 1
+    "ERR": 2
   },
   "failures": [
     {
@@ -16,6 +16,12 @@
       "url": "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true",
       "status": null,
       "note": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
     }
   ],
   "shapeless": [
@@ -35,6 +41,6 @@
       "reason": "too-large (997kb)"
     }
   ],
-  "finished_at": "2026-11-18T00:13:04.258Z",
-  "capture": "data/observatory/capture-2026-11-18T00-13-04-019Z.ndjson.gz"
+  "finished_at": "2026-11-18T14:48:31.069Z",
+  "capture": "data/observatory/capture-2026-11-18T14-48-30-798Z.ndjson.gz"
 }
