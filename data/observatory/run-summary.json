@@ -1,15 +1,24 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-20T06:17:02.827Z",
+  "started_at": "2026-11-20T19:24:51.792Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 173,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 164,
   "by_status": {
-    "200": 175,
-    "403": 1
+    "200": 166,
+    "403": 6,
+    "429": 3,
+    "ERR": 1
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "maven-search-guava",
+      "url": "https://search.maven.org/solrsearch/select?q=g:com.google.guava&rows=3&wt=json",
+      "status": null,
+      "note": "timeout"
+    }
+  ],
   "shapeless": [
     {
       "id": "status-datadog",
@@ -22,11 +31,51 @@
       "reason": "non-json (text/html)"
     },
     {
+      "id": "coingecko-ping",
+      "url": "https://api.coingecko.com/api/v3/ping",
+      "reason": "non-2xx (429)"
+    },
+    {
+      "id": "coingecko-price",
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd",
+      "reason": "non-2xx (429)"
+    },
+    {
       "id": "packagist-laravel-framework",
       "url": "https://repo.packagist.org/p2/laravel/framework.json",
       "reason": "too-large (997kb)"
+    },
+    {
+      "id": "coingecko-coin-bitcoin",
+      "url": "https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&tickers=false&community_data=false&developer_data=false",
+      "reason": "non-2xx (429)"
+    },
+    {
+      "id": "github-meta",
+      "url": "https://api.github.com/meta",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-gitignore-templates",
+      "url": "https://api.github.com/gitignore/templates",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-licenses",
+      "url": "https://api.github.com/licenses",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-license-mit",
+      "url": "https://api.github.com/licenses/mit",
+      "reason": "non-2xx (403)"
+    },
+    {
+      "id": "github-versions",
+      "url": "https://api.github.com/versions",
+      "reason": "non-2xx (403)"
     }
   ],
-  "finished_at": "2026-11-20T06:18:13.632Z",
-  "capture": "data/observatory/capture-2026-11-20T06-18-13-355Z.ndjson.gz"
+  "finished_at": "2026-11-20T19:26:14.539Z",
+  "capture": "data/observatory/capture-2026-11-20T19-26-14-296Z.ndjson.gz"
 }

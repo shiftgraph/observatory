@@ -1,8 +1,28 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-11-20T00:01:56.888Z",
-  "drift_event_count": 0,
+  "baseline_created_at": "2026-11-20T06:18:14.810Z",
+  "drift_event_count": 1,
   "new_operation_count": 0,
-  "drift_events": [],
+  "drift_events": [
+    {
+      "id": "tr_2d4e290fca06cf6e",
+      "operation_id": "op_7e8e32ff4595ff2b",
+      "operation": "GET hex.pm /api/packages/phoenix",
+      "transition_type": "dominant_response_shape_changed",
+      "first_seen": "2026-11-20T19:25:22.544Z",
+      "last_known_before": "2026-11-20T06:17:36.547Z",
+      "severity": "high",
+      "confidence": 0.7,
+      "confidence_label": "medium-high",
+      "causal_language": "associated",
+      "degraded_reasons": [
+        "no deployment data supplied"
+      ],
+      "evidence_ids": [
+        "ev_b6eb758dba501ddd"
+      ],
+      "explanation": "Dominant response shape for GET hex.pm /api/packages/phoenix changed since baseline. Diff: removed $.meta.links.Changelog (string); removed $.meta.links.GitHub (string); added $.meta.links.github (string)."
+    }
+  ],
   "new_operations": []
 }
