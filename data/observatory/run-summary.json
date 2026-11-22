@@ -1,15 +1,23 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-22T03:58:48.543Z",
+  "started_at": "2026-11-22T13:45:49.276Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 173,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 172,
   "by_status": {
-    "200": 175,
-    "403": 1
+    "200": 174,
+    "403": 1,
+    "ERR": 1
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "openmeteo-forecast",
+      "url": "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true",
+      "status": null,
+      "note": "UND_ERR_CONNECT_TIMEOUT"
+    }
+  ],
   "shapeless": [
     {
       "id": "status-datadog",
@@ -27,6 +35,6 @@
       "reason": "too-large (997kb)"
     }
   ],
-  "finished_at": "2026-11-22T04:00:15.539Z",
-  "capture": "data/observatory/capture-2026-11-22T04-00-15-254Z.ndjson.gz"
+  "finished_at": "2026-11-22T13:47:10.990Z",
+  "capture": "data/observatory/capture-2026-11-22T13-47-10-752Z.ndjson.gz"
 }
