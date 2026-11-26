@@ -1,15 +1,30 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-26T01:17:58.308Z",
+  "started_at": "2026-11-26T15:59:39.784Z",
   "total": 176,
-  "ok": 176,
-  "failed": 0,
-  "body_captured": 173,
+  "ok": 174,
+  "failed": 2,
+  "body_captured": 171,
   "by_status": {
-    "200": 175,
-    "403": 1
+    "200": 173,
+    "403": 1,
+    "500": 1,
+    "ERR": 1
   },
-  "failures": [],
+  "failures": [
+    {
+      "id": "openlibrary-work",
+      "url": "https://openlibrary.org/works/OL45804W.json",
+      "status": 500,
+      "note": null
+    },
+    {
+      "id": "spacedevs-upcoming",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=2",
+      "status": null,
+      "note": "timeout"
+    }
+  ],
   "shapeless": [
     {
       "id": "status-datadog",
@@ -27,6 +42,6 @@
       "reason": "too-large (1001kb)"
     }
   ],
-  "finished_at": "2026-11-26T01:19:04.922Z",
-  "capture": "data/observatory/capture-2026-11-26T01-19-04-641Z.ndjson.gz"
+  "finished_at": "2026-11-26T16:01:31.641Z",
+  "capture": "data/observatory/capture-2026-11-26T16-01-31-323Z.ndjson.gz"
 }
