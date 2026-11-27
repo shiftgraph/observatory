@@ -1,28 +1,21 @@
 {
   "schema_version": "shiftgraph.observatory.run.v1",
-  "started_at": "2026-11-26T15:59:39.784Z",
+  "started_at": "2026-11-27T01:15:47.318Z",
   "total": 176,
-  "ok": 174,
-  "failed": 2,
-  "body_captured": 171,
+  "ok": 175,
+  "failed": 1,
+  "body_captured": 172,
   "by_status": {
-    "200": 173,
+    "200": 174,
     "403": 1,
-    "500": 1,
     "ERR": 1
   },
   "failures": [
     {
-      "id": "openlibrary-work",
-      "url": "https://openlibrary.org/works/OL45804W.json",
-      "status": 500,
-      "note": null
-    },
-    {
-      "id": "spacedevs-upcoming",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=2",
+      "id": "openmeteo-forecast",
+      "url": "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true",
       "status": null,
-      "note": "timeout"
+      "note": "UND_ERR_CONNECT_TIMEOUT"
     }
   ],
   "shapeless": [
@@ -42,6 +35,6 @@
       "reason": "too-large (1001kb)"
     }
   ],
-  "finished_at": "2026-11-26T16:01:31.641Z",
-  "capture": "data/observatory/capture-2026-11-26T16-01-31-323Z.ndjson.gz"
+  "finished_at": "2026-11-27T01:17:15.859Z",
+  "capture": "data/observatory/capture-2026-11-27T01-17-15-677Z.ndjson.gz"
 }
