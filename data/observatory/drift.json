@@ -1,16 +1,16 @@
 {
   "schema_version": "shiftgraph.compare.v2",
-  "baseline_created_at": "2026-11-26T16:01:32.779Z",
-  "drift_event_count": 2,
-  "new_operation_count": 3,
+  "baseline_created_at": "2026-11-27T01:17:16.624Z",
+  "drift_event_count": 1,
+  "new_operation_count": 0,
   "drift_events": [
     {
-      "id": "tr_5c152ad0655987f0",
-      "operation_id": "op_2c67295f37e45884",
-      "operation": "GET restcountries.com /v3.1/alpha/us",
+      "id": "tr_795a92bf3fa9b273",
+      "operation_id": "op_7f88daf0306b7eb8",
+      "operation": "GET www.wikidata.org /w/api.php",
       "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-11-27T01:16:28.863Z",
-      "last_known_before": "2026-11-26T16:00:19.026Z",
+      "first_seen": "2026-11-27T15:50:09.100Z",
+      "last_known_before": "2026-11-27T01:16:49.587Z",
       "severity": "low",
       "confidence": 0.5,
       "confidence_label": "medium",
@@ -19,45 +19,10 @@
         "no deployment data supplied"
       ],
       "evidence_ids": [
-        "ev_dc46c537152c21bf"
+        "ev_066e3a0803c52c56"
       ],
-      "explanation": "Dominant response shape for GET restcountries.com /v3.1/alpha/us changed since baseline. Diff: added $.errors[].code (string)."
-    },
-    {
-      "id": "tr_c7333d4e7ad07d80",
-      "operation_id": "op_3a074655413a7af5",
-      "operation": "GET restcountries.com /v3.1/name/japan",
-      "transition_type": "dominant_response_shape_changed",
-      "first_seen": "2026-11-27T01:16:55.451Z",
-      "last_known_before": "2026-11-26T16:01:05.314Z",
-      "severity": "low",
-      "confidence": 0.5,
-      "confidence_label": "medium",
-      "causal_language": "associated",
-      "degraded_reasons": [
-        "no deployment data supplied"
-      ],
-      "evidence_ids": [
-        "ev_bcc100af3b7725ae"
-      ],
-      "explanation": "Dominant response shape for GET restcountries.com /v3.1/name/japan changed since baseline. Diff: added $.errors[].code (string)."
+      "explanation": "Dominant response shape for GET www.wikidata.org /w/api.php changed since baseline. Diff: added $.entities.Q42.sitelinks.suwikiquote (object)."
     }
   ],
-  "new_operations": [
-    {
-      "operation": "GET ll.thespacedevs.com /2.2.0/launch/upcoming",
-      "sample_count": 1,
-      "first_seen": "2026-11-27T01:16:43.124Z"
-    },
-    {
-      "operation": "GET openlibrary.org /search.json",
-      "sample_count": 1,
-      "first_seen": "2026-11-27T01:16:55.759Z"
-    },
-    {
-      "operation": "GET openlibrary.org /works/OL45804W.json",
-      "sample_count": 1,
-      "first_seen": "2026-11-27T01:16:29.607Z"
-    }
-  ]
+  "new_operations": []
 }
